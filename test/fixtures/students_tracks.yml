@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: students_tracks
+#
+#  id         :integer          not null, primary key
+#  student_id :integer
+#  track_id   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined.  If you add columns to the
