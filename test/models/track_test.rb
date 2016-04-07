@@ -8,6 +8,9 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  category_id :integer
+#  completed   :boolean
+#  name        :string
+#  description :string
 #
 
 require 'test_helper'

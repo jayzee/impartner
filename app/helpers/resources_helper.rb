@@ -12,6 +12,5 @@
 #  completed  :boolean
 #
 
-class Resource < ActiveRecord::Base
-  belongs_to :lesson
+module ResourcesHelper
 end

@@ -1,20 +1,17 @@
 # == Schema Information
 #
-# Table name: resources
+# Table name: users
 #
 #  id         :integer          not null, primary key
-#  content    :string
-#  type       :string
-#  lesson_id  :integer
+#  name       :string
+#  points     :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  order_id   :integer
-#  completed  :boolean
 #
 
 require 'test_helper'
 
-class ResourceTest < ActiveSupport::TestCase
+class UsersControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

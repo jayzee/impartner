@@ -13,10 +13,12 @@
 #  description :string
 #
 
-class Track < ActiveRecord::Base
-  has_many :lessons
-  belongs_to :teacher
-  belongs_to :category
-  has_many :students_tracks
-  has_many :students, through: :students_tracks
+class TracksController < ApplicationController
+
+  def show
+    @track = Track.find(params[:id])
+    @lessons = @track.lessons.sort_by {|lesson| lesson.order_id}
+  end 
+
+  
 end

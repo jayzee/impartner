@@ -8,6 +8,8 @@
 #  lesson_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  order_id   :integer
+#  completed  :boolean
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

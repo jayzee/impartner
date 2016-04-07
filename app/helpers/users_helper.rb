@@ -1,15 +1,13 @@
 # == Schema Information
 #
-# Table name: assessments
+# Table name: users
 #
 #  id         :integer          not null, primary key
-#  lesson_id  :integer
-#  challenge? :boolean
+#  name       :string
+#  points     :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  completed  :boolean
 #
 
-class Assessment < ActiveRecord::Base
-  belongs_to :lesson
+module UsersHelper
 end

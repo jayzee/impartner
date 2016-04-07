@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  root 'categories#index'
+  resources :categories do 
+    resources :tracks
+  end 
+
+  resources :tracks do 
+    resources :lessons
+  end 
+
+  resources :lessons do 
+    resources :resources
+    resources :assessments
+  end 
+
+  resources :assessments do 
+    resources :questions
+  end 
+
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

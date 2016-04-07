@@ -1,15 +1,12 @@
 # == Schema Information
 #
-# Table name: assessments
+# Table name: categories
 #
 #  id         :integer          not null, primary key
-#  lesson_id  :integer
-#  challenge? :boolean
+#  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  completed  :boolean
 #
 
-class Assessment < ActiveRecord::Base
-  belongs_to :lesson
+module CategoriesHelper
 end

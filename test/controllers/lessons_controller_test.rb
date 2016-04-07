@@ -12,8 +12,10 @@
 #  completed  :boolean
 #
 
-class Lesson < ActiveRecord::Base
-  has_many :resources
-  has_many :assessments
-  belongs_to :track
+require 'test_helper'
+
+class LessonsControllerTest < ActionController::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end

@@ -1,17 +1,19 @@
 # == Schema Information
 #
-# Table name: resources
+# Table name: assessments
 #
 #  id         :integer          not null, primary key
-#  content    :string
-#  type       :string
 #  lesson_id  :integer
+#  challenge? :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  order_id   :integer
 #  completed  :boolean
 #
 
-class Resource < ActiveRecord::Base
-  belongs_to :lesson
+require 'test_helper'
+
+class AssessmentsControllerTest < ActionController::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end

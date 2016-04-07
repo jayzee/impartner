@@ -13,10 +13,5 @@
 #  description :string
 #
 
-class Track < ActiveRecord::Base
-  has_many :lessons
-  belongs_to :teacher
-  belongs_to :category
-  has_many :students_tracks
-  has_many :students, through: :students_tracks
+module TracksHelper
 end
