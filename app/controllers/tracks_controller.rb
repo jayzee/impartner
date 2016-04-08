@@ -21,6 +21,18 @@ class TracksController < ApplicationController
   end 
 
   def new
-    @track = Track.new()
+    @cat = Category.find(params[:category_id])
+    @track = @cat.tracks.new()
+  end
+
+  def create
+    @track = Track.create(track_params)
+    redirect_to track_path(@track)
+  end
+
+  private
+  
+  def track_params
+    params.require(:track).permit(:name, :description, :category_id)
   end
 end

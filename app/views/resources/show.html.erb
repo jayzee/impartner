@@ -1,16 +1,3 @@
-<h1><%= @lesson.title %></h1>
-
-<h2>Lesson Content</h2>
-<ul>
-<% @combinedResourceAssessments.each do |obj| %>
-  <% if obj.class == Resource %>
-  <li>Resource: <%= obj.content %>, Complete? <%= obj.completed %></li>
-  <% else %>
-  <li>Assessment: challenge? <%= obj.challenge? %>, Complete? <%= obj.completed %></li>
-  <% end %>
-<% end %>
-</ul>
-
 
   <!--=== Features section Starts ===-->
   <section id="section-feature" class="feature-wrap">
@@ -22,7 +9,7 @@
             
               <!-- Single Feature Starts -->
               <li class="single-feature" title="Card style">
-                <%= image_tag "Art.jpg", :class => "feature-image" %><!-- Feature Icon -->
+                <img src="app/assets/images/Art.jpg" alt="" class="feature-image" /><!-- Feature Icon -->
                 <h4 class="feature-title color-scheme">Card style</h4>
                 <p class="feature-text">
                   Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut.
@@ -40,7 +27,7 @@
               
               <!-- Single Feature Starts -->
               <li class="single-feature" title="50+ SVG Icon included">
-                <%= image_tag "Art.jpg", :class => "feature-image" %><!-- Feature Icon -->
+                <img src="images/2.jpg" alt="" class="feature-image" /><!-- Feature Icon -->
                 <h4 class="feature-title color-scheme">50+ SVG Icon included</h4>
                 <p class="feature-text">
                   Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut
@@ -56,7 +43,7 @@
               
               <!-- Single Feature Starts -->
               <li class="single-feature" title="MailChimp Ready">
-                <%= image_tag "Art.jpg", :class => "feature-image" %><!-- Feature Icon -->
+                <img src="images/3.jpg" alt="" class="feature-image" /><!-- Feature Icon -->
                 <h4 class="feature-title color-scheme">MailChimp Ready</h4>
                 <p class="feature-text">
                   Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut
@@ -72,7 +59,7 @@
               
               <!-- Single Feature Starts -->
               <li class="single-feature" title="4 home style">
-                <%= image_tag "Art.jpg", :class => "feature-image" %><!-- Feature Icon -->
+                <img src="images/4.jpg" alt="" class="feature-image" /><!-- Feature Icon -->
                 <h4 class="feature-title color-scheme">4 home style</h4>
                 <p class="feature-text">
                   Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut
@@ -88,7 +75,7 @@
               
               <!-- Single Feature Starts -->
               <li class="single-feature" title="Parallax Backgrounds">
-                <%= image_tag "Art.jpg", :class => "feature-image" %><!-- Feature Icon -->
+                <img src="images/5.jpg" alt="" class="feature-image" /><!-- Feature Icon -->
                 <h4 class="feature-title color-scheme">Parallax Backgrounds</h4>
                 <p class="feature-text">
                   Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut
@@ -104,7 +91,7 @@
               
               <!-- Single Feature Starts -->
               <li class="single-feature" title="Ajax contact form">
-               <%= image_tag "Art.jpg", :class => "feature-image" %><!-- Feature Icon -->
+                <img src="images/6.jpg" alt="" class="feature-image" /><!-- Feature Icon -->
                 <h4 class="feature-title color-scheme">Ajax contact form</h4>
                 <p class="feature-text">
                   Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut
@@ -120,7 +107,7 @@
               
               <!-- Single Feature Starts -->
               <li class="single-feature" title="unlimited Google fonts">
-                <%= image_tag "Art.jpg", :class => "feature-image" %><!-- Feature Icon -->
+                <img src="images/7.jpg" alt="" class="feature-image" /><!-- Feature Icon -->
                 <h4 class="feature-title color-scheme">unlimited Google fonts</h4>
                 <p class="feature-text">
                   Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut
@@ -136,7 +123,7 @@
               
               <!-- Single Feature Starts -->
               <li class="single-feature" title="Feature heading">
-               <%= image_tag "Art.jpg", :class => "feature-image" %><!-- Feature Icon -->
+                <img src="images/8.jpg" alt="" class="feature-image" /><!-- Feature Icon -->
                 <h4 class="feature-title color-scheme">Feature heading</h4>
                 <p class="feature-text">
                   Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut

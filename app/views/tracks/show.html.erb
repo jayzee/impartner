@@ -1,4 +1,7 @@
 <h1> <%= @track.name %> </h1>
+<p> <%= @track.description %></p>
+
+<%= link_to "Add a Lesson", new_track_lesson_path(@track) %> 
 <ul>
   <% @lessons.each do |lesson| %>
     <li><%= link_to lesson.title, lesson_path(lesson) %> - <%= lesson.duration %></li>

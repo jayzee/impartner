@@ -12,4 +12,22 @@
  *
  *= require_tree .
  *= require_self
+ *= require css/style.css
+ *= require css/animate.css
+ *= require css/baraja.css
+ *= require css/color-switcher.css
+ *= require css/fancy-buttons.css
+ *= require css/font-awesome.min.css
+ *= require css/jquery.bxslider.css
+ *= require css/jquery.vegas.css
+ *= require css/linea-icon.css
+ *= require css/parallax-slider.css
+ *= require css/responsive.css
+ *= require css/schemes/gray.css
+ *= require css/schemes/orange.css
+ *= require css/schemes/red.css
+
+
+
+
  */

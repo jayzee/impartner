@@ -21,4 +21,22 @@ class LessonsController < ApplicationController
     @combinedResourceAssessments = resources + assessments
     @combinedResourceAssessments.sort_by{ |obj| obj.order_id }
   end
+
+  def new
+    @track= Track.find(params[:track_id])
+    @lesson = @track.lessons.build()
+  end
+
+  def create
+    @lesson = Lesson.new(lesson_params)
+    @track = @lesson.track
+    @lesson.order_id = @track.lessons.length
+    @lesson.save
+    redirect_to lesson_path(@lesson)
+  end
+
+  private
+  def lesson_params
+    params.require(:lesson).permit!
+  end
 end
