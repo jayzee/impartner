@@ -20,5 +20,7 @@ class TracksController < ApplicationController
     @lessons = @track.lessons.sort_by {|lesson| lesson.order_id}
   end 
 
-  
+  def new
+    @track = Track.new()
+  end
 end

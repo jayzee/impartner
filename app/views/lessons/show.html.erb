@@ -6,6 +6,7 @@
   <% if obj.class == Resource %>
   <li>Resource: <%= obj.content %>, Complete? <%= obj.completed %></li>
   <% else %>
-  <li>Assessment: <%= obj.title %>, Complete? <%= obj.completed %></li>
+  <li>Assessment: challenge? <%= obj.challenge? %>, Complete? <%= obj.completed %></li>
+  <% end %>
 <% end %>
 </ul>

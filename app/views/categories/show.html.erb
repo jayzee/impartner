@@ -3,4 +3,7 @@
   <% @tracks.each do |track| %>
     <li><%= link_to track.name, track_path(track) %> - <%= track.description %></li> 
   <% end %>
+
 </ul>
+
+  <%= link_to "Create a New Track", new_category_track_path(@category.id) %>
