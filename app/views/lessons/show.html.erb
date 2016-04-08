@@ -1,183 +1,79 @@
 <h1><%= @lesson.title %></h1>
 
 <h2>Lesson Content</h2>
-<ul>
-<% @combinedResourceAssessments.each do |obj| %>
-  <% if obj.class == Resource %>
-  <li>Resource: <%= obj.content %>, Complete? <%= obj.completed %></li>
-  <% else %>
-  <li>Assessment: challenge? <%= obj.challenge? %>, Complete? <%= obj.completed %></li>
-  <% end %>
-<% end %>
-</ul>
 
-
-  <!--=== Features section Starts ===-->
+ <!--=== Resources section Starts ===-->
   <section id="section-feature" class="feature-wrap">
     <div class="container features center">
       <div class="row">
         <div class="col-lg-12">
-            <!--Features container Starts -->
+            <!--Resource container Starts -->
             <ul id="card-ul" class="features-hold baraja-container">
+
+            <% @combinedResourceAssessments.each do |obj| %>
+
+              <% if obj.class == Resource %>
+  
+                <!-- Single Resource Starts -->
+                <li class="single-feature" title="Card style">
+
+                  <%= image_tag "Art.jpg", :class => "feature-image" %><!-- Resource Icon -->
+
+                  <a href='<%= obj.content %>' target='_new'><h4 class="feature-title color-scheme"><%= obj.title %></h4></a>
+
+                  <p class="feature-text">
+                  <%= obj.description %>                
+                  </p>
+
+                    <button type="button" class="fancy-button button-line btn-col small vertical" data-toggle="modal" data-target="#myModal">
+                      Open
+                    </button>
+       
+                </li>
+                <!-- Single Resource Ends -->
+                <% end %>
+            <% end %>
+          </ul>
+            <!--Resource container Ends -->
             
-              <!-- Single Feature Starts -->
-              <li class="single-feature" title="Card style">
-                <%= image_tag "Art.jpg", :class => "feature-image" %><!-- Feature Icon -->
-                <h4 class="feature-title color-scheme">Card style</h4>
-                <p class="feature-text">
-                  Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut.
-                </p>
-                
-                  <a href="#" class="fancy-button button-line btn-col small vertical">
-                    Details
-                    <span class="icon">
-                      <i class="fa fa-leaf"></i>
-                    </span>
-                  </a>
-                
-              </li>
-              <!-- Single Feature Ends -->
-              
-              <!-- Single Feature Starts -->
-              <li class="single-feature" title="50+ SVG Icon included">
-                <%= image_tag "Art.jpg", :class => "feature-image" %><!-- Feature Icon -->
-                <h4 class="feature-title color-scheme">50+ SVG Icon included</h4>
-                <p class="feature-text">
-                  Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut
-                </p>
-                <a href="#" class="fancy-button button-line btn-col small zoom">
-                  Details
-                  <span class="icon">
-                    <i class="fa fa-leaf"></i>
-                  </span>
-                </a>
-              </li>
-              <!-- Single Feature Ends -->
-              
-              <!-- Single Feature Starts -->
-              <li class="single-feature" title="MailChimp Ready">
-                <%= image_tag "Art.jpg", :class => "feature-image" %><!-- Feature Icon -->
-                <h4 class="feature-title color-scheme">MailChimp Ready</h4>
-                <p class="feature-text">
-                  Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut
-                </p>
-                <a href="#" class="fancy-button button-line btn-col small zoom">
-                  Details
-                  <span class="icon">
-                    <i class="fa fa-leaf"></i>
-                  </span>
-                </a>
-              </li>
-              <!-- Single Feature Ends -->
-              
-              <!-- Single Feature Starts -->
-              <li class="single-feature" title="4 home style">
-                <%= image_tag "Art.jpg", :class => "feature-image" %><!-- Feature Icon -->
-                <h4 class="feature-title color-scheme">4 home style</h4>
-                <p class="feature-text">
-                  Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut
-                </p>
-                <a href="#" class="fancy-button button-line btn-col small zoom">
-                  Details
-                  <span class="icon">
-                    <i class="fa fa-leaf"></i>
-                  </span>
-                </a>
-              </li>
-              <!-- Single Feature Ends -->
-              
-              <!-- Single Feature Starts -->
-              <li class="single-feature" title="Parallax Backgrounds">
-                <%= image_tag "Art.jpg", :class => "feature-image" %><!-- Feature Icon -->
-                <h4 class="feature-title color-scheme">Parallax Backgrounds</h4>
-                <p class="feature-text">
-                  Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut
-                </p>
-                <a href="#" class="fancy-button button-line btn-col small zoom">
-                  Details
-                  <span class="icon">
-                    <i class="fa fa-leaf"></i>
-                  </span>
-                </a>
-              </li>
-              <!-- Single Feature Ends -->
-              
-              <!-- Single Feature Starts -->
-              <li class="single-feature" title="Ajax contact form">
-               <%= image_tag "Art.jpg", :class => "feature-image" %><!-- Feature Icon -->
-                <h4 class="feature-title color-scheme">Ajax contact form</h4>
-                <p class="feature-text">
-                  Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut
-                </p>
-                <a href="#" class="fancy-button button-line btn-col small zoom">
-                  Details
-                  <span class="icon">
-                    <i class="fa fa-leaf"></i>
-                  </span>
-                </a>
-              </li>
-              <!-- Single Feature Ends -->
-              
-              <!-- Single Feature Starts -->
-              <li class="single-feature" title="unlimited Google fonts">
-                <%= image_tag "Art.jpg", :class => "feature-image" %><!-- Feature Icon -->
-                <h4 class="feature-title color-scheme">unlimited Google fonts</h4>
-                <p class="feature-text">
-                  Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut
-                </p>
-                <a href="#" class="fancy-button button-line btn-col small zoom">
-                  Details
-                  <span class="icon">
-                    <i class="fa fa-leaf"></i>
-                  </span>
-                </a>
-              </li>
-              <!-- Single Feature Ends -->
-              
-              <!-- Single Feature Starts -->
-              <li class="single-feature" title="Feature heading">
-               <%= image_tag "Art.jpg", :class => "feature-image" %><!-- Feature Icon -->
-                <h4 class="feature-title color-scheme">Feature heading</h4>
-                <p class="feature-text">
-                  Curabitur posuere feugiat ipsum, sed elementum tortor maximus ut
-                </p>
-                <a href="#" class="fancy-button button-line btn-col small zoom">
-                  Details
-                  <span class="icon">
-                    <i class="fa fa-leaf"></i>
-                  </span>
-                </a>
-              </li>
-              <!-- Single Feature Ends -->
-            </ul>
-            <!--Features container Ends -->
-            
-            <!-- Features Controls Starts -->
+            <!-- Resources Controls Starts -->
             <div class="features-control relative">
               <button class="control-icon fancy-button button-line no-text btn-col bell" id="feature-prev" title="Previous" >
-                <span class="icon">
-                  <i class="fa fa-arrow-left"></i>
-                </span>
+                <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
               </button>
               <button class="control-icon fancy-button button-line no-text btn-col zoom" id="feature-expand" title="Expand" >
-                <span class="icon">
-                  <i class="fa fa-expand"></i>
-                </span>
+                <span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
               </button>
               <button class="control-icon fancy-button button-line no-text btn-col zoom" id="feature-close" title="Collapse" >
-                <span class="icon">
-                  <i class="fa fa-compress"></i>
-                </span>
+                <span class="glyphicon glyphicon-resize-small" aria-hidden="true"></span>
               </button>
               <button class="control-icon fancy-button button-line no-text btn-col bell" id="feature-next" title="Next" >
-                <span class="icon">
-                  <i class="fa fa-arrow-right"></i>
-                </span>
+                <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
               </button>
             </div>
-            <!-- Features Controls Ends -->
+            <!-- Resources Controls Ends -->
         </div>
       </div>
     </div>
   </section>
-  <!--=== Features section Ends ===-->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+        ...
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Mark as Complete <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+</a> </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
