@@ -13,4 +13,12 @@
 #
 
 class LessonsController < ApplicationController
+
+  def show
+    @lesson = Lesson.find(params[:id])
+    resources = @lesson.resources
+    assessments = @lesson.assessments
+    @combinedResourceAssessments = resources + assessments
+    @combinedResourceAssessments.sort_by{ |obj| obj.order_id }
+  end
 end

@@ -29,6 +29,13 @@ english = language.tracks.create(name: "English 101", description: "Where art th
 ruby = stem.tracks.create(name: "Intro to Ruby", description: "Get your programming on!")
 train = stem.tracks.create(name: "How Trains Work", description: "Because you always wondered..")
 
-algebra.lessons.create(title: "Variables", duration: "20 minutes", order_id: 1)
-algebra.lessons.create(title: "Expressions", duration: "60 minutes", order_id: 2)
-algebra.lessons.create(title: "Slope", duration: "10 minutes", order_id: 3)
+var = algebra.lessons.create(title: "Variables", duration: "20 minutes", order_id: 1)
+exp = algebra.lessons.create(title: "Expressions", duration: "60 minutes", order_id: 2)
+slope = algebra.lessons.create(title: "Slope", duration: "10 minutes", order_id: 3)
+
+#Resources: video, image, podcast, article, post
+var.resources.create(content: "https://www.youtube.com/watch?v=Cg8sAM8E9ko", type: "Video", completed: true)
+var.resources.create(content: "This is my excellent and informative post on variables, my great great grandfather wrote for my family 1000 years ago.", type: "Post")
+var.resources.create(content: "https://www.mathsisfun.com/algebra/images/variable-constant.gif" , type: "Image")
+
+var.assessments.create(challenge?: false)

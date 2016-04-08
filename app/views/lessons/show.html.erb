@@ -1,0 +1,11 @@
+<h1><%= @lesson.title %></h1>
+
+<h2>Lesson Content</h2>
+<ul>
+<% @combinedResourceAssessments.each do |obj| %>
+  <% if obj.class == Resource %>
+  <li>Resource: <%= obj.content %>, Complete? <%= obj.completed %></li>
+  <% else %>
+  <li>Assessment: <%= obj.title %>, Complete? <%= obj.completed %></li>
+<% end %>
+</ul>
