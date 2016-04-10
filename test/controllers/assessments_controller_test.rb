@@ -7,7 +7,8 @@
 #  challenge? :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  completed  :boolean
+#  completed  :boolean          default(FALSE)
+#  order_id   :integer
 #
 
 require 'test_helper'

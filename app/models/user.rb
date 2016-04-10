@@ -12,4 +12,8 @@
 class User < ActiveRecord::Base
   has_one :student
   has_one :teacher
+
+  validates :name, presence: true
+
+  validates :points, presence: true
 end
