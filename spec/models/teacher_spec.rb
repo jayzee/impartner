@@ -39,3 +39,15 @@ RSpec.describe Student, type: :model do
       description: "Private video lessons on Argentine Tango"
     }
   end
+
+  it "can create multiple tracks" do
+    bobbo= Teacher.new(:valid_teacher)
+    bobbo.create_track(:closed_course)
+    bobbo.create_track(:open_course)
+    expect(bobbo.tracks.length).to eq(2)
+  end
+
+  it "can edit an existing track" do
+  end
+
+end
