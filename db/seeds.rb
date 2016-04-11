@@ -34,8 +34,8 @@ exp = algebra.lessons.create(title: "Expressions", duration: "60 minutes", order
 slope = algebra.lessons.create(title: "Slope", duration: "10 minutes", order_id: 3)
 
 #Resources: video, image, podcast, article, post
-var.resources.create(title:"Amazing Video", description: "This video will teach you stuff!", content: "https://www.youtube.com/watch?v=Cg8sAM8E9ko", type_of: "video", completed: true)
-var.resources.create(title:"Super awesome post", description: "This post will inform you about stuff.", content: "This is my excellent and informative post on variables, my great great grandfather wrote for my family 1000 years ago.", type_of: "post", completed: true)
-var.resources.create(title:"This image will help", description: "Look at this image so that you know about variables well.", content: "https://www.mathsisfun.com/algebra/images/variable-constant.gif" , type_of: "image", completed: true)
+var.resources.create(title:"Amazing Video", description: "This video will teach you stuff!", content: "https://www.youtube.com/watch?v=Cg8sAM8E9ko", type_of: "video")
+var.resources.create(title:"Super awesome post", description: "This post will inform you about stuff.", content: "This is my excellent and informative post on variables, my great great grandfather wrote for my family 1000 years ago.", type_of: "post")
+var.resources.create(title:"This image will help", description: "Look at this image so that you know about variables well.", content: "https://www.mathsisfun.com/algebra/images/variable-constant.gif" , type_of: "image")
 
-var.assessments.create(challenge?: false, completed: true)
+var.assessments.create(challenge?: false)

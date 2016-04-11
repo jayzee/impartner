@@ -11,14 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408150507) do
+ActiveRecord::Schema.define(version: 20160411150129) do
 
   create_table "assessments", force: :cascade do |t|
     t.integer  "lesson_id"
     t.boolean  "challenge?"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "completed",  default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "order_id"
   end
 
@@ -35,7 +34,6 @@ ActiveRecord::Schema.define(version: 20160408150507) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "order_id"
-    t.boolean  "completed"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -51,10 +49,9 @@ ActiveRecord::Schema.define(version: 20160408150507) do
     t.string   "content"
     t.string   "type_of"
     t.integer  "lesson_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "order_id"
-    t.boolean  "completed",   default: false
     t.string   "description"
     t.string   "title"
   end
@@ -65,11 +62,30 @@ ActiveRecord::Schema.define(version: 20160408150507) do
     t.integer  "user_id"
   end
 
+  create_table "students_assessments", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "assessment_id"
+    t.boolean "completed",     default: false
+  end
+
+  create_table "students_lessons", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "lesson_id"
+    t.boolean "completed",  default: false
+  end
+
+  create_table "students_resources", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "resource_id"
+    t.boolean "completed",   default: false
+  end
+
   create_table "students_tracks", force: :cascade do |t|
     t.integer  "student_id"
     t.integer  "track_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "completed",  default: false
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -84,7 +100,6 @@ ActiveRecord::Schema.define(version: 20160408150507) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "category_id"
-    t.boolean  "completed"
     t.string   "name"
     t.string   "description"
   end

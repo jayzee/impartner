@@ -7,12 +7,13 @@
 #  challenge? :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  completed  :boolean          default(FALSE)
 #  order_id   :integer
 #
 
 class Assessment < ActiveRecord::Base
   belongs_to :lesson
+  has_many :students_assessments
+  has_many :students, through: :students_assessments
 
   def mark_as_complete
     self.update(completed: true)

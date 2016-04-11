@@ -12,4 +12,10 @@ class Student < ActiveRecord::Base
   belongs_to :user
   has_many :students_tracks
   has_many :tracks, through: :students_tracks
+  has_many :students_lessons
+  has_many :lessons, through: :students_lessons
+  has_many :students_resources
+  has_many :resources, through: :students_resources
+  has_many :students_assessments
+  has_many :assessments, through: :students_assessments
 end

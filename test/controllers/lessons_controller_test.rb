@@ -9,7 +9,6 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  order_id   :integer
-#  completed  :boolean
 #
 
 require 'test_helper'

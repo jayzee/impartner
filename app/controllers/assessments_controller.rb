@@ -7,7 +7,6 @@
 #  challenge? :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  completed  :boolean          default(FALSE)
 #  order_id   :integer
 #
 
