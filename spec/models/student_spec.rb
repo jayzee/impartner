@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: students
+#
+#  id         :integer          not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :integer
+#
+
 require 'rails_helper'
 
 RSpec.describe Student, type: :model do
@@ -13,7 +23,7 @@ RSpec.describe Student, type: :model do
     {
       privacy: false,
       teacher_id: 1,
-      completed: false
+      completed: false,
       name: "Algebra",
       description: "Get your Math On."
 
@@ -23,7 +33,7 @@ RSpec.describe Student, type: :model do
     {
       privacy: false,
       teacher_id: 5,
-      completed: false
+      completed: false,
       name: "Thai Food",
       description: "more like tom YUM"
 
@@ -34,7 +44,7 @@ RSpec.describe Student, type: :model do
     {
       privacy: true,
       teacher_id: 2,
-      completed: false
+      completed: false,
       name: "Two to Tango",
       description: "Private video lessons on Argentine Tango"
     }
@@ -54,7 +64,7 @@ RSpec.describe Student, type: :model do
     expect(course.students).to eq([])
   end
 
-  it "can join many tracks" do 
+  it "can join many tracks" do
     course = Track.new(:open_course)
     course2= Track.new(:open_course2)
     bobbo.join_track(course)
@@ -66,4 +76,3 @@ RSpec.describe Student, type: :model do
   end
 
 end
-  
