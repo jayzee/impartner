@@ -18,19 +18,4 @@ class Lesson < ActiveRecord::Base
   has_many :students_lessons
   has_many :students, through: :students_lessons
 
-  def track_completion
-    check_resources = self.resources.all? {|resource| resource.completed}
-    check_assessments = self.assessments.all? {|assessment| assessment.completed}
-
-    if check_resources && check_assessments
-      self.mark_as_completed
-    end 
-
-  end 
-
-  def mark_as_completed
-    self.update(completed: true)
-    self.track.completion
-  end
-
 end

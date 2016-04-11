@@ -13,4 +13,8 @@
 class StudentsTrack < ActiveRecord::Base
   belongs_to :student 
   belongs_to :track
+
+  def mark_as_completed
+    self.update(completed: true)
+  end
 end

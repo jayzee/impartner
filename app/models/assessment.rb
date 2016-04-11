@@ -15,8 +15,4 @@ class Assessment < ActiveRecord::Base
   has_many :students_assessments
   has_many :students, through: :students_assessments
 
-  def mark_as_complete
-    self.update(completed: true)
-    self.lesson.track_completion
-  end 
 end

@@ -11,4 +11,8 @@
 class StudentsAssessment < ActiveRecord::Base
   belongs_to :student 
   belongs_to :assessment
+
+  def mark_as_completed
+    self.update(completed: true)
+  end
 end

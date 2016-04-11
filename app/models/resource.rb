@@ -18,9 +18,5 @@ class Resource < ActiveRecord::Base
   has_many :students_resources
   has_many :students, through: :students_resources
 
-  def mark_as_complete
-    self.update(completed: true)
-    self.lesson.track_completion
-  end 
 
 end
