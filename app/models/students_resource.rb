@@ -11,4 +11,8 @@
 class StudentsResource < ActiveRecord::Base
   belongs_to :student 
   belongs_to :resource
+
+  def mark_as_completed
+    self.update(completed: true)
+  end 
 end

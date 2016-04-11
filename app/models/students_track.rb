@@ -17,4 +17,7 @@ class StudentsTrack < ActiveRecord::Base
   def check_completion
     self.track.all? {|t| t.completed}
   end
+  def mark_as_completed
+    self.update(completed: true)
+  end
 end
