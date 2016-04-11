@@ -14,6 +14,9 @@ class StudentsTrack < ActiveRecord::Base
   belongs_to :student 
   belongs_to :track
 
+  def check_completion
+    self.track.all? {|t| t.completed}
+  end
   def mark_as_completed
     self.update(completed: true)
   end
