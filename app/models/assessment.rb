@@ -13,4 +13,9 @@
 
 class Assessment < ActiveRecord::Base
   belongs_to :lesson
+
+  def mark_as_complete
+    self.update(completed: true)
+    self.lesson.track_completion
+  end 
 end

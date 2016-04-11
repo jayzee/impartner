@@ -19,4 +19,11 @@ class Track < ActiveRecord::Base
   belongs_to :category
   has_many :students_tracks
   has_many :students, through: :students_tracks
+
+  def completion
+    if self.lessons.all? {|lesson| lesson.completed}
+      self.update(completed: true)
+    end 
+  end 
+  
 end
