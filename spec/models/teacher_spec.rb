@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: teachers
+#
+#  id         :integer          not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :integer
+#
+
 require 'rails_helper'
 
 RSpec.describe Student, type: :model do
@@ -13,7 +23,7 @@ RSpec.describe Student, type: :model do
     {
       privacy: false,
       teacher_id: 1,
-      completed: false
+      completed: false,
       name: "Algebra",
       description: "Get your Math On."
 
@@ -23,7 +33,7 @@ RSpec.describe Student, type: :model do
     {
       privacy: false,
       teacher_id: 5,
-      completed: false
+      completed: false,
       name: "Thai Food",
       description: "more like tom YUM"
 
@@ -34,7 +44,7 @@ RSpec.describe Student, type: :model do
     {
       privacy: true,
       teacher_id: 2,
-      completed: false
+      completed: false,
       name: "Two to Tango",
       description: "Private video lessons on Argentine Tango"
     }
