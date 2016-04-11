@@ -6,6 +6,7 @@
 #  student_id    :integer
 #  assessment_id :integer
 #  completed     :boolean          default(FALSE)
+#  points        :integer
 #
 
 class StudentsAssessment < ActiveRecord::Base
@@ -15,4 +16,5 @@ class StudentsAssessment < ActiveRecord::Base
   def mark_as_completed
     self.update(completed: true)
   end
+
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160411150129) do
+ActiveRecord::Schema.define(version: 20160411165829) do
 
   create_table "assessments", force: :cascade do |t|
     t.integer  "lesson_id"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20160411150129) do
     t.integer "student_id"
     t.integer "assessment_id"
     t.boolean "completed",     default: false
+    t.integer "points"
   end
 
   create_table "students_lessons", force: :cascade do |t|
