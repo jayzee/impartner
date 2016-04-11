@@ -63,6 +63,7 @@ RSpec.describe Student, type: :model do
   end
 
   it "receives points after finishing things" do
+    
   end
 
 end

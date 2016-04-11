@@ -26,7 +26,7 @@ let(:missing_description) {valid_user.except(:points)}
   it "can receive points from completing items" do
     bobbo = Student.new(:valid_student)
     course = Track.new(:open_course)
-    bobbo.complete(course)
+    course.completed_by(bobbo)
     expect(bobbo.points).to eq(course.total_value)
   end
 
