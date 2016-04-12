@@ -17,9 +17,19 @@ class ResourcesController < ApplicationController
 
   before_action :authorized_to_interact, only: [:edit] 
 
+
   def new
     
   end 
+
+  def edit
+
+  end
+
+  def complete
+    @student = Student.find_by(user_id: session[:user_id])
+    @student.complete_resource(params[:id])
+  end
 
   private
 

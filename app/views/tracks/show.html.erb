@@ -1,5 +1,6 @@
 <h1> <%= @track.name %> </h1>
 <p> <%= @track.description %></p>
+<p><%= @completion %> % completed</p>
 
 <%= link_to "Add a Lesson", new_track_lesson_path(@track) %> 
 <ul>
