@@ -30,6 +30,5 @@
 //= require js/jquery.nav.js
 //= require js/jquery.nicescroll.min.js
 //= require js/jquery.vegas.min.js
+//= require javascripts/categories.js
 //= require_tree .
-
-
