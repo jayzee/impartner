@@ -17,6 +17,16 @@
     <div id='tab-3'><span>Tab 3</span></div>
 </div>
 
-<a href="/pages/image.html" width="660" class="popdown btn" title="Grumpy Demo">Grumpy Demo</a>
-<a href="/pages/youtube.html" class="popdown btn" title="Youtube Demo">Youtube Demo</a>
-<a href="/pages/content.html" class="popdown btn" title="Content Demo">Content Demo</a> 
+<script>
+  $(document).ready(function() {
+  $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+    disableOn: 700,
+    type: 'iframe',
+    mainClass: 'mfp-fade',
+    removalDelay: 160,
+    preloader: false,
+
+    fixedContentPos: false
+  });
+});
+</script>
