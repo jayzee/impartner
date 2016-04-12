@@ -2,7 +2,6 @@
 <p> <%= @track.description %></p>
 <p><%= @completion %> % completed</p>
 
-<%= link_to "Add a Lesson", new_track_lesson_path(@track) %>
 
 
 
@@ -20,3 +19,5 @@
       <%= submit_tag "Enroll" %>
     <% end %>
 <% end %>
+
+<p><%= link_to "Add a Lesson", new_track_lesson_path(@track) %></p>
