@@ -9,6 +9,8 @@
 Category.all.clear
 Track.all.clear
 Lesson.all.clear
+Student.all.clear
+Teacher.all.clear
 
 categories = ["STEM", "Health", "Music", "Language", "History", "Art"]
 
@@ -39,3 +41,4 @@ var.resources.create(title:"Super awesome post", description: "This post will in
 var.resources.create(title:"This image will help", description: "Look at this image so that you know about variables well.", content: "https://www.mathsisfun.com/algebra/images/variable-constant.gif" , type_of: "image")
 
 var.assessments.create(challenge?: false)
+
