@@ -1,0 +1,17 @@
+<h2><%= @user.email %></h2>
+<h3>Enrolled Tracks</h3>
+<% if @learning %>
+    <% @learning.each do |track| %>
+    <%= link_to track.name, track_path(track) %>
+  <% end %>
+  <% else %>
+    Enrolled in 0 Courses!
+<% end %>
+<h3>Classes Taught</h3>
+<% if @teaching %>
+    <% @teaching.each do |track| %>
+    <%= link_to track.name, track_path(track) %>
+  <% end %>
+  <% else %>
+    Teaching 0 Courses!
+<% end %>
