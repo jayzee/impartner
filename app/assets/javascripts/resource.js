@@ -1,9 +1,12 @@
 $(function(
   $('btn btn-primary').on('click', function(){
+    var resourceId = $(this).id
     $.ajax({
       method: 'POST',
-      url: '/resources/'
+      url: '/resources/'+ resourceId+'/complete'
     })
+
+    
   })
 
 

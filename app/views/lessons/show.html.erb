@@ -6,79 +6,7 @@
   <% end %>
 </h2>
 
- <!--=== Resources section Starts ===-->
-  <section id="section-feature" class="feature-wrap">
-    <div class="container features center">
-      <div class="row">
-        <div class="col-lg-12">
-            <!--Resource container Starts -->
-            <ul id="card-ul" class="features-hold baraja-container">
 
-            <% @combinedResourceAssessments.each do |obj| %>
-
-              <% if obj.class == Resource %>
-  
-                <!-- Single Resource Starts -->
-                <li class="single-feature" title="Card style">
-
-                  <%= image_tag "Art.jpg", :class => "feature-image" %><!-- Resource Icon -->
-
-                  <a href='<%= obj.content %>' target='_new'><h4 class="feature-title color-scheme"><%= obj.title %></h4></a>
-
-                  <p class="feature-text">
-                  <%= obj.description %>                
-                  </p>
-
-                    <button type="button" class="fancy-button button-line btn-col small vertical" data-toggle="modal" data-target="#myModal">
-                      Open
-                    </button>
-       
-                </li>
-                <!-- Single Resource Ends -->
-                <% end %>
-            <% end %>
-          </ul>
-            <!--Resource container Ends -->
-            
-            <!-- Resources Controls Starts -->
-            <div class="features-control relative">
-              <button class="control-icon fancy-button button-line no-text btn-col bell" id="feature-prev" title="Previous" >
-                <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
-              </button>
-              <button class="control-icon fancy-button button-line no-text btn-col zoom" id="feature-expand" title="Expand" >
-                <span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
-              </button>
-              <button class="control-icon fancy-button button-line no-text btn-col zoom" id="feature-close" title="Collapse" >
-                <span class="glyphicon glyphicon-resize-small" aria-hidden="true"></span>
-              </button>
-              <button class="control-icon fancy-button button-line no-text btn-col bell" id="feature-next" title="Next" >
-                <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-              </button>
-            </div>
-            <!-- Resources Controls Ends -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-        </div>
-        <div class="modal-body">
-        ...
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-        <button type="button" class="btn btn-primary">Mark as Complete <span class="glyphicon glyphicon-check" aria-hidden="true"></span></a> </button>
-      </div>
-    </div>
-  </div>
  <div class='tabs tabs_active'>
     <ul class='horizontal'>
       <li><a href="#tab-1">Resources</a></li>
