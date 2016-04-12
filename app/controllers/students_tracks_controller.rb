@@ -13,13 +13,14 @@
 class StudentsTracksController < ApplicationController
   def create
     if Student.find_by(user_id: current_user.id) == nil
-        Student.create(user_id: current_user.id)
+        @student = Student.create(user_id: current_user.id)
+    else
+      @student = Student.find_by(user_id: current_user.id)
     end
   
-    @studentTrack = StudentsTrack.create(track_id: params[:track_id],student_id: current_user.id)
+    @studentTrack = StudentsTrack.create(track_id: params[:track_id],student_id: @student.id)
     @track = Track.find(params[:track_id])
-
-
+    
     redirect_to track_path(@track)
   end
 

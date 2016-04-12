@@ -21,9 +21,7 @@ class TracksController < ApplicationController
     @track = Track.find(params[:id])
     @lessons = @track.lessons.sort_by {|lesson| lesson.order_id}
 
-    @is_enrolled = @track.is_user_a_student_of_track(current_user.id)
-
-
+    @is_enrolled = @track.is_user_a_student_of_track(current_user)
 
     student = Student.find_by(user_id: current_user.id)
 
@@ -32,6 +30,8 @@ class TracksController < ApplicationController
     else
       @completion = 0
     end
+    @teacher= Teacher.find(@track.teacher_id)
+
 
   end
 
@@ -41,11 +41,12 @@ class TracksController < ApplicationController
   end
 
   def create
-    if Teacher.find_by(user_id: current_user.id) == nil
+
+    if current_user.teacher == nil
         Teacher.create(user_id: current_user.id)
     end
     @track = Track.create(track_params)
-    @track.teacher_id = current_user.id
+    @track.teacher_id = current_user.teacher.id
     @track.save
 
     redirect_to track_path(@track)

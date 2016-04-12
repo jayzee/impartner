@@ -33,5 +33,3 @@
 //= require js/jquery.nicescroll.min.js
 //= require js/jquery.vegas.min.js
 //= require_tree .
-
-
