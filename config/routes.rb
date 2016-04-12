@@ -1,22 +1,22 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   root 'categories#index'
-  resources :categories do 
+  resources :categories do
     resources :tracks
-  end 
+  end
 
-  resources :tracks do 
+  resources :tracks do
     resources :lessons
-  end 
+  end
 
-  resources :lessons do 
+  resources :lessons do
     resources :resources
     resources :assessments
-  end 
+  end
 
-  resources :assessments do 
+  resources :assessments do
     resources :questions
-  end 
+  end
 
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
