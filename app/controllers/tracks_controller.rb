@@ -23,8 +23,6 @@ class TracksController < ApplicationController
 
     @is_enrolled = @track.is_user_a_student_of_track(current_user.id)
 
-
-
     student = Student.find_by(user_id: current_user.id)
 
     if student != nil
@@ -32,6 +30,8 @@ class TracksController < ApplicationController
     else
       @completion = 0
     end
+    @teacher= Teacher.find(@track.teacher_id)
+
 
   end
 
