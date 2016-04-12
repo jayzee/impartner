@@ -25,7 +25,8 @@ class ResourcesController < ApplicationController
 
   def create
     @lesson = find_lesson
-    @resource = @lesson.resources.create(resource_params)
+    @resource = @lesson.resources.build(resource_params)
+    @lesson.save
     redirect_to lesson_path(@lesson)
   end 
 
