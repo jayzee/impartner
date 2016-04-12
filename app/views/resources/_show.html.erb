@@ -1,11 +1,3 @@
-<h1><%= @lesson.title %></h1>
-
-<h2>Lesson Content
-  <% if current_user.teacher == @lesson.track.teacher %>
-  <%= link_to "Add Resource", new_lesson_resource_path(@lesson.id), class: "btn btn-default btn-lg" %>
-  <% end %>
-</h2>
-
  <!--=== Resources section Starts ===-->
   <section id="section-feature" class="feature-wrap">
     <div class="container features center">
@@ -19,7 +11,7 @@
               <% if obj.class == Resource %>
   
                 <!-- Single Resource Starts -->
-                <li class="single-feature" title="Card style">
+                <li class="single-feature" id="<%= obj.id %>" title="Card style">
 
                   <%= image_tag "Art.jpg", :class => "feature-image" %><!-- Resource Icon -->
 
@@ -73,22 +65,11 @@
         ...
         </div>
         <div class="modal-footer">
+      <form action= "/">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
         <button type="button" class="btn btn-primary">Mark as Complete <span class="glyphicon glyphicon-check" aria-hidden="true"></span></a> </button>
+      </form>
       </div>
     </div>
   </div>
- <div class='tabs tabs_active'>
-    <ul class='horizontal'>
-      <li><a href="#tab-1">Resources</a></li>
-      <li><a href="#tab-2">Assessments</a></li>
-      <li><a href="#tab-3">Completed</a></li>
-    </ul>
-    <div id='tab-1'><%= render "resources/show" %></div>
-    <div id='tab-2'><span>The second tab is active when page loads.</span></div>
-    <div id='tab-3'><span>Tab 3</span></div>
 </div>
-
-
-

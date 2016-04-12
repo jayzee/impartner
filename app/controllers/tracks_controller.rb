@@ -22,6 +22,7 @@ class TracksController < ApplicationController
     @lessons = @track.lessons.sort_by {|lesson| lesson.order_id}
 
     @is_enrolled = @track.is_user_a_student_of_track(current_user.id)
+
   end
 
   def new
