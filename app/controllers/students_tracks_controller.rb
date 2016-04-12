@@ -15,8 +15,7 @@ class StudentsTracksController < ApplicationController
     if Student.find_by(user_id: current_user.id) == nil
         Student.create(user_id: current_user.id)
     end
-    binding.pry
-
+  
     @studentTrack = StudentsTrack.create(track_id: params[:track_id],student_id: current_user.id)
     @track = Track.find(params[:track_id])
 
