@@ -46,7 +46,8 @@ class Student < ActiveRecord::Base
     end
 
     #completed_contents = total_lessons_array.find_by(completed: true)
-    if(completed_array.count != 0 && total_lessons_array.count != 0)
+
+    if(completed_array.count != nil && total_lessons_array.count != nil && total_lessons_array.count != 0)
         return (completed_array.count / total_lessons_array.count) * 100
     else
         return 0
