@@ -26,11 +26,6 @@ class ResourcesController < ApplicationController
     @student.complete_resource(params[:id])
   end
 
-  def show
-    @resource= Resource.find(params[:id])
-  end
-
-
   private
 
   def authorized_to_edit
