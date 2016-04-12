@@ -22,8 +22,7 @@ class TracksController < ApplicationController
     @lessons = @track.lessons.sort_by {|lesson| lesson.order_id}
 
     @is_enrolled = @track.is_user_a_student_of_track(current_user.id)
-    #binding.pry
-    #student = Student.find(user_id: current_user.id)
+  
       # student= Student.find(user_id: session[:user_id])
     #@completion= student.percent_complete(@track)
 
