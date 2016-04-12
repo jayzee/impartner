@@ -12,6 +12,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  
   let(:valid_user) do
     {
         name: "Bobbo",
@@ -23,15 +24,15 @@ let(:missing_name) { valid_user.except(:name)}
 let(:missing_description) {valid_user.except(:points)}
 
   it "is valid when expected" do
-      expect(User.new(valid_user)).to be_valid
+      expect(valid_user).to be_valid
   end
 
   it "is invalid without User name" do
-      expect(User.new(missing_name)).to be_invalid
+      expect(missing_name).to be_invalid
     end
 
   it "is invalid without User description" do
-      expect(User.new(missing_description)).to be_invalid
+      expect(missing_description).to be_invalid
   end
 
   it "can receive points from completing items" do
@@ -39,6 +40,14 @@ let(:missing_description) {valid_user.except(:points)}
     course = Track.new(:open_course)
     course.completed_by(bobbo)
     expect(bobbo.points).to eq(course.total_value)
+  end
+
+  describe "#complete" do 
+
+    it "will set the passed in element's completed bool to True" do
+      bobbo.complete 
+
+
   end
 
 end

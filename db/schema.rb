@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20160411212238) do
     t.integer "student_id"
     t.integer "assessment_id"
     t.boolean "completed",     default: false
+    t.integer "points"
   end
 
   create_table "students_lessons", force: :cascade do |t|
