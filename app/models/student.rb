@@ -35,7 +35,6 @@ class Student < ActiveRecord::Base
       StudentsResource.find_by(student_id: self.id, resource_id: sibling.id)
     end
     siblings.all? {|s| s.check_completetion_of_resource}
-
   end
 
   def percent_complete(track)
