@@ -38,4 +38,6 @@ class User < ActiveRecord::Base
     current_user.id == self.teacher_id
   end
 
+
+
 end

@@ -20,8 +20,12 @@ class TracksController < ApplicationController
   def show
     @track = Track.find(params[:id])
     @lessons = @track.lessons.sort_by {|lesson| lesson.order_id}
+
+    @is_enrolled = @track.is_user_a_student_of_track(current_user.id)
+
     student= Student.find(user_id: session[:user_id])
     @completion= student.percent_complete(@track)
+
   end
 
   def new
@@ -33,7 +37,11 @@ class TracksController < ApplicationController
     @track = Track.create(track_params)
     @track.teacher_id = current_user.id
     @track.save
-    binding.pry
+
+    redirect_to track_path(@track)
+  end
+
+  def enroll
     redirect_to track_path(@track)
   end
 
@@ -47,7 +55,7 @@ class TracksController < ApplicationController
     @track=Track.find(params[:id])
     @teacher= Teacher.find(@track.teacher_id)
     if session[:user_id] != @teacher.user_id
-        redirect_to root_path, notice: "You must be a Track's teacher in order to edit its contents" 
+        redirect_to root_path, notice: "You must be a Track's teacher in order to edit its contents"
     end
   end
 

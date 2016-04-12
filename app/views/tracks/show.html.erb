@@ -1,10 +1,22 @@
-<h1> <%= @track.name %> </h1>
+<h1> <%= @track.name %></h1>
 <p> <%= @track.description %></p>
 <p><%= @completion %> % completed</p>
 
-<%= link_to "Add a Lesson", new_track_lesson_path(@track) %> 
+<%= link_to "Add a Lesson", new_track_lesson_path(@track) %>
+
+
+
+
 <ul>
   <% @lessons.each do |lesson| %>
     <li><%= link_to lesson.title, lesson_path(lesson) %> - <%= lesson.duration %></li>
   <% end %>
 </ul>
+
+<% if @is_enrolled == false %>
+
+    <%= form_tag students_tracks_path, method: :post do %>
+    <%= hidden_field_tag(:track_id, @track.id) %>
+      <%= submit_tag "Enroll" %>
+    <% end %>
+<% end %>

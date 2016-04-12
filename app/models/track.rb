@@ -18,5 +18,24 @@ class Track < ActiveRecord::Base
   belongs_to :category
   has_many :students_tracks
   has_many :students, through: :students_tracks
-  
+
+
+  def completion
+    if self.lessons.all? {|lesson| lesson.completed}
+      self.update(completed: true)
+    end
+  end
+
+  def is_user_a_student_of_track(current_user_id)
+    student = StudentsTrack.find_by(student_id: current_user_id, track_id: self.id)
+
+    if student != nil
+      return true
+    else
+      return false
+    end
+
+  end
+
+
 end
