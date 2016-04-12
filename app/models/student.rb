@@ -22,7 +22,7 @@ class Student < ActiveRecord::Base
   def check_resource_completion(item)
     item.completed ? true : false
   end
-  
+
   def complete_resource(id)
     join = StudentsResource.find_by(student_id: self.id, resource_id: id)
     join.update(completed: true)
@@ -31,16 +31,27 @@ class Student < ActiveRecord::Base
 
   def check_sibling_completion(resource)
     siblings = resource.lesson.resources
-    siblings.map! do |sibling| 
+    siblings.map! do |sibling|
       StudentsResource.find_by(student_id: self.id, resource_id: sibling.id)
     end
     siblings.all? {|s| s.check_completetion_of_resource}
   end
 
   def percent_complete(track)
-    total_contents= track.lessons.resources
-    completed_contents= total_contents.find_by(completed: true)
-    (completed_contents.count / total_contents.count) * 100
+
+    total_lessons_array = track.lessons
+
+    completed_array = self.students_lessons.map do |studentLes|
+        (studentLes.completed) == true && (track.id == studentLes.track_id)
+    end
+
+    #completed_contents = total_lessons_array.find_by(completed: true)
+    if(completed_array.count != nil && total_lessons_array.count != nil)
+        return (completed_array.count / total_lessons_array.count) * 100
+    else
+        return 0
+    end
   end
+
 
 end
