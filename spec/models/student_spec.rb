@@ -30,14 +30,7 @@ RSpec.describe Student, type: :model do
     }
   end
    let(:open_course2)do
-    {
-      privacy: false,
-      teacher_id: 5,
-      completed: false,
-      name: "Thai Food",
-      description: "more like tom YUM"
-
-    }
+    {privacy: false, teacher_id: 5, completed: false, name: "Thai Food", description: "more like tom YUM"}
   end
 
     let(:closed_course)do
@@ -72,8 +65,20 @@ RSpec.describe Student, type: :model do
     expect(bobbo.tracks.length).to eq(2)
   end
 
-  it "receives points after finishing things" do
-    
+  describe "#complete" do
+
+    let(:video){Resource.new(id: 1, title:"Amazing Video", description: "This video will teach you stuff!", content: "https://www.youtube.com/watch?v=Cg8sAM8E9ko", type_of: "video")}
+    let(:bobbo){Student.new(id: 1, name: "Bobbo", user_id: 1)}
+    let(:join){StudentsResource.new(student_id: 1, resource_id: 1, completed: false)}
+
+    it "can properly mark a student's resource join as completed" do 
+      bobbo.complete(video)
+      expect(join.completed).to eq(true)      
+    end
+
   end
+
+  describe "#check_sibling_completion"
+
 
 end
