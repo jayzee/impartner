@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require popdown/jquery.popdown.css
  *= require tabslet/normalize.css
  *= require tabslet/skeleton.css
  *= require tabslet/styles.css

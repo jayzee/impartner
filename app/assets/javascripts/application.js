@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require popdown/jquery.popdown.min.js
 //= require tabslet/jquery.tabslet.min.js
 //= require tabslet/modernizr.custom.js
 //= require tabslet/rainbow-custom.min.js
