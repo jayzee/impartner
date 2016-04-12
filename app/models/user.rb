@@ -18,7 +18,6 @@ class User < ActiveRecord::Base
   has_one :student
   has_one :teacher
 
-  
 
   def self.from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -32,6 +31,11 @@ class User < ActiveRecord::Base
 #adds points to user
   def add_points(new_points)
     this.points += new_points
+  end
+
+#returns true if the current logged in user is a teacher of this track
+  def is_user_a_teacher_of_track(current_user)
+    current_user.id == self.teacher_id
   end
 
 end

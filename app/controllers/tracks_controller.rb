@@ -17,7 +17,7 @@ class TracksController < ApplicationController
   def show
     @track = Track.find(params[:id])
     @lessons = @track.lessons.sort_by {|lesson| lesson.order_id}
-  end 
+  end
 
   def new
     @cat = Category.find(params[:category_id])
@@ -26,11 +26,14 @@ class TracksController < ApplicationController
 
   def create
     @track = Track.create(track_params)
+    @track.teacher_id = current_user.id
+    @track.save
+    binding.pry
     redirect_to track_path(@track)
   end
 
   private
-  
+
   def track_params
     params.require(:track).permit(:name, :description, :category_id)
   end
