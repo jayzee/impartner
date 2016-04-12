@@ -17,6 +17,11 @@ class ResourcesController < ApplicationController
 
   before_action :authorized_to_interact, only: [:edit] 
 
+
+  def new
+    
+  end 
+
   def edit
 
   end
@@ -35,4 +40,5 @@ class ResourcesController < ApplicationController
         redirect_to root_path, notice: "You must be a Track's teacher in order to edit its contents" 
     end
   end
+
 end

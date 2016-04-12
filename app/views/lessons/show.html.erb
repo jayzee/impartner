@@ -1,6 +1,10 @@
 <h1><%= @lesson.title %></h1>
 
-<h2>Lesson Content</h2>
+<h2>Lesson Content
+  <% if current_user.teacher == @lesson.track.teacher %>
+  <%= link_to "Add Resource", new_lesson_resource_path(@lesson.id), class: "btn btn-default btn-lg" %>
+  <% end %>
+</h2>
 
  <!--=== Resources section Starts ===-->
   <section id="section-feature" class="feature-wrap">
@@ -56,6 +60,7 @@
       </div>
     </div>
   </section>
+
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
