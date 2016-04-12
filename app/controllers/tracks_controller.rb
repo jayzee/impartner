@@ -22,7 +22,7 @@ class TracksController < ApplicationController
     @lessons = @track.lessons.sort_by {|lesson| lesson.order_id}
 
     @is_enrolled = @track.is_user_a_student_of_track(current_user.id)
-  
+
       # student= Student.find(user_id: session[:user_id])
     #@completion= student.percent_complete(@track)
 
@@ -34,6 +34,9 @@ class TracksController < ApplicationController
   end
 
   def create
+    if Teacher.find_by(user_id: current_user.id) == nil
+        Teacher.create(user_id: current_user.id)
+    end
     @track = Track.create(track_params)
     @track.teacher_id = current_user.id
     @track.save
