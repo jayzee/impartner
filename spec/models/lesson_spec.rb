@@ -19,7 +19,7 @@ RSpec.describe Lesson, type: :model do
     {
         title: "variables",
         duration: "20 minutes",
-        track_id: 1
+        track_id: 1,
         completed: 1
 
     }
@@ -57,7 +57,7 @@ RSpec.describe Lesson, type: :model do
 
   it "the lesson has assessments" do
       assessment = variable_lessons.assesments
-      expect(:variable_lesson).to equal(> 0)
+      expect(:variable_lesson).to equal(0)
 
   end
 
