@@ -2,6 +2,7 @@
 <p> <%= @track.description %></p>
 
 
+<% if @is_enrolled %>
 <h3>Progress Bar:</h3>
 <div class="progress">
   <div class="progress-bar" role="progressbar" aria-valuenow="<%= @completion %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @completion %>%;">
@@ -9,7 +10,7 @@
   </div>
 </div>
 <p><%= @completion %>% completed</p>
-
+<% end %>
 <br><br>
 
 <ul>
