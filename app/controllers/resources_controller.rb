@@ -19,7 +19,15 @@ class ResourcesController < ApplicationController
 
 
   def new
-    
+    @lesson = find_lesson
+    @resource = @lesson.resources.build()
+  end 
+
+  def create
+    @lesson = find_lesson
+    @resource = @lesson.resources.build(resource_params)
+    binding.pry
+    redirect_to lesson_path(@lesson)
   end 
 
   def edit
@@ -32,6 +40,14 @@ class ResourcesController < ApplicationController
   end
 
   private
+
+  def find_lesson
+    Lesson.find(params[:lesson_id])
+  end 
+
+  def resource_params
+    params.require(:resource).permit(:type_of, :description, :title, :content)
+  end 
 
   def authorized_to_edit
     @resource=Resource.find(params[:id])
