@@ -23,8 +23,11 @@ class TracksController < ApplicationController
 
     @is_enrolled = @track.is_user_a_student_of_track(current_user.id)
     binding.pry
+
+    
       # student= Student.find(user_id: session[:user_id])
     #@completion= student.percent_complete(@track)
+
 
   end
 
