@@ -21,9 +21,8 @@
                   <%= obj.description %>                
                   </p>
 
-                    <button type="button" class="btn btn-success btn-sml" data-toggle="modal" data-target="#myModal">
-                      Open
-                    </button>
+                  <%= link_to "Open", obj.content, class: "popup-youtube" %>
+                  <%= link_to "Mark as Complete", "#", class: "btn btn-default btn-sml" %>
        
                 </li>
                 <!-- Single Resource Ends -->
