@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   resources :users
 
   resources :students_tracks
+
+  post 'resources/:id/complete' => 'resources#complete', as: :complete_element
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -20,7 +20,12 @@ class TracksController < ApplicationController
   def show
     @track = Track.find(params[:id])
     @lessons = @track.lessons.sort_by {|lesson| lesson.order_id}
+
     @is_enrolled = @track.is_user_a_student_of_track(current_user.id)
+
+    student= Student.find(user_id: session[:user_id])
+    @completion= student.percent_complete(@track)
+
   end
 
   def new

@@ -14,6 +14,7 @@ class StudentsTrack < ActiveRecord::Base
   belongs_to :student
   belongs_to :track
 
+
   def check_completion
     lessons = self.track.lessons
     student = self.student.id
@@ -32,6 +33,7 @@ class StudentsTrack < ActiveRecord::Base
     completed_contents = total_contents.find_by(completed: true)
     completed_contents.count
   end
+
 
 
 
