@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   end
 
   resources :users
+
+  post 'resources/:id/complete' => 'resources#complete', as: :complete_element
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
