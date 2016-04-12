@@ -14,6 +14,9 @@
 
 class TracksController < ApplicationController
 
+
+  before_action :authorized_to_interact, only: [:edit]
+
   def show
     @track = Track.find(params[:id])
     @lessons = @track.lessons.sort_by {|lesson| lesson.order_id}
@@ -37,4 +40,13 @@ class TracksController < ApplicationController
   def track_params
     params.require(:track).permit(:name, :description, :category_id)
   end
+
+  def authorized_to_edit
+    @track=Track.find(params[:id])
+    @teacher= Teacher.find(@track.teacher_id)
+    if session[:user_id] != @teacher.user_id
+        redirect_to root_path, notice: "You must be a Track's teacher in order to edit its contents" 
+    end
+  end
+
 end
