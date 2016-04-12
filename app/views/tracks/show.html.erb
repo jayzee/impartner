@@ -25,6 +25,9 @@
     <%= hidden_field_tag(:track_id, @track.id) %>
       <%= submit_tag "Enroll" %>
     <% end %>
+<% else %>
+  <p>You Are ENROLLED!! Get ready to Learn!</p>
+
 <% end %>
 
 <p><%= link_to "Add a Lesson", new_track_lesson_path(@track) %></p>
