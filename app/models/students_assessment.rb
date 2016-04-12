@@ -6,6 +6,7 @@
 #  student_id    :integer
 #  assessment_id :integer
 #  completed     :boolean          default(FALSE)
+#  points        :integer
 #
 
 class StudentsAssessment < ActiveRecord::Base
@@ -19,5 +20,5 @@ class StudentsAssessment < ActiveRecord::Base
     s_l= StudentsLesson.find_by(student_id: student.id, lesson_id: lesson.id)
     s_l.check_completion
   end
-  
+
 end

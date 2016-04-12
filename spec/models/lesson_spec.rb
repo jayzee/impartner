@@ -55,8 +55,19 @@ RSpec.describe Lesson, type: :model do
     expect(:variable_lesson).toBe("false")
   end
 
-  it "is the next lesson in the track correct based on order id" do
+  it "the lesson has assessments" do
+      assessment = variable_lessons.assesments
+      expect(:variable_lesson).to equal(> 0)
 
   end
+
+  it "the lesson has a duration" do
+
+  end
+
+  it "the lesson can show a percentage complete" do
+
+  end
+
 
 end
