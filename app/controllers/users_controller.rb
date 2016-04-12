@@ -26,7 +26,8 @@ class UsersController < ApplicationController
   def show 
     @user = User.find(params[:id])
     if @user.student
-      @learning = StudentsTrack.where(student_id: @user.student.id)
+      learning_joins = StudentsTrack.where(student_id: @user.student.id)
+      @learning = learning_joins.map {|join| join.track}
     end
     if @user.teacher
       @teaching = Track.where(teacher_id: @user.teacher.id)

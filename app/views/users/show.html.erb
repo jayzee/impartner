@@ -1,5 +1,6 @@
 <h2><%= @user.email %></h2>
 <h3>Enrolled Tracks</h3>
+
 <% if @learning %>
     <% @learning.each do |track| %>
     <%= link_to track.name, track_path(track) %>
