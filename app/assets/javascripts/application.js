@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 //= require js/modernizr.js
 //= require js/custom.js
 //= require js/color-switcher.js
@@ -25,4 +24,9 @@
 //= require js/jquery.nav.js
 //= require js/jquery.nicescroll.min.js
 //= require js/jquery.vegas.min.js
+//= require typeahead.js/bloodhound.min.js
+//= require typeahead.js/typeahead.bundle.min.js
+//= require typeahead.js/typeahead.jquery.min.js
+//= require_tree .
+
 
