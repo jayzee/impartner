@@ -11,7 +11,7 @@
 #
 
 class StudentsTrack < ActiveRecord::Base
-  belongs_to :student 
+  belongs_to :student
   belongs_to :track
 
   def check_completion
@@ -29,8 +29,10 @@ class StudentsTrack < ActiveRecord::Base
 
   def percent_complete(track)
     total_contents= self.track.lessons.map {|l| l.resources.merge(l.assessments)}
-    completed_contents= total_contents.find_by(completed: true)
+    completed_contents = total_contents.find_by(completed: true)
     completed_contents.count
   end
+
+
 
 end
