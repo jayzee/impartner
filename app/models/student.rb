@@ -19,7 +19,7 @@ class Student < ActiveRecord::Base
   has_many :students_assessments
   has_many :assessments, through: :students_assessments
 
-  def check_completetion_of_resource(item)
+  def check_resource_completion(item)
     item.completed ? true : false
   end
   

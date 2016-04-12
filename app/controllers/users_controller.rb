@@ -10,4 +10,6 @@
 #
 
 class UsersController < ApplicationController
+
+  
 end

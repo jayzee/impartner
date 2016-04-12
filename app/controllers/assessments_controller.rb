@@ -11,7 +11,7 @@
 #
 
 class AssessmentsController < ApplicationController
-
+  before_action :authorized_to_interact, only: [:edit]
   def show
   end
   

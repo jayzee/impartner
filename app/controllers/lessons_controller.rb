@@ -12,6 +12,7 @@
 #
 
 class LessonsController < ApplicationController
+  before_action :authorized_to_interact, only: [:edit]
 
   def show
     @lesson = Lesson.find(params[:id])
@@ -37,5 +38,13 @@ class LessonsController < ApplicationController
   private
   def lesson_params
     params.require(:lesson).permit!
+  end
+
+  def authorized_to_edit
+    @lesson=Lesson.find(params[:id])
+    @teacher= Teacher.find(@lesson.track.teacher_id)
+    if session[:user_id] != @teacher.user_id
+        redirect_to root_path, notice: "You must be a Track's teacher in order to edit its contents" 
+    end
   end
 end
