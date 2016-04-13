@@ -18,5 +18,9 @@ class Resource < ActiveRecord::Base
   has_many :students_resources
   has_many :students, through: :students_resources
 
+  def video_id
+    regex = /youtube.com.*(?:\/|v=)([^&$]+)/
+    self.content.match(regex)[1]
+  end 
 
 end

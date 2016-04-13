@@ -1,6 +1,6 @@
 <%= form_for @resource, url: lesson_resources_path(@lesson) do |f| %>
 <%= f.label :type_of %>
-<%= f.select :type_of, ["Reading","Video","Audio", "Other"] %>
+<%= f.select :type_of, ["Reading", "Image", "Video","Audio", "Other"] %>
 
 <%= f.label :title %>
 <%= f.text_field :title %>

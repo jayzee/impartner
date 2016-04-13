@@ -9,7 +9,15 @@
 Category.all.clear
 Track.all.clear
 Lesson.all.clear
+Student.all.clear
+Teacher.all.clear
 
+admin = User.create(email: "admin@admin.com", name: "Admin")
+admin.password = "password"
+admin.password_confirmation = "password"
+admin.save
+
+teacher = Teacher.create(user_id: 1)
 categories = ["STEM", "Health", "Music", "Language", "History", "Art"]
 
 categories.each do |category|
@@ -29,13 +37,49 @@ english = language.tracks.create(name: "English 101", description: "Where art th
 ruby = stem.tracks.create(name: "Intro to Ruby", description: "Get your programming on!")
 train = stem.tracks.create(name: "How Trains Work", description: "Because you always wondered..")
 
+arr_track = [algebra, thai, ukulele, english, ruby, train]
+
+arr_track.each do |track| 
+  track.teacher = teacher
+  track.save
+end 
+
 var = algebra.lessons.create(title: "Variables", duration: "20 minutes", order_id: 1)
 exp = algebra.lessons.create(title: "Expressions", duration: "60 minutes", order_id: 2)
 slope = algebra.lessons.create(title: "Slope", duration: "10 minutes", order_id: 3)
 
 #Resources: video, image, podcast, article, post
-var.resources.create(title:"Amazing Video", description: "This video will teach you stuff!", content: "https://www.youtube.com/watch?v=Cg8sAM8E9ko", type_of: "video")
-var.resources.create(title:"Super awesome post", description: "This post will inform you about stuff.", content: "This is my excellent and informative post on variables, my great great grandfather wrote for my family 1000 years ago.", type_of: "post")
-var.resources.create(title:"This image will help", description: "Look at this image so that you know about variables well.", content: "https://www.mathsisfun.com/algebra/images/variable-constant.gif" , type_of: "image")
+var.resources.create(title:"Amazing Video", description: "This video will teach you stuff!", content: "https://www.youtube.com/watch?v=Cg8sAM8E9ko", type_of: "Video")
+var.resources.create(title:"Super awesome post", description: "This post will inform you about stuff.", content: "http://www.mathplanet.com/education/algebra-1/discovering-expressions,-equations-and-functions/expressions-and-variables", type_of: "Reading")
+var.resources.create(title:"Coeffiecients", description: "Look at this image so that you know about variables well.", content: "https://www.mathsisfun.com/algebra/images/variable-constant.gif" , type_of: "Image")
+
+exp_arr = [ {title:"Writing and Evaluating", 
+        description:"A Middle School Math tutorial on writing algebraic expressions, and evaluating them.", 
+        content:"https://www.youtube.com/watch?v=IWwR6pxq-IE", 
+        type_of:"Video"}, 
+
+        {title:"Translating To Words", 
+        description:"Not sure of when to use parenthesis? Wondering what a switch word is? Perplexed by seeing the alphabet in math?", 
+        content:"https://www.youtube.com/watch?v=KmuWR_LriQU&nohtml5=False", 
+        type_of:"Video"}, 
+
+        {title:"Translating English into Math Expressions", 
+        description:"A teacher better than I am will teach you this stuff.", 
+        content:"https://www.youtube.com/watch?v=zd1lwitGGco&nohtml5=False", 
+        type_of:"Video"}, 
+
+        {title:"Steps to solving expressions", 
+        description:"These are the steps you should use to solve expressions", 
+        content:"http://www.algebra4children.com/worked_examples/Multiplication_algebraic%20_expressions2.jpg", 
+        type_of:"Image"}, 
+]
+
+exp_arr.each do |resource| 
+  exp.resources.create(resource)
+  exp.save
+end 
+
+
 
 var.assessments.create(challenge?: false)
+

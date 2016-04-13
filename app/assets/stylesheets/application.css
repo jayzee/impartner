@@ -10,12 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
- *= require popdown/jquery.popdown.css
- *= require tabslet/normalize.css
- *= require tabslet/skeleton.css
- *= require tabslet/styles.css
+ *= require magnific/magnific-popup.css
  *= require css/animate.css
  *= require css/baraja.css
  *= require css/color-switcher.css
@@ -30,4 +25,11 @@
  *= require css/schemes/red.css
  *= require css/schemes/gray.css
  *= require css/style.css
+ *= require tabslet/normalize.css
+ *= require tabslet/skeleton.css
+ *= require tabslet/styles.css
+ *= require bootstrap/bootstrap.css
+ *= require bootstrap/bootstrap-theme.min.css
+ *= require_tree .
+ *= require_self
  */

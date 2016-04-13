@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require popdown/jquery.popdown.min.js
+//= require magnific/jquery.magnific-popup.min.js
+//= require jquery-queryParser.min.js
 //= require tabslet/jquery.tabslet.min.js
 //= require tabslet/modernizr.custom.js
 //= require tabslet/rainbow-custom.min.js
@@ -31,4 +32,6 @@
 //= require js/jquery.nav.js
 //= require js/jquery.nicescroll.min.js
 //= require js/jquery.vegas.min.js
+//= require bootstrap/bootstrap.min.js
+//= require bootstrap/npm.js
 //= require_tree .

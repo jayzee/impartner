@@ -1,5 +1,5 @@
 $ -> 
   $('.tabs').tabslet();
-  $('.popdown').popdown();
+
 
 

@@ -12,19 +12,39 @@
   
                 <!-- Single Resource Starts -->
                 <li class="single-feature" id="<%= obj.id %>" title="Card style">
+                
+                <% if obj.type_of == "Video" %>
+                  <%= image_tag "http://img.youtube.com/vi/#{obj.video_id}/hqdefault.jpg", :class => "feature-image" %>
+                <% elsif obj.type_of == "Image" %>
+                  <%= image_tag obj.content, :class => "feature-image" %>
+                <% elsif obj.type_of == "Reading" %>
+                  <%= image_tag "http://icons.iconarchive.com/icons/martz90/circle/512/books-icon.png", :class => "feature-image" %>
+                <% elsif obj.type_of == "Audio" %>
+                  <%= image_tag "http://aldemedianoche.com.ar/wp-content/uploads/2015/01/audio.png", :class => "feature-image" %>
+                <% elsif obj.type_of == "Audio" %>
+                  <%= image_tag "logo", :class => "feature-image" %>
+                <% end %><!-- Resource Icon -->
 
-                  <%= image_tag "Art.jpg", :class => "feature-image" %><!-- Resource Icon -->
-
-                  <a href='<%= obj.content %>' target='_new'><h4 class="feature-title color-scheme"><%= obj.title %></h4></a>
+                  <h4 class="feature-title color-scheme"><%= obj.title %></h4>
 
                   <p class="feature-text">
                   <%= obj.description %>                
                   </p>
 
-                    <button type="button" class="btn btn-success btn-sml" data-toggle="modal" data-target="#myModal">
-                      Open
-                    </button>
-       
+                <% if obj.type_of == "Video" %>
+                  <%= link_to "Open", obj.content, id: "popup-youtube", class: "btn btn-success btn-sm" %>
+                <% elsif obj.type_of == "Image" %>
+                  <%= link_to "Open", obj.content, id: "image-popup-vertical-fit", class: "btn btn-success btn-sm" %>
+                <% elsif obj.type_of == "Reading" %>
+                  <%= link_to "Open", obj.content, class: "btn btn-success btn-sm"%>
+                <% elsif obj.type_of == "Audio" %>
+                  <%= link_to "Open", obj.content, class: "btn btn-success btn-sm"  %>
+                <% elsif obj.type_of == "Other" %>
+                  <%= link_to "Open", obj.content, class: "btn btn-success btn-sm"  %>
+                <% end %>
+                
+                  <%= link_to "Mark as Complete", "#", class: "btn btn-danger btn-sm" %>
+
                 </li>
                 <!-- Single Resource Ends -->
                 <% end %>

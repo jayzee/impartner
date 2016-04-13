@@ -30,7 +30,6 @@
 
 <% end %>
 
-<!-- Should only appear to teachers!!!!! -->
 <% if current_user.teacher %>
   <% if @teacher.id == current_user.teacher.id%> 
     <p><%= link_to "Add a Lesson", new_track_lesson_path(@track) %></p>
