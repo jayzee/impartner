@@ -22,7 +22,6 @@ class TracksController < ApplicationController
     @lessons = @track.lessons.sort_by {|lesson| lesson.order_id}
 
     @is_enrolled = @track.is_user_a_student_of_track(current_user)
-
     student = Student.find_by(user_id: current_user.id)
 
     if student != nil
@@ -31,8 +30,7 @@ class TracksController < ApplicationController
       @completion = 0
     end
     @teacher= Teacher.find(@track.teacher_id)
-
-
+    binding.pry
   end
 
   def new
