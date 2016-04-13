@@ -30,7 +30,6 @@ class TracksController < ApplicationController
       @completion = 0
     end
     @teacher= Teacher.find(@track.teacher_id)
-    binding.pry
   end
 
   def new

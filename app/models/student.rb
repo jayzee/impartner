@@ -51,7 +51,6 @@ class Student < ActiveRecord::Base
     completed_array = self.students_lessons.find_all do |studentLes|
         (studentLes.completed) == true && (track.id == studentLes.track_id)
     end
-    binding.pry
     #completed_contents = total_lessons_array.find_by(completed: true)
 
     if(completed_array.count != nil && total_lessons_array.count != nil && total_lessons_array.count != 0)
