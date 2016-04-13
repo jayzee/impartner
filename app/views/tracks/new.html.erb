@@ -1,5 +1,5 @@
 <h2>Build a new track in <%= Category.find(params[:category_id]).title %></h2>
-<%= form_for @track do |f|%>
+<%= form_for @track, remote: true  do |f|%>
   <%= f.label :name%>
   <%= f.text_field :name %><br>
   <%= f.label :description %>
