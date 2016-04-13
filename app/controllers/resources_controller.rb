@@ -35,8 +35,9 @@ class ResourcesController < ApplicationController
   end
 
   def complete
-    @student = Student.find_by(user_id: session[:user_id])
+    @student = Student.find_by(user_id: current_user)
     @student.complete_resource(params[:id])
+    render nothing: true 
   end
 
   private
