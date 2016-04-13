@@ -19,11 +19,11 @@ class LessonsController < ApplicationController
     resources = @lesson.resources
     assessments = @lesson.assessments
     @student = Student.find_by(user_id: current_user.id)
-
-    joins = resources.map do |r|
-      StudentsResource.find_by(resource_id: r.id, student_id: @student.id)
+    if @lesson.resources
+      joins = resources.map do |r|
+        StudentsResource.find_by(resource_id: r.id, student_id: @student.id)
+      end
     end
-    
     @completed_joins= joins.find_all{|r| r.completed}
     @complete_resources= @completed_joins.map {|j| j.resource}
     @incomplete_joins= joins.find_all{|r| r.completed == false}

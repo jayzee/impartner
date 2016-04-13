@@ -1,6 +1,6 @@
 var resource_id
 $(function(){
-  $('a.btn.btn-danger.btn-sm').on('click', function(){
+  $('a.btn.btn-info.btn-sm').on('click', function(){
       resource_id= this.parentElement.id;
       $.ajax({
         method: "POST",
