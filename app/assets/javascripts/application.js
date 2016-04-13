@@ -26,7 +26,7 @@
 //= require js/jquery.ajaxchimp.min.js
 //= require js/jquery.baraja.js
 //= require js/jquery.appear.js
-//= require js/jquery.bxslider.min.js
+
 //= require js/jquery.easing.1.3.js
 //= require js/jquery.fitvids.js
 //= require js/jquery.nav.js
