@@ -27,8 +27,11 @@ class Track < ActiveRecord::Base
   end
 
   def is_user_a_student_of_track(user)
-  
-    student = StudentsTrack.find_by(student_id: user.student.id, track_id: self.id)
+    if user.student != nil 
+      student = StudentsTrack.find_by(student_id: user.student.id, track_id: self.id)
+    else 
+      student = nil
+    end 
 
     if student != nil
       return true
