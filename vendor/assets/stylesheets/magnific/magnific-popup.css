@@ -1,4 +1,5 @@
 /* Magnific Popup CSS */
+
 .mfp-bg {
   top: 0;
   left: 0;
@@ -250,7 +251,9 @@ img.mfp-img {
   line-height: 0;
   box-sizing: border-box;
   padding: 40px 0 40px;
-  margin: 0 auto; }
+  margin: 0 auto; 
+  background: #fff;
+}
 
 /* The shadow behind the image */
 .mfp-figure {

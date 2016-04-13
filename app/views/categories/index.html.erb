@@ -2,7 +2,19 @@
 <% @categories.each do |category| %>
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <%= image_tag "Art.jpg", width: "242", height: "200"%>
+      <% if category.title == "Art" %>
+        <%= image_tag "art", width: "242", height: "200"%>
+      <% elsif category.title == "STEM"%>
+        <%= image_tag "stem", width: "242", height: "200"%>
+      <% elsif category.title == "Health"%>
+        <%= image_tag "health", width: "242", height: "200"%>
+      <% elsif category.title == "Language"%>
+        <%= image_tag "language", width: "242", height: "200"%>
+      <% elsif category.title == "Music"%>
+        <%= image_tag "music", width: "242", height: "200"%>
+      <% elsif category.title == "History"%>
+        <%= image_tag "history", width: "242", height: "200"%>
+      <% end %>
       <div class="caption">
         <h3><%= link_to category.title, category_path(category)%></h3>
         <p>Bacon ipsum dolor amet meatball pig corned beef flank kielbasa shankle pancetta salami pork shank tri-tip.</p>

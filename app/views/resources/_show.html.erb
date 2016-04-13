@@ -31,7 +31,18 @@
                   <%= obj.description %>                
                   </p>
 
+                <% if obj.type_of == "Video" %>
                   <%= link_to "Open", obj.content, class: "popup-youtube" %>
+                <% elsif obj.type_of == "Image" %>
+                  <%= link_to "Open", obj.content, class: "image-popup-vertical-fit" %>
+                <% elsif obj.type_of == "Reading" %>
+                  <%= link_to "Open", obj.content %>
+                <% elsif obj.type_of == "Audio" %>
+                  <%= link_to "Open", obj.content %>
+                <% elsif obj.type_of == "Other" %>
+                  <%= link_to "Open", obj.content %>
+                <% end %>
+
                   <%= link_to "Mark as Complete", "#", class: "btn btn-danger btn-sm" %>
        
                 </li>
