@@ -1,0 +1,5 @@
+
+<p><% if @teacher.id == current_user.teacher.id%>
+  <%= link_to 'Add a Lesson', new_track_lesson_path(@track) %>
+  <% end %>
+</p>
