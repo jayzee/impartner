@@ -23,7 +23,7 @@ class LessonsController < ApplicationController
     joins = resources.map do |r|
       StudentsResource.find_by(resource_id: r.id, student_id: @student.id)
     end
-    binding.pry
+    
     @completed_joins= joins.find_all{|r| r.completed}
     @complete_resources= @completed_joins.map {|j| j.resource}
     @incomplete_joins= joins.find_all{|r| r.completed == false}

@@ -21,18 +21,20 @@
           <ul class="dropdown-menu">
 
             <% if current_user && current_user.student != nil %>
-            <% current_user.student.tracks.each do |tr| %>
-            <li><a href="#"><%= tr.name %></a></li>
-            <% end %>
+              <% current_user.student.tracks.each do |tr| %>
+                <li><%= link_to tr.name, track_path(tr)%></li>
+              <% end %>
             <% end %>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Tracks <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <% if current_user && current_user.teacher != nil %>
+              <% current_user.teacher.tracks.each do |tr| %>
+                <li><%= link_to tr.name, track_path(tr)%></li>
+              <% end %>
+            <% end %>
           </ul>
         </li>
       </ul>
@@ -49,8 +51,8 @@
             <%= current_user.email %>
             <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">My Enrolled Tracks</a></li>
-              <li><a href="#">My Created Tracks</a></li>
+              <li><a href="/users/<%= current_user.id%>#Enrolled%20Tracks">My Enrolled Tracks</a></li>
+              <li><a href="/users/<%= current_user.id%>#Classes%20Taught">My Created Tracks</a></li>
               <li><a href="/users/<%= current_user.id%>">Account</a></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
