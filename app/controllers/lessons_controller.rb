@@ -26,7 +26,6 @@ class LessonsController < ApplicationController
     @complete_resources= @completed_joins.map {|j| j.resource}
     @incomplete_joins= joins.find_all{|r| r.completed == false}
     @incomplete_resources= @incomplete_joins.map {|j| j.resource}
-    binding.pry
   end
 
   def new

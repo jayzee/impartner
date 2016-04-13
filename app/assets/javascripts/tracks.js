@@ -1,1 +1,1 @@
-alert('whatever')
+// alert('whatever')
