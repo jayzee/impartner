@@ -370,12 +370,13 @@ left: calc(50% - 110px);
 .baraja-container {
 	width: 250px;
 	height: 400px;
+	background-color: #fff !important;
 }
 
-.baraja-container .single-feature {
-	border: 1px solid #ccc;
-	border-radius: 4px;
+.baraja-container LI:hover {
+	background: #fff !important;
 }
+
 
 .single-feature .feature-title {
 	margin-top: 18px;
