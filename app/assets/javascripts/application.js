@@ -26,10 +26,12 @@
 //= require js/jquery.ajaxchimp.min.js
 //= require js/jquery.baraja.js
 //= require js/jquery.appear.js
-//= require js/jquery.bxslider.min.js
+
 //= require js/jquery.easing.1.3.js
 //= require js/jquery.fitvids.js
 //= require js/jquery.nav.js
 //= require js/jquery.nicescroll.min.js
 //= require js/jquery.vegas.min.js
+//= require bootstrap/bootstrap.min.js
+//= require bootstrap/npm.js
 //= require_tree .
