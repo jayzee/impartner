@@ -32,19 +32,19 @@
                   </p>
 
                 <% if obj.type_of == "Video" %>
-                  <%= link_to "Open", obj.content, class: "popup-youtube" %>
+                  <%= link_to "Open", obj.content, id: "popup-youtube", class: "btn btn-success btn-sm" %>
                 <% elsif obj.type_of == "Image" %>
-                  <%= link_to "Open", obj.content, class: "image-popup-vertical-fit" %>
+                  <%= link_to "Open", obj.content, id: "image-popup-vertical-fit", class: "btn btn-success btn-sm" %>
                 <% elsif obj.type_of == "Reading" %>
-                  <%= link_to "Open", obj.content %>
+                  <%= link_to "Open", obj.content, class: "btn btn-success btn-sm"%>
                 <% elsif obj.type_of == "Audio" %>
-                  <%= link_to "Open", obj.content %>
+                  <%= link_to "Open", obj.content, class: "btn btn-success btn-sm"  %>
                 <% elsif obj.type_of == "Other" %>
-                  <%= link_to "Open", obj.content %>
+                  <%= link_to "Open", obj.content, class: "btn btn-success btn-sm"  %>
                 <% end %>
-
+                
                   <%= link_to "Mark as Complete", "#", class: "btn btn-danger btn-sm" %>
-       
+
                 </li>
                 <!-- Single Resource Ends -->
                 <% end %>

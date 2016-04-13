@@ -50,8 +50,34 @@ slope = algebra.lessons.create(title: "Slope", duration: "10 minutes", order_id:
 
 #Resources: video, image, podcast, article, post
 var.resources.create(title:"Amazing Video", description: "This video will teach you stuff!", content: "https://www.youtube.com/watch?v=Cg8sAM8E9ko", type_of: "Video")
-var.resources.create(title:"Super awesome post", description: "This post will inform you about stuff.", content: "http://www.mathplanet.com/education/algebra-1/discovering-expressions,-equations-and-functions/expressions-and-variables", type_of: "Other")
+var.resources.create(title:"Super awesome post", description: "This post will inform you about stuff.", content: "http://www.mathplanet.com/education/algebra-1/discovering-expressions,-equations-and-functions/expressions-and-variables", type_of: "Reading")
 var.resources.create(title:"Coeffiecients", description: "Look at this image so that you know about variables well.", content: "https://www.mathsisfun.com/algebra/images/variable-constant.gif" , type_of: "Image")
+
+exp_arr = [ {title:"Writing and Evaluating", 
+        description:"A Middle School Math tutorial on writing algebraic expressions, and evaluating them.", 
+        content:"https://www.youtube.com/watch?v=IWwR6pxq-IE", 
+        type_of:"Video"}, 
+
+        {title:"Translating To Words", 
+        description:"Not sure of when to use parenthesis? Wondering what a switch word is? Perplexed by seeing the alphabet in math?", 
+        content:"https://www.youtube.com/watch?v=KmuWR_LriQU&nohtml5=False", 
+        type_of:"Video"}, 
+
+        {title:"Translating English into Math Expressions", 
+        description:"A teacher better than I am will teach you this stuff.", 
+        content:"https://www.youtube.com/watch?v=zd1lwitGGco&nohtml5=False", 
+        type_of:"Video"}, 
+
+        {title:"Steps to solving expressions", 
+        description:"These are the steps you should use to solve expressions", 
+        content:"http://www.algebra4children.com/worked_examples/Multiplication_algebraic%20_expressions2.jpg", 
+        type_of:"Image"}, 
+]
+
+exp_arr.each do |resource| 
+  exp.resources.create(resource)
+  exp.save
+end 
 
 
 

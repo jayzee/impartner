@@ -32,4 +32,6 @@
 //= require js/jquery.nav.js
 //= require js/jquery.nicescroll.min.js
 //= require js/jquery.vegas.min.js
+//= require bootstrap/bootstrap.min.js
+//= require bootstrap/npm.js
 //= require_tree .
