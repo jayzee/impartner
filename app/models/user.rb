@@ -30,8 +30,6 @@ class User < ActiveRecord::Base
   has_one :student
   has_one :teacher
 
-
-
   def self.from_omniauth(auth)
     binding.pry
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
