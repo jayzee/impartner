@@ -370,7 +370,7 @@ left: calc(50% - 110px);
 .baraja-container {
 	width: 250px;
 	height: 400px;
-	background-color: #fff !important;
+	background-color: rgba(249, 251, 251, 0) !important;
 }
 
 .baraja-container LI:hover {
@@ -379,7 +379,7 @@ left: calc(50% - 110px);
 
 
 .single-feature .feature-title {
-	margin-top: 18px;
+	margin-top: 30px;
 }
 
 .single-feature .feature-text {
