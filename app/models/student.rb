@@ -29,12 +29,12 @@ class Student < ActiveRecord::Base
     check_sibling_completion(join)
   end
 
-  def check_sibling_completion(resource)
-    siblings = resource.lesson.resources
-    siblings.map! do |sibling|
+  def check_sibling_completion(join)
+    siblings = join.resource.lesson.resources
+    sib_joins= siblings.map do |sibling|
       StudentsResource.find_by(student_id: self.id, resource_id: sibling.id)
     end
-    siblings.all? {|s| s.check_completetion_of_resource}
+    sib_joins.all? {|s| check_resource_completion(s)}
   end
 
   def percent_complete(track)

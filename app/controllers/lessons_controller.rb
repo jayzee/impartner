@@ -18,8 +18,15 @@ class LessonsController < ApplicationController
     @lesson = Lesson.find(params[:id])
     resources = @lesson.resources
     assessments = @lesson.assessments
-    @combinedResourceAssessments = resources + assessments
-    @combinedResourceAssessments.sort_by{ |obj| obj.order_id }
+    @student = Student.find_by(user_id: current_user.id)
+    joins = resources.map do |r|
+      StudentsResource.find_by(resource_id: r.id, student_id: @student.id)
+    end
+    @completed_joins= joins.find_all{|r| r.completed}
+    @complete_resources= @completed_joins.map {|j| j.resource}
+    @incomplete_joins= joins.find_all{|r| r.completed == false}
+    @incomplete_resources= @incomplete_joins.map {|j| j.resource}
+    binding.pry
   end
 
   def new

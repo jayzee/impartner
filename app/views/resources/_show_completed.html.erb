@@ -6,7 +6,7 @@
             <!--Resource container Starts -->
             <ul id="card-ul" class="features-hold baraja-container">
 
-            <% @incomplete_resources.each do |obj| %>
+            <% @complete_resources.each do |obj| %>
 
               <% if obj.class == Resource %>
   
@@ -42,9 +42,6 @@
                 <% elsif obj.type_of == "Other" %>
                   <%= link_to "Open", obj.content %>
                 <% end %>
-
-                  <%= link_to "Mark as Complete", "#", class: "btn btn-danger btn-sm" %>
-       
                 </li>
                 <!-- Single Resource Ends -->
                 <% end %>
