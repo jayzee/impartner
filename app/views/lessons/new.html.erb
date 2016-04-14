@@ -1,6 +1,6 @@
 <h2>Create a new lesson for <strong><%= @track.name %></strong> </h2>
 
-<%= form_for @lesson do |f| %>
+<%= form_for @lesson, remote: true do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :duration %>
@@ -8,3 +8,5 @@
   <%= f.hidden_field :track_id %>
   <%= f.submit %>
   <% end %>
+
+  <div id="lesson_form"></div>

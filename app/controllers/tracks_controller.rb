@@ -39,14 +39,18 @@ class TracksController < ApplicationController
 
   def create
 
+
     if current_user.teacher == nil
         Teacher.create(user_id: current_user.id)
     end
-    @track = Track.create(track_params)
-    @track.teacher_id = current_user.teacher.id
+    @track = Track.create(name: params[:name], description: params[:description], teacher_id: current_user.teacher.id, category_id: params[:category_id])
     @track.save
 
-    redirect_to track_path(@track)
+    @lesson = @track.lessons.build()
+    @teacher = current_user.teacher
+    #redirect_to track_path(@track)
+@return = { :error => false, :response => "Added", :partial => render_to_string(:partial => "link_to_new_lesson", :object => @teacher) }
+render json: {track: @track, teacher: current_user.teacher, return: @return}
   end
 
   def enroll

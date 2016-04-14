@@ -17,7 +17,7 @@ class LessonsController < ApplicationController
   def show
     @lesson = Lesson.find(params[:id])
     resources = @lesson.resources
-    assessments = @lesson.assessments
+    @assessments = @lesson.assessments
     @student = Student.find_by(user_id: current_user.id)
     if @lesson.resources
       joins = resources.map do |r|
@@ -31,16 +31,22 @@ class LessonsController < ApplicationController
   end
 
   def new
+
     @track= Track.find(params[:track_id])
     @lesson = @track.lessons.build()
   end
 
   def create
-    @lesson = Lesson.new(lesson_params)
+
+    @lesson = Lesson.new(title: params["title"], track_id: params["track_id"], duration: params["duration"])
     @track = @lesson.track
     @lesson.order_id = @track.lessons.length
     @lesson.save
-    redirect_to lesson_path(@lesson)
+    @teacher = @track.teacher
+    #redirect_to lesson_path(@lesson)
+
+    @return = { :error => false, :response => "Added", :partial => render_to_string(:partial => "link_to_new_lesson", :object => @teacher) }
+    render json: {lesson: @lesson, return: @return}
   end
 
   private
@@ -52,7 +58,7 @@ class LessonsController < ApplicationController
     @lesson=Lesson.find(params[:id])
     @teacher= Teacher.find(@lesson.track.teacher_id)
     if session[:user_id] != @teacher.user_id
-        redirect_to root_path, notice: "You must be a Track's teacher in order to edit its contents" 
+        redirect_to root_path, notice: "You must be a Track's teacher in order to edit its contents"
     end
   end
 end
