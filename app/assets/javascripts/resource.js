@@ -18,4 +18,5 @@ $(function(){
     $('div#tab-1').remove(completed_resource);
   })
 })
+})
 
