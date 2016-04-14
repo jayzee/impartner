@@ -1,7 +1,4 @@
-
-$(document).on('ready', function(){
 var resource_id
-
 
 $(function(){
   $('a.btn.btn-danger.btn-sm').on('click', function(){
@@ -18,6 +15,5 @@ $(function(){
     var completed_resource= $('li#'+ resource_id);
     $('div#tab-3').append(completed_resource);
     $('div#tab-1').remove(completed_resource);
-    alert('Resource marked as complete!');
   })
 })

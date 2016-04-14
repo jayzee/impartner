@@ -9,9 +9,12 @@
 #
 
 class CategoriesController < ApplicationController
+  include HTTParty
+
 
   def index
     @categories = Category.all
+    @fact = Adapters::FactoidClient.grab_fact
   end
 
   def show
