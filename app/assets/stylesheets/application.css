@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require sweetalert.css
  *= require magnific/magnific-popup.css
  *= require css/animate.css
  *= require css/baraja.css
@@ -20,8 +21,6 @@
  *= require css/linea-icon.css
  *= require css/parallax-slider.css
  *= require css/responsive.css
- *= require css/schemes/orange.css
- *= require css/schemes/red.css
  *= require css/schemes/gray.css
  *= require css/style.css
  *= require tabslet/normalize.css

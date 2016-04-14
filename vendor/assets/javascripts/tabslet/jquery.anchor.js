@@ -24,8 +24,8 @@ jQuery.fn.anchorAnimate = function(settings) {
 
 	return this.each(function(){
 		var caller = this
-		$(caller).click(function (event) {
-			event.preventDefault()
+		$(caller).live(function () {
+			
 			var locationHref = window.location.href
 			var elementClick = $(caller).attr("href")
 
