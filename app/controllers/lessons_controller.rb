@@ -17,7 +17,7 @@ class LessonsController < ApplicationController
   def show
     @lesson = Lesson.find(params[:id])
     resources = @lesson.resources
-    assessments = @lesson.assessments
+    @assessments = @lesson.assessments
     @student = Student.find_by(user_id: current_user.id)
     joins = resources.map do |r|
       StudentsResource.find_by(resource_id: r.id, student_id: @student.id)

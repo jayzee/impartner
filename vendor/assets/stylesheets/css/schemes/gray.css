@@ -18,8 +18,8 @@
 .btn-col,
 .project-details h5, 
 .project-info h5 {
-border-color: #7F8C8D;
-color: #7F8C8D;
+border-color: transparent;
+color: transparent;
 }
 
 .btn-col:hover {
