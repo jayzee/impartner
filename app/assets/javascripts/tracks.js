@@ -8,7 +8,7 @@ $(document).on('ready', function(){
       $.ajax({
           url: '/tracks',
           method: 'POST',
-          data: {'name' : $('#track_name').val(), 'description' : $('#track_description').val(), 'category_id' : $('#track_category_id').val(), 'ajax_stuff' : 'yes' },
+          data: {'name' : $('#track_name').val(), 'description' : $('#track_description').val(), 'category_id' : $('#track_category_id').val() },
           dataType: "json",
           success: function(data){
 
