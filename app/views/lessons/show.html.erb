@@ -2,7 +2,8 @@
 
 <h2>Lesson Content
   <% if current_user.teacher == @lesson.track.teacher %>
-  <%= link_to "Add Resource", new_lesson_resource_path(@lesson.id), class: "btn btn-default btn-lg" %>
+    <%= link_to "Add Resource", new_lesson_resource_path(@lesson.id), class: "btn btn-default btn-lg" %>
+    <%= link_to "Create Assessment", new_lesson_assessment_path(@lesson.id), class: "btn btn-default btn-lg" %>
   <% end %>
 </h2>
 
@@ -10,34 +11,16 @@
     <ul class='horizontal'>
       <li><a href="#tab-1">Resources</a></li>
       <li><a href="#tab-2">Assessments</a></li>
-      <li><a href="#tab-3">Completed</a></li>
     </ul>
     <div id='tab-1'><%= render "resources/show" %></div>
-    <div id='tab-2'><span>The second tab is active when page loads.</span></div>
-    <div id='tab-3'><%= render "resources/show_completed" %></div>
+    <div id='tab-2'><%= render "resources/assessments" %></div>
 </div>
 
-<script>
-  $(document).ready(function() {
+<hr>
 
-  $('#popup-youtube, #popup-vimeo, #popup-gmaps').magnificPopup({
-    disableOn: 700,
-    type: 'iframe',
-    mainClass: 'mfp-fade',
-    removalDelay: 160,
-    preloader: false,
+<div class="completed-resources">
+  <%= render "resources/show_completed" %>
+</div>
 
-    fixedContentPos: false
-  });
 
-  $('#image-popup-vertical-fit').magnificPopup({
-    type: 'image',
-    closeOnContentClick: true,
-    mainClass: 'mfp-img-mobile',
-    image: {
-      verticalFit: true
-    }
-    
-  });
-});
-</script>
+

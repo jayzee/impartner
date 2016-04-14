@@ -1,4 +1,3 @@
-
 $(document).on('ready', function(){
 var resource_id
 
@@ -21,3 +20,4 @@ $(function(){
     alert('Resource marked as complete!');
   })
 })
+

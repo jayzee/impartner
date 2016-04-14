@@ -14,5 +14,5 @@ class Assessment < ActiveRecord::Base
   belongs_to :lesson
   has_many :students_assessments
   has_many :students, through: :students_assessments
-
+  has_many :questions
 end

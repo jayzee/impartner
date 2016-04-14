@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require sweetalert.min.js
 //= require magnific/jquery.magnific-popup.min.js
 //= require jquery-queryParser.min.js
 //= require tabslet/jquery.tabslet.min.js
@@ -26,7 +27,6 @@
 //= require js/jquery.ajaxchimp.min.js
 //= require js/jquery.baraja.js
 //= require js/jquery.appear.js
-
 //= require js/jquery.easing.1.3.js
 //= require js/jquery.fitvids.js
 //= require js/jquery.nav.js
