@@ -1,8 +1,9 @@
+$(document).on('ready', function(){
 var resource_id
 
 $(function(){
   $('a.btn.btn-danger.btn-sm').on('click', function(){
-    debugger
+
       resource_id= this.parentElement.id;
       $.ajax({
         method: "POST",
@@ -17,3 +18,4 @@ $(function(){
     $('div#tab-1').remove(completed_resource);
   })
 })
+

@@ -79,7 +79,30 @@ exp_arr.each do |resource|
   exp.save
 end 
 
+slope_arr = [ {title:"Slope, Gradient, and Slope Intercept", 
+        description:"The slope or degree of slant of a line is defined as the degree of steepness or incline ...", 
+        content:"https://www.wyzant.com/resources/lessons/math/algebra/slope", 
+        type_of:"Reading"}, 
 
+        {title:"Algebra Functions - Slope", 
+        description:"Know these formulas by heart.", 
+        content:"https://sites.google.com/a/pvlearners.net/slope/_/rsrc/1303334732367/resources/slope-form-algebra-student-nurses-1.1-800X800.jpg", 
+        type_of:"Image"}, 
 
-var.assessments.create(challenge?: false)
+        {title: "Find Slope and Rate of Change", 
+        description: "Cool vid.", 
+        content: "https://www.youtube.com/watch?v=yJVtt5zg9mk", 
+        type_of: "Video"}, 
+
+        {title:"y = mx + b", 
+        description:"This cool guy will teach you how to solve the slope intercept form.", 
+        content:"https://www.youtube.com/watch?v=u3spOO-m_Gg&nohtml5=False", 
+        type_of:"Video"}, 
+]
+
+slope_arr.each do |resource| 
+  slope.resources.create(resource)
+  slope.save
+end 
+
 

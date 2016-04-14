@@ -45,6 +45,7 @@ class TracksController < ApplicationController
     end
     @track = Track.create(name: params[:name], description: params[:description], teacher_id: current_user.teacher.id, category_id: params[:category_id])
     @track.save
+
     @lesson = @track.lessons.build()
     @teacher = current_user.teacher
     #redirect_to track_path(@track)
