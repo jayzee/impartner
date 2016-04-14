@@ -3,6 +3,7 @@ $(document).on('ready', function(){
 
   $('form#new_track').on('submit', function(){
       event.preventDefault();
+      event.stopPropagation();
 
       $.ajax({
           url: '/tracks',
@@ -15,7 +16,6 @@ $(document).on('ready', function(){
 
               $('#new_form').append("<p>Congratulations, you've succesfully created a new track. The new track is<br> <strong>" + data["track"]["name"] + "</strong>.</p>");
               $('#new_form').append(data["return"]["partial"]);
-
 
           }
       })
