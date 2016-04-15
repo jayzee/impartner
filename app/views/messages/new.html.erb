@@ -1,8 +1,8 @@
-hola!
-<%= form_for @message do |f| %>
+<%= form_for @message, method: "POST", url: "/users/#{params[:user_id]}/messages" do |f| %>
 
-  <%= f.hidden_field(:message, :sender_id) %>
-  Recipient: <%= f.text_field :Recipient %>
-  Content: <%= f.text_field :content %>
-  <%= f.submit %>
-  <% end %>
+  <%= f.hidden_field(:sender_id) %>
+  <p>Recipient:</p> 
+  <p><%= f.text_field  :recipient_id %></p>
+  <p>Content:</p> <p><%= f.text_area :content %></p>
+  <%= f.submit "create_message"%>
+<% end %>
