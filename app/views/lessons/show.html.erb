@@ -11,9 +11,9 @@
 </h2>
 
  <div class='tabs tabs_active'>
-    <ul class='horizontal'>
-      <li><a href="#tab-1">Resources</a></li>
-      <li><a href="#tab-2">Assessments</a></li>
+    <ul class='horizontal list-group'>
+      <li class="list-group-item"><span class="badge"><%= @incomplete_resources.length %></span><a href="#tab-1">Resources</a></li>
+      <li class="list-group-item"><span class="badge"><%= @assessments.last.questions.length - @student.answers.find_all{|a| a.assessment == @assessments.last}.length %></span><a href="#tab-2">Assessments</a></li>
     </ul>
     <div id='tab-1'><%= render "resources/show" %></div>
     <div id='tab-2'><%= render partial: "resources/assessments", locals: {assessments: @assessments, answer: @answer, student: @student} %></div>
