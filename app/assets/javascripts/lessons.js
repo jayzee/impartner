@@ -1,4 +1,7 @@
 $(function(){
+  $('.tabs').tabslet({
+    animation: true
+  });
 
   $('#popup-youtube, #popup-vimeo, #popup-gmaps').magnificPopup({
     disableOn: 700,
@@ -38,16 +41,11 @@ $(function(){
 
   });
 
-
   $(document).ajaxSuccess(function(){
     swal("Good job!", "You've earned 5 points.", "success");
     card.remove();
     $("#tab-3 #card-ul").append(card);
   });
-
-
-
-//});
 
   $('form#new_lesson').on('submit', function(){
     event.preventDefault();

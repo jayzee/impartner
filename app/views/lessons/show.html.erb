@@ -2,8 +2,11 @@
 
 <h2>Lesson Content
   <% if current_user.teacher == @lesson.track.teacher %>
-    <%= link_to "Add Resource", new_lesson_resource_path(@lesson.id), class: "btn btn-default btn-lg" %>
-    <%= button_to "Create Assessment", {:controller => "assessments", :action => "create", :lesson_id => @lesson.id}, :method => :post, class: "btn btn-default btn-lg" %>
+
+    <%= link_to "Add Resource", new_lesson_resource_path(@lesson), class: "btn btn-default btn-lg" %>
+
+    <%= link_to "Create Assessment", new_lesson_assessment_path(@lesson), class: "btn btn-default btn-lg"%>
+
   <% end %>
 </h2>
 
