@@ -13,6 +13,14 @@
 class AssessmentsController < ApplicationController
   before_action :authorized_to_interact, only: [:edit]
 
+  def new
+    @lesson = Lesson.find(params[:lesson_id])
+    @assessment = @lesson.assessments.build()
+    @assessment.save 
+
+    redirect_to new_assessment_question_path(@assessment)
+  end 
+
   def show
     @assessment = Assessment.find(params[:id])
     @questions = @assessment.questions

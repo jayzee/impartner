@@ -1,9 +1,9 @@
 <div class="question-bank"></div>
 
-<%= form_for @question, {remote: true, url: assessment_questions_path} do |f|%>
+<%= form_for @question, {url: assessment_questions_path(@assessment)} do |f|%>
   <%= f.label :content, "Question" %>
   <%= f.text_field :content %>
   <%= f.submit "Add Question", class: "add-question" %>
 <% end %>
 
-<%= link_to "Save Assessment", assessment_path(@assessment), class: "btn btn-success btn-lg"%>
+<%= link_to "Save Assessment", lesson_path(@lesson), class: "btn btn-success btn-lg"%>

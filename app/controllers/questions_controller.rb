@@ -15,11 +15,13 @@ class QuestionsController < ApplicationController
 
   def new
     @assessment = find_assessment
+    @lesson = @assessment.lesson
     @question = @assessment.questions.build()
   end 
 
   def create 
     @assessment = find_assessment
+    @lesson = @assessment.lesson
     @question = @assessment.questions.build(question_params)
     @question.save
     

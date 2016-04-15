@@ -1,4 +1,7 @@
 $(function(){
+  $('.tabs').tabslet({
+    animation: true
+  });
 
   $('#popup-youtube, #popup-vimeo, #popup-gmaps').magnificPopup({
     disableOn: 700,
@@ -38,8 +41,6 @@ $(function(){
   
   });
 
-
-});
 
   $('form#new_lesson').on('submit', function(){
     event.preventDefault();

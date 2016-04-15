@@ -1,7 +1,7 @@
 $(function(){
   $('.add-question').on('click', function(e){
     var form = $(this).parent('form');
-
+    var content_field = $('#question_content');
     e.preventDefault();
 
     $.ajax({
