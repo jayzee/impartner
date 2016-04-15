@@ -31,10 +31,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
-<<<<<<< HEAD
 gem 'httparty'
-=======
->>>>>>> 6bf2bcafd750ff4e2314f20c8dbf0e432e95c629
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
