@@ -3,7 +3,7 @@
 <h2>Lesson Content
   <% if current_user.teacher == @lesson.track.teacher %>
     <%= link_to "Add Resource", new_lesson_resource_path(@lesson.id), class: "btn btn-default btn-lg" %>
-    <%= link_to "Create Assessment", new_lesson_assessment_path(@lesson.id), class: "btn btn-default btn-lg" %>
+    <%= button_to "Create Assessment", {:controller => "assessments", :action => "create", :lesson_id => @lesson.id}, :method => :post, class: "btn btn-default btn-lg" %>
   <% end %>
 </h2>
 
@@ -13,7 +13,7 @@
       <li><a href="#tab-2">Assessments</a></li>
     </ul>
     <div id='tab-1'><%= render "resources/show" %></div>
-    <div id='tab-2'><%= render "resources/assessments" %></div>
+    <div id='tab-2'><%= render partial: "resources/assessments", locals: {assessments: @assessments, answer: @answer, student: @student} %></div>
 </div>
 
 <hr>

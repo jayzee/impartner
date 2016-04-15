@@ -1,3 +1,19 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(function(){
+  $('.add-question').on('click', function(e){
+    var form = $(this).parent('form');
+
+    e.preventDefault();
+
+    $.ajax({
+      type: "POST", 
+      url: form.attr('action'), 
+      data: form.serialize(),
+
+      success: function(data){
+        $('.question-bank').append("<li>" + data.id + ". " + data.content + "</li>");
+        content_field.val('');
+      }, 
+      dataType: 'JSON'
+    });
+  });
+});

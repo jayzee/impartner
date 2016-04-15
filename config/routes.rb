@@ -18,6 +18,10 @@ Rails.application.routes.draw do
     resources :questions
   end
 
+  resources :questions do 
+    resources :answers
+  end 
+
   resources :users
 
   resources :students_tracks
