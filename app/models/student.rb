@@ -18,6 +18,7 @@ class Student < ActiveRecord::Base
   has_many :resources, through: :students_resources
   has_many :students_assessments
   has_many :assessments, through: :students_assessments
+  has_many :answers
 
   def check_resource_completion(item)
     item.completed ? true : false
@@ -59,6 +60,10 @@ class Student < ActiveRecord::Base
         return 0
     end
   end
+
+  def find_answer(question)
+    self.answers.select { |answer| answer.question == question}
+  end 
 
 
 end

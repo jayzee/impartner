@@ -1,5 +1,4 @@
 $(function(){
-  $('.tabs').tabslet();
 
   $('#popup-youtube, #popup-vimeo, #popup-gmaps').magnificPopup({
     disableOn: 700,
@@ -18,7 +17,7 @@ $(function(){
     image: {
       verticalFit: true
     }
-    
+
   });
 
   var resource_id;
@@ -29,19 +28,26 @@ $(function(){
       resource_id= card.id;
       $.ajax({
         method: "POST",
-        url: "/resources/"+ resource_id + "/complete"
+        url: "/resources/"+ resource_id + "/complete",
+        success: function(){
+          swal("Good job!", "", "success");
+          card.remove();
+          $("#tab-3 #card-ul").append(card);
+        }
       })
-  
+
   });
 
+
   $(document).ajaxSuccess(function(){
-    swal("Good job!", "", "success");
+    swal("Good job!", "You've earned 5 points.", "success");
     card.remove();
     $("#tab-3 #card-ul").append(card);
   });
 
 
-});
+
+//});
 
   $('form#new_lesson').on('submit', function(){
     event.preventDefault();
@@ -53,7 +59,7 @@ $(function(){
       data: {'title' : $('#lesson_title').val(), 'duration' : $('#lesson_duration').val(), 'track_id' : $('#lesson_track_id').val(), 'ajax_stuff' : 'yes' },
       dataType: "json",
       success: function(data){
-        
+
         $('form').hide();
 
         $('#lesson_form').append("<p>You've created a new lesson called <strong>" + data["lesson"]["title"] + "</strong><br><br>");
@@ -67,4 +73,3 @@ $(function(){
 
 
 });
-

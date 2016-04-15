@@ -13,20 +13,28 @@
 <% end %>
 <br><br>
 
+<% if @is_enrolled == true %>
 <ul>
   <% @lessons.each do |lesson| %>
     <li><%= link_to lesson.title, lesson_path(lesson) %> - <%= lesson.duration %></li>
   <% end %>
 </ul>
 
-<% if @is_enrolled == false %>
-
-    <%= form_tag students_tracks_path, method: :post do %>
-    <%= hidden_field_tag(:track_id, @track.id) %>
-      <%= submit_tag "Enroll" %>
-    <% end %>
-<% else %>
   <p>You Are ENROLLED!! Get ready to Learn!</p>
+<% else %>
+
+<p>Enroll to see get started</p>
+      <ul>
+        <% @lessons.each do |lesson| %>
+          <li><%= lesson.title %> - <%= lesson.duration %></li>
+        <% end %>
+      </ul>
+
+        <%= form_tag students_tracks_path, method: :post do %>
+        <%= hidden_field_tag(:track_id, @track.id) %>
+          <%= submit_tag "Enroll" %>
+        <% end %>
+
 
 <% end %>
 

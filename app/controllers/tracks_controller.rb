@@ -39,7 +39,6 @@ class TracksController < ApplicationController
 
   def create
 
-
     if current_user.teacher == nil
         Teacher.create(user_id: current_user.id)
     end
