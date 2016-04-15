@@ -2,10 +2,13 @@ class MessagesController < ApplicationController
 
   def new
     @message= Message.new
-    binding.pry
   end
 
   def create
+    sender_id = params[:user_id]
+    rec_id= User.find_by(email: params[:message][:recipient_id]).id
+    @message = Message.create(sender_id: sender_id, recipient_id: rec_id, content: params[:message][:content])
+    redirect_to "/users/"+sender_id+"/messages"
   end
 
   def show
