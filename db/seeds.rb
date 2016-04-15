@@ -105,4 +105,7 @@ slope_arr.each do |resource|
   slope.save
 end 
 
+message_to_teacher= Message.create(sender_id: 1, recipient_id: 2, content: "HEYO IT BOBBO")
+response_to_student= Message.create(sender_id: 2, recipient_id: 1, content: "Never say that again.")
+
 

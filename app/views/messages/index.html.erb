@@ -1,0 +1,8 @@
+<% @messages.each do |msg| %>
+  <div class= "message">
+  <p class="sender">Sent by: <%= User.find_by(msg.sender_id).email %></p>
+  <p class="receiver">Received by: <%= User.find_by(msg.recipient_id).email %></p>
+  <p class="conent">Content: <%= msg.content %></p>
+  </div>
+  <br><br>
+  <% end %>

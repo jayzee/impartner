@@ -18,9 +18,12 @@ Rails.application.routes.draw do
     resources :questions
   end
 
-  resources :users
+  resources :users do 
+    resources :messages
+  end
 
   resources :students_tracks
+
 
   post 'resources/:id/complete' => 'resources#complete', as: :complete_element
 

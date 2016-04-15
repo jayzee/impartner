@@ -1,0 +1,8 @@
+hola!
+<%= form_for @user_message do |f| %>
+
+  <%= f.hidden_field(:message, :sender_id) %>
+  Recipient: <%= f.text_field :Recipient %>
+  Content: <%= f.text_field :content %>
+  <%= f.submit %>
+  <% end %>
