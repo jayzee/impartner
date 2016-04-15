@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:twitter, :google_oauth2]
   has_one :student
   has_one :teacher
+  has_many :messages
 
   def self.from_omniauth(auth)
     binding.pry

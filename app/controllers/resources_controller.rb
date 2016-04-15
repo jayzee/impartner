@@ -15,20 +15,20 @@
 
 class ResourcesController < ApplicationController
 
-  before_action :authorized_to_interact, only: [:edit] 
+  before_action :authorized_to_interact, only: [:edit]
 
 
   def new
     @lesson = find_lesson
     @resource = @lesson.resources.build()
-  end 
+  end
 
   def create
     @lesson = find_lesson
     @resource = @lesson.resources.build(resource_params)
     @lesson.save
     redirect_to lesson_path(@lesson)
-  end 
+  end
 
   def edit
 
@@ -37,24 +37,26 @@ class ResourcesController < ApplicationController
   def complete
     @student = Student.find_by(user_id: current_user)
     @student.complete_resource(params[:id])
-    render nothing: true 
+    binding.pry
+    current_user.add_points(5)
+    render nothing: true
   end
 
   private
 
   def find_lesson
     Lesson.find(params[:lesson_id])
-  end 
+  end
 
   def resource_params
     params.require(:resource).permit(:type_of, :description, :title, :content)
-  end 
+  end
 
   def authorized_to_edit
     @resource=Resource.find(params[:id])
     @teacher= Teacher.find(@resource.lesson.track.teacher_id)
     if session[:user_id] != @teacher.user_id
-        redirect_to root_path, notice: "You must be a Track's teacher in order to edit its contents" 
+        redirect_to root_path, notice: "You must be a Track's teacher in order to edit its contents"
     end
   end
 

@@ -54,6 +54,7 @@
               <li><a href="/users/<%= current_user.id%>#Enrolled%20Tracks">My Enrolled Tracks</a></li>
               <li><a href="/users/<%= current_user.id%>#Classes%20Taught">My Created Tracks</a></li>
               <li><a href="/users/<%= current_user.id%>">Account</a></li>
+              <li><a href="/users/<%= current_user.id%>/messages">Messages</a></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
             </ul>
