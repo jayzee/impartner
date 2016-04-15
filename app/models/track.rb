@@ -27,11 +27,11 @@ class Track < ActiveRecord::Base
   end
 
   def is_user_a_student_of_track(user)
-    if user.student != nil 
+    if user.student != nil
       student = StudentsTrack.find_by(student_id: user.student.id, track_id: self.id)
-    else 
+    else
       student = nil
-    end 
+    end
 
     if student != nil
       return true
@@ -39,6 +39,18 @@ class Track < ActiveRecord::Base
       return false
     end
 
+  end
+
+
+  #method to return an array of all the students in a track
+  def students_in_the_track
+    self.students
+  end
+
+
+  # method to return an array of all the students in a class ranked by points
+  def students_in_the_track_ranked(track)
+    self.students.sort_by { |student| student.user.points}
   end
 
 
