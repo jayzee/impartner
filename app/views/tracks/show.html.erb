@@ -31,7 +31,15 @@
 <% end %>
 
 <% if current_user.teacher %>
-  <% if @teacher.id == current_user.teacher.id%> 
+  <% if @teacher.id == current_user.teacher.id%>
     <p><%= link_to "Add a Lesson", new_track_lesson_path(@track) %></p>
   <% end %>
 <% end %>
+
+<div class="create-new-track">
+  <br>
+  <%= link_to(category_path(@track.category)) do %>
+  <p><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    Return to <%= @track.category.title %> Tracks</p>
+    <% end %>
+</div>

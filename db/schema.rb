@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20160414204905) do
     t.string   "content"
   end
 
+ActiveRecord::Schema.define(version: 20160415141715) do
+
   create_table "assessments", force: :cascade do |t|
     t.integer  "lesson_id"
     t.boolean  "challenge?"
@@ -44,6 +46,14 @@ ActiveRecord::Schema.define(version: 20160414204905) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "order_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.string   "content"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "questions", force: :cascade do |t|

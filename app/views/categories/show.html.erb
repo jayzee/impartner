@@ -1,9 +1,17 @@
 <h1> <%= @category.title %> </h1>
 <ul>
   <% @tracks.each do |track| %>
-    <li><%= link_to track.name, track_path(track) %> - <%= track.description %></li> 
+    <li><%= link_to track.name, track_path(track) %> - <%= track.description %></li>
   <% end %>
 
 </ul>
+<br><br>
 
-  <%= link_to "Create a New Track", new_category_track_path(@category.id) %>
+<div class="create-new-track">
+  <p><%= link_to "Create a New Track", new_category_track_path(@category.id) %></p>
+  <br>
+  <%= link_to(root_path) do %>
+  <p><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    Return to Category Selection</p>
+    <% end %>
+</div>
