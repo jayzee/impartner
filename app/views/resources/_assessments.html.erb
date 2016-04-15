@@ -1,2 +1,26 @@
+<% assessments.each do |assessment| %>
 
-  
+  <% assessment.questions.each_with_index do |question, index| %>
+    <%= index + 1 %>. <%= question.content %><br>
+
+    <div class="answer-<%= question.id %>">
+
+    <% if student.find_answer(question).empty? %> <!-- checks if student already answered question -->
+      <%= simple_form_for question.answers.build(), {url: question_answers_path(question)} do |f| %>
+        <%= f.text_field  :content %>
+        <%= f.input :student_id, :as => :hidden, :input_html => { :value => student.id } %>
+        <%= f.input :assessment_id, :as => :hidden, :input_html => { :value => assessment.id} %>
+        <%= f.input :question_id, :as => :hidden, :input_html => { :value => question.id} %>
+        <%= f.submit "Answer", id: "answer" %><br>
+      <% end %>
+    <% else %>
+        <%= student.find_answer(question)[0].content %><br>
+        <%= link_to "Edit Answer", '#' %>
+    <% end %>
+
+    </div>
+
+    
+  <% end %>
+
+<% end %>

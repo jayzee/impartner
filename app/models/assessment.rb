@@ -15,4 +15,5 @@ class Assessment < ActiveRecord::Base
   has_many :students_assessments
   has_many :students, through: :students_assessments
   has_many :questions
+  has_many :answers, through: :questions
 end
