@@ -5,9 +5,10 @@ $(function(){
 
     var form = $(this);
     var answer = form.parent('div');
+    var answer_id = answer.attr("class").match(/\d+/)
     var edit = "<a href='#''>Edit Answer</a>";
     var badge = parseInt($("li.list-group-item.active > span").text())
-    debugger;
+
     $.ajax({
       type: "POST", 
       url: form.attr('action'), 
