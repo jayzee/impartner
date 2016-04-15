@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 
   def new
-    @message= Message.new(sender_id: params[:user_id])
+    @message= Message.new
     binding.pry
   end
 

@@ -1,5 +1,5 @@
 $(function(){
-  $('form').on('submit', function(e){
+  $('.new_answer').on('submit', function(e){
     e.preventDefault();
     
 
