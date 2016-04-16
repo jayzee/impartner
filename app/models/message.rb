@@ -26,9 +26,7 @@ class Message < ActiveRecord::Base
 
   def self.messages_of(user_id)
     where_user_is_recipient= Message.where(sender_id: user_id) 
-    where_user_is_sender= Message.where(recipient_id: user_id)
- 
-    
+    where_user_is_sender= Message.where(recipient_id: user_id)   
     where_user_is_recipient.each do |msg|
       where_user_is_sender << msg
     end
