@@ -50,7 +50,7 @@ class Student < ActiveRecord::Base
     total_lessons_array = track.lessons
 
     completed_array = self.students_lessons.find_all do |studentLes|
-        (studentLes.completed) == true && (track.id == studentLes.track_id)
+        (studentLes.completed) == true && (track.id == studentLes.lesson.track.id)
     end
     #completed_contents = total_lessons_array.find_by(completed: true)
 
