@@ -9,8 +9,12 @@
           <h3><%= track.name %></h3>
           <p><%= track.description %></p>
           <p>
-            <a href="<%= track_path(track) %>" class="btn btn-primary" role="button">Preview Track</a> 
-            <%= link_to "Enroll", students_tracks_path(track_id: track.id), :method => :post, class: "btn btn-default", role: "button" %>
+            <% if current_user.student.tracks.include?(track) || current_user.teacher == track.teacher %>
+              <a href="<%= track_path(track) %>" class="btn btn-primary" role="button">Open Track</a> 
+            <% else %>
+              <a href="<%= track_path(track) %>" class="btn btn-primary" role="button">Preview Track</a> 
+              <%= link_to "Enroll", students_tracks_path(track_id: track.id), :method => :post, class: "btn btn-default", role: "button" %>
+            <% end %>
           </p>
         </div>
       </div>
