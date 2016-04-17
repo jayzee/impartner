@@ -1,4 +1,4 @@
-<h1><%= @lesson.title %></h1>
+<h1><%= @lesson.title %> in the <%= link_to @lesson.track.name, track_path(@lesson.track) %> Track</h1>
 
 <h2>Lesson Content
   <% if current_user.teacher == @lesson.track.teacher %>
@@ -15,7 +15,7 @@
       <% if !@incomplete_resources.nil? %>
         <li class="list-group-item"><span class="badge"><%= @incomplete_resources.length %></span><a href="#tab-1">Resources</a></li>
       <% end %>
-      
+
       <% if !@assessments.nil? && !@assessments.last.nil? %>
         <li class="list-group-item"><span class="badge"><%= @assessments.last.questions.length - @student.answers.find_all{|a| a.assessment == @assessments.last}.length %></span><a href="#tab-2">Assessments</a></li>
       <% end %>
