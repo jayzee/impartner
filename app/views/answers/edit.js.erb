@@ -1,0 +1,4 @@
+$(".answer-<%= @answer.id %>").parent().parent().toggleClass("panel panel-primary panel panel-default");
+$('.edit-answer <%= @answer.id %>').hide();
+$('.answer-<%= @answer.id %>').text('');
+$('.answer-<%= @answer.id %>').append("<%= j render 'edit' %>");

@@ -22,6 +22,27 @@ class AnswersController < ApplicationController
     end 
   end 
 
+  def edit
+    @question = Question.find(params[:question_id])
+    @answer = Answer.find(params[:id])
+    @string = render_to_string(:layout => edit_question_answer_path, :layout => false, locals: {:question => @question, :answer => @answer})
+
+    respond_to do |format| 
+      format.js 
+    end 
+  end 
+
+
+  def update
+    @question = Question.find(params[:question_id])
+    @answer = Answer.find(params[:id])
+    @answer.update(answer_params)
+
+    respond_to do |format| 
+      format.js 
+    end 
+  end 
+
   private 
 
   def answer_params

@@ -30,10 +30,6 @@ class ResourcesController < ApplicationController
     redirect_to lesson_path(@lesson)
   end
 
-  def edit
-
-  end
-
   def complete
     @student = Student.find_by(user_id: current_user)
     @student.complete_resource(params[:id])
