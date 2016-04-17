@@ -6,10 +6,14 @@
   </a>
 
   <ul>
-    <li><a href="#0" class="active"><span>Home</span></a></li>
-    <li><a href="#0"><span>My Tracks</span></a></li>
-    <li><a href="#0"><span>My Account</span></a></li>
-    <li><a href="#0"><span>Sign Out</span></a></li>
+    <% if user_signed_in? %>
+      <li><a href="/" class="active"><span>Home</span></a></li>
+      <li><a href="/users/<%= current_user.id%>">Account</a></li>
+      <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
+    <% else %>
+      <li><a href="/" class="active"><span>Home</span></a></li>
+      <li><%=  link_to "Log In", new_user_session_path%></li>
+    <% end %>
   </ul>
 
   <span aria-hidden="true" class="stretchy-nav-bg"></span>
