@@ -46,7 +46,7 @@ class Student < ActiveRecord::Base
   end
 
   def percent_complete(track)
-
+  
     total_lessons_array = track.lessons
 
     completed_array = self.students_lessons.find_all do |studentLes|
@@ -63,7 +63,7 @@ class Student < ActiveRecord::Base
 
   def find_answer(question)
     self.answers.select { |answer| answer.question == question}
-  end 
+  end
 
 
 end
