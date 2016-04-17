@@ -38,6 +38,7 @@ user4.password_confirmation = "password4"
 user4.save
 
 teacher = Teacher.create(user_id: 1)
+teacher2 = Teacher.create(user_id: 4)
 categories = ["STEM", "Health", "Music", "Language", "History", "Art"]
 
 categories.each do |category|
@@ -48,6 +49,8 @@ stem = Category.find_by(title: "STEM")
 health = Category.find_by(title: "Health")
 music = Category.find_by(title: "Music")
 language = Category.find_by(title: "Language")
+history = Category.find_by(title: "History")
+art = Category.find_by(title: "Art")
 
 
 algebra = stem.tracks.create(name: "Algebra", description: "Learn a lot of algebra!")
@@ -57,14 +60,18 @@ english = language.tracks.create(name: "English 101", description: "Where art th
 ruby = stem.tracks.create(name: "Intro to Ruby", description: "Get your programming on!")
 train = stem.tracks.create(name: "How Trains Work", description: "Because you always wondered..")
 g_and_s = music.tracks.create(name: "Appreciating Operrettas: Gilbert and Sullivan", description: "You'll soon be able to whistle all the airs from that infenral non-sense, Pinafore!")
+jazz = music.tracks.create(name: "History of Jazz", description: "Get hip on jazz!")
+ancientEgypt = history.tracks.create(name: "Ancient Egypt", description: "Understanding the Ancient Civilization")
+pollock = art.tracks.create(name: "Jackson Pollock", description: "Art Visionary")
 
+arr_track = [algebra, thai, ukulele, english, ruby, train, g_and_s, jazz, ancientEgypt, pollock]
 
-arr_track = [algebra, thai, ukulele, english, ruby, train, g_and_s]
 
 arr_track.each do |track|
   track.teacher = teacher
   track.save
 end
+
 
 var = algebra.lessons.create(title: "Variables", duration: "20 minutes", order_id: 1)
 exp = algebra.lessons.create(title: "Expressions", duration: "60 minutes", order_id: 2)
@@ -201,5 +208,234 @@ end
 message_to_teacher= Message.create(sender_id: 1, recipient_id: 2, content: "HEYO IT BOBBO")
 response_to_student= Message.create(sender_id: 2, recipient_id: 1, content: "Never say that again.")
 
+#josh's seed data -----------------------------------------------------#
+#jazz
+theBeginnings = jazz.lessons.create(title: "The Beginnings of Jazz", duration: "40 minutes", order_id: 1)
+bebop = jazz.lessons.create(title: "Bebop: The changing sound", duration: "120 minutes", order_id: 2)
+milesDavis = jazz.lessons.create(title: "Miles Davis", duration: "100 minutes", order_id: 3)
 
+theBeginnings_arr = [ {title:"Jazz Timeline",
+        description:"Follow this timeline to understand when and where Jazz was happening",
+        content:"http://www.jazzinamerica.org/jazzresources/timeline",
+        type_of:"Reading"},
 
+        {title:"The Changing Sound",
+        description:"A review of the various types of sounds that comprise jazz.",
+        content:"http://teacher.scholastic.com/activities/bhistory/history_of_jazz.htm",
+        type_of:"Reading"},
+
+        {title:"Blulight Films present a History of Jazz",
+        description:"The big stars of jazz music in a film memorable!",
+        content:"https://www.youtube.com/watch?v=86wy824lpM0",
+        type_of:"Video"},
+
+        {title:"The Jazz Age Documentary",
+        description:"The JAZZ AGE captures America as it went through profound and exhilarating change in morals and manners from the end of world war I to the great crash of 1929.",
+        content:"https://www.youtube.com/watch?v=_cbWqfAd390",
+        type_of:"Video"},
+]
+
+theBeginnings_arr.each do |resource|
+  theBeginnings.resources.create(resource)
+  theBeginnings.save
+end
+
+bebop_arr = [ {title:"Bebop Roots and Renaissance",
+        description:"The first major innovation that destabilized the world order introduced by swing was bebop.",
+        content:"http://www.scaruffi.com/history/jazz8.html",
+        type_of:"Reading"},
+
+        {title:"How Bebop Came to Be",
+        description:"Bebop, despite its rather short lifespan, would become a key influence for every style that
+came after it.",
+        content:"http://cupola.gettysburg.edu/cgi/viewcontent.cgi?article=1263&context=student_scholarship",
+        type_of:"Reading"},
+
+        {title:"What is Jazz, Bebop and Improvisation?",
+        description:"Dr. Billy Taylor and Vincent Herring discuss Jazz, improvisation and Bebop",
+        content:"https://www.youtube.com/watch?v=Shy0l6aTWWQ",
+        type_of:"Video"}
+]
+
+bebop_arr.each do |resource|
+  bebop.resources.create(resource)
+  bebop.save
+end
+
+milesDavis_arr = [ {title:"Kids Music Corner: Miles Davis",
+        description:"An introduction to Miles Davis aimed at kids",
+        content:"http://kidsmusiccorner.co.uk/composers/jazz/miles-davis/",
+        type_of:"Reading"},
+
+        {title:"In his own words",
+        description:"MilesDavis.com does an in-depth look on Miles.",
+        content:"https://www.milesdavis.com/biography/",
+        type_of:"Reading"},
+
+        {title:"Birth of the Cool",
+        description:"The complete Birth of the Cool album for you to listen to.",
+        content:"https://www.youtube.com/watch?v=v8kjOpfMBbM",
+        type_of:"Video"},
+
+        {title:"Kind of Blue",
+        description:"The complete album of the acclaimed Jazz album",
+        content:"https://www.youtube.com/watch?v=kbxtYqA6ypM",
+        type_of:"Video"},
+
+        {title:"Live in 1964",
+        description:"See a rare vintage performance of the Miles Davis Quintet in 1964",
+        content:"https://www.youtube.com/watch?v=kJq3j4rA0o0",
+        type_of:"Video"}
+]
+
+milesDavis_arr.each do |resource|
+  milesDavis.resources.create(resource)
+  milesDavis.save
+end
+
+#Egypt
+earlyHistory = ancientEgypt.lessons.create(title: "Early History", duration: "40 minutes", order_id: 1)
+theHyksos = ancientEgypt.lessons.create(title: "The Hyksos", duration: "60 minutes", order_id: 2)
+newkingdom = ancientEgypt.lessons.create(title: "The New Kingdom", duration: "40 minutes", order_id: 3)
+
+earlyHistory_arr = [ {title:"Intro to Early History of Egypt",
+        description:"A high level review of the early history of Egypt",
+        content:"http://www.historyworld.net/wrldhis/PlainTextHistories.asp?ParagraphID=aqe",
+        type_of:"Reading"},
+
+        {title:"Pre-Dynastic Period",
+        description:"The Predynastic Period of Ancient Egypt (prior to 3100 BC) is traditionally the period between the Early Neolithic and the beginning of the Pharaonic monarchy starting with King Narmer.",
+        content:"http://www.cemml.colostate.edu/cultural/09476/egypt02-02enl.html",
+        type_of:"Reading"},
+
+        {title:"Documentary on Ancient Egypt",
+        description:"Ancient Egypt Documentary - Complete History - 8000 B.C. to 30 B.C. Part 1",
+        content:"https://www.youtube.com/watch?v=KuUMe-43A3E",
+        type_of:"Video"},
+
+        {title:"Secrets of the Pyramids",
+        description:"A different take on the purpose, design and significance of the pyramids in Egypt. ",
+        content:"https://www.youtube.com/watch?v=rcKahraBiBY",
+        type_of:"Video"},
+]
+
+earlyHistory_arr.each do |resource|
+  earlyHistory.resources.create(resource)
+  earlyHistory.save
+end
+
+theHyksos_arr = [ {title:"Hyksos in Egypt",
+        description:"This video consists of scenes from the documentary entitled 'Egypts Golden Empire - Series 1 - Ep 1' and other clips concerning the fall of Avaris in ancient Egypt",
+        content:"https://www.youtube.com/watch?v=rZZXOztBiUc",
+        type_of:"Video"},
+
+        {title:"Hyksos - Further Readings",
+        description:"Ancient Egypt online reveals who the Hyksos were.",
+        content:"http://www.ancientegyptonline.co.uk/hyksos.html",
+        type_of:"Reading"},
+
+        {title:"Forgotten Empires",
+        description:"A deep look into ancient empires",
+        content:"https://www.youtube.com/watch?v=5hBX0yRaJ5w",
+        type_of:"Video"}
+]
+
+theHyksos_arr.each do |resource|
+  theHyksos.resources.create(resource)
+  theHyksos.save
+end
+
+newkingdom_arr = [ {title:"Extensive Review of the New Kingdom of Ancient Egypt",
+        description:"The exhaustive wikipedia article is essential reading",
+        content:"https://en.wikipedia.org/wiki/New_Kingdom_of_Egypt",
+        type_of:"Reading"},
+
+        {title:"The Met: New Kingdom",
+        description:"Late in the Second Intermediate Period (ca. 1640–1550 B.C.), the Theban rulers (Dynasty 17) began to drive the Hyksos kings (Dynasty 15) from the Delta.",
+        content:"http://www.metmuseum.org/toah/hd/nking/hd_nking.htm",
+        type_of:"Reading"},
+
+        {title:"New Kingdom History",
+        description:"An in-depth documentary produced by PBS.",
+        content:"https://www.youtube.com/watch?v=petQs5yl3dk",
+        type_of:"Video"}
+]
+
+newkingdom_arr.each do |resource|
+  newkingdom.resources.create(resource)
+  newkingdom.save
+end
+
+#Jackson Pollock
+influences = pollock.lessons.create(title: "Early History", duration: "40 minutes", order_id: 1)
+work = pollock.lessons.create(title: "The Hyksos", duration: "120 minutes", order_id: 2)
+abstractExpressionism = pollock.lessons.create(title: "The New Kingdom", duration: "100 minutes", order_id: 3)
+
+influences_arr = [ {title:"A brief biography",
+        description:"Understanding an artist's background is critical to understanding an artist",
+        content:"http://www.jackson-pollock.org/",
+        type_of:"Reading"},
+
+        {title:"A brief overview of his early years",
+        description:"Jackson Pollock is one of the most famous painters of contemporary world of arts who is often regarded as one of the pioneers of modern art.",
+        content:"http://www.thefamouspeople.com/profiles/paul-jackson-pollock-1718.php",
+        type_of:"Reading"},
+
+        {title:"Mini Bio: Jackson Pollock",
+        description:"Famous for his drip paintings, Jackson Pollock was born on January 28, 1912. ",
+        content:"https://www.youtube.com/watch?v=TCEgtPAhtuo",
+        type_of:"Video"},
+]
+
+influences_arr.each do |resource|
+  influences.resources.create(resource)
+  influences.save
+end
+
+work_arr = [ {title:"Drip",
+        description:"Review of Pollock's unique style",
+        content:"http://www.wikiart.org/en/jackson-pollock",
+        type_of:"Reading"},
+
+        {title:"Pollock",
+        description:"Critical review of Pollock's most important work.",
+        content:"https://www.youtube.com/watch?v=JZ3glUYHa3Q",
+        type_of:"Video"},
+
+        {title:"Jackson Pollock 51",
+        description:"Watch the artist at work.",
+        content:"https://www.youtube.com/watch?v=CrVE-WQBcYQ",
+        type_of:"Video"}
+]
+
+work_arr.each do |resource|
+  work.resources.create(resource)
+  work.save
+end
+
+abstractExpressionism_arr = [ {title:"Abstract Expressionism",
+        description:"Review where it came from and why it started",
+        content:"http://www.theartstory.org/movement-abstract-expressionism.htm",
+        type_of:"Reading"},
+
+        {title:"Khan Academy: Abstract Expressionism",
+        description:"The group of artists known as Abstract Expressionists emerged in the US following World War II. As the term suggests, their work was characterized by non-objective imagery that appeared emotionally charged with personal meaning. ",
+        content:"https://www.khanacademy.org/humanities/art-1010/abstract-exp-nyschool/abstract-expressionism/a/abstract-expressionism-an-introduction",
+        type_of:"Reading"},
+
+        {title:"Lecture on Abstract Expressionism",
+        description:"This video lecture on Abstract Expressionism was created for my Modern Literature & the Arts class.",
+        content:"https://www.youtube.com/watch?v=mHpK195OAK8",
+        type_of:"Video"},
+
+        {title:"The revolutionary techniques in Abstract expressionism",
+        description:"Breaking boundries and Jackson Pollock's influence on the movement.",
+        content:"https://www.youtube.com/watch?v=tukWl5CCJLU",
+        type_of:"Video"}
+
+]
+
+abstractExpressionism_arr.each do |resource|
+  abstractExpressionism.resources.create(resource)
+  abstractExpressionism.save
+end
