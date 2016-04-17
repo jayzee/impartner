@@ -1,8 +1,19 @@
 <h1> <%= @category.title %> </h1>
 <ul>
+<div class="row">
   <% @tracks.each do |track| %>
-    <li><%= link_to track.name, track_path(track) %> - <%= track.description %></li>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src=<%= track.image_url %>>
+        <div class="caption">
+          <h3><%= track.name %></h3>
+          <p><%= track.description %></p>
+          <p><a href="#" class="btn btn-primary" role="button">Preview Track</a> <a href="#" class="btn btn-default" role="button">Enroll</a></p>
+        </div>
+      </div>
+    </div>
   <% end %>
+</div>
 
 </ul>
 <br><br>

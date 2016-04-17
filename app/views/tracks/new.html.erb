@@ -1,9 +1,20 @@
 <h2>Build a new track in <%= Category.find(params[:category_id]).title %></h2>
+
+<% if @track.errors.any? %>
+  <ul>
+    <% @track.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <div id="new_lesson_form"><%= form_for @track, :html => {:class => "form-creation"}, remote: true  do |f|%>
   <%= f.label :name , class: "col-md-2 control-label"%>
   <%= f.text_field :name %><br><br>
   <%= f.label :description, class: "col-md-2 control-label" %>
   <%= f.text_field :description %><br><br>
+  <%= f.label :image_url, "Image URL", class: "col-md-2 control-label" %>
+  <%= f.text_field :image_url %><br><br>
   <%= f.hidden_field :category_id %>
 
   <%= f.submit  %>
