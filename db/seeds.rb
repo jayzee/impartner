@@ -56,8 +56,10 @@ ukulele = music.tracks.create(name: "Ukulele", description: "Be that cool guy at
 english = language.tracks.create(name: "English 101", description: "Where art thou?")
 ruby = stem.tracks.create(name: "Intro to Ruby", description: "Get your programming on!")
 train = stem.tracks.create(name: "How Trains Work", description: "Because you always wondered..")
+g_and_s = music.tracks.create(name: "Appreciating Operrettas: Gilbert and Sullivan", description: "You'll soon be able to whistle all the airs from that infenral non-sense, Pinafore!")
 
-arr_track = [algebra, thai, ukulele, english, ruby, train]
+
+arr_track = [algebra, thai, ukulele, english, ruby, train, g_and_s]
 
 arr_track.each do |track|
   track.teacher = teacher
@@ -198,3 +200,6 @@ end
 
 message_to_teacher= Message.create(sender_id: 1, recipient_id: 2, content: "HEYO IT BOBBO")
 response_to_student= Message.create(sender_id: 2, recipient_id: 1, content: "Never say that again.")
+
+
+
