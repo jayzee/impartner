@@ -23,7 +23,7 @@ class TracksController < ApplicationController
 
     @is_enrolled = @track.is_user_a_student_of_track(current_user)
     student = Student.find_by(user_id: current_user.id)
-
+    
     if student != nil
       @completion= student.percent_complete(@track)
     else
@@ -52,7 +52,7 @@ class TracksController < ApplicationController
       render json: {track: @track, teacher: current_user.teacher, return: @return}
     else
       render 'new'
-    end 
+    end
   end
 
   def enroll

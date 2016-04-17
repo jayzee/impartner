@@ -46,16 +46,17 @@ class Student < ActiveRecord::Base
   end
 
   def percent_complete(track)
-  
+
     total_lessons_array = track.lessons
 
     completed_array = self.students_lessons.find_all do |studentLes|
         (studentLes.completed) == true && (track.id == studentLes.lesson.track.id)
     end
+
     #completed_contents = total_lessons_array.find_by(completed: true)
 
     if(completed_array.count != nil && total_lessons_array.count != nil && total_lessons_array.count != 0)
-        return (completed_array.count / total_lessons_array.count) * 100
+        return ((completed_array.count.to_f / total_lessons_array.count.to_f) * 100).round(2)
     else
         return 0
     end
