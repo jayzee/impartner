@@ -178,7 +178,7 @@ Stretchy Nav style - common to:
   -o-transform: translateY(-50%) scale(0);
   transform: translateY(-50%) scale(0);
   opacity: .6;
-  background: url(../img/cd-sprite-3.svg) no-repeat 0 0;
+  background: url(../img/cd-sprite-1.svg) no-repeat 0 0;
 }
 .cd-stretchy-nav ul a::before {
   /* line visible next to the active navigation item */

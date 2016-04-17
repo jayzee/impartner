@@ -11,7 +11,7 @@
 	width: 250px;
 	margin: 0;
 	padding: 20px;
-	text-align: left;
+	text-align: center;
 	position: relative;
 }
 
@@ -47,7 +47,7 @@
 
 .grid figcaption a {
 	text-align: center;
-	padding: 5px 10px;
+	padding: 5px 5px 5px 5px;
 	border-radius: 2px;
 	display: inline-block;
 	background: #ed4e6e;
@@ -115,9 +115,7 @@
 }
 
 .cs-style-2 figcaption a {
-	position: absolute;
-	right: 20px;
-	top: 30px;
+
 }
 
 /* Caption Style 3 */
@@ -167,9 +165,8 @@
 }
 
 .cs-style-3 figcaption a {
-	position: absolute;
 	bottom: 20px;
-	right: 20px;
+	top: 20px;
 }
 
 /* Caption Style 4 */
