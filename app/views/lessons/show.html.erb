@@ -20,9 +20,13 @@
         <li class="list-group-item"><span class="badge"><%= @assessments.last.questions.length - @student.answers.find_all{|a| a.assessment == @assessments.last}.length %></span><a href="#tab-2">Assessments</a></li>
       <% end %>
     </ul>
-
-    <div id='tab-1'><%= render "resources/show" %></div>
-    <div id='tab-2'><%= render partial: "resources/assessments", locals: {assessments: @assessments, answer: @answer, student: @student} %></div>
+    <% if @lesson.track.teacher.user_id == current_user.id %>
+      <div id='tab-1'><%= render "resources/showteacher" %></div>
+      <div id='tab-2'><%= render partial: "resources/assessments", locals: {assessments: @assessments, answer: @answer, student: @student} %></div>
+    <% else %>
+      <div id='tab-1'><%= render "resources/showstudent" %></div>
+      <div id='tab-2'><%= render partial: "resources/assessments", locals: {assessments: @assessments, answer: @answer, student: @student} %></div>
+    <% end %>
 </div>
 
 <hr>

@@ -7,53 +7,13 @@
 
 
 <% if @is_enrolled %>
-  <h3>Progress Bar:</h3>
-  <div class="progress">
-    <div class="progress-bar" role="progressbar" aria-valuenow="<%= @completion %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @completion %>%;">
-      <%=  @completion %>%
-    </div>
-  </div>
-  <p><%= @completion %>% completed</p>
-  <br><br>
+  <%= render "showenrolledstudent" %>
+<% elsif @is_enrolled == false && @is_teacher == false %>
+  <%= render "notenrolled" %>
 <% end %>
 
-<% if @is_enrolled == true %>
-  <div class="alert alert-success alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <strong>You are enrolled!</strong> Click on the lessons below and start learning!
-  </div>
-  
-  <ul>
-    <% @lessons.each do |lesson| %>
-      <li><%= link_to lesson.title, lesson_path(lesson) %> - <%= lesson.duration %></li>
-    <% end %>
-  </ul>
-
-<% else %>
-
-  <div class="alert alert-info alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <strong>Welcome!</strong> Enroll to see details and get started!
-  </div>
-
-      <ul>
-        <% @lessons.each do |lesson| %>
-          <li><%= lesson.title %> - <%= lesson.duration %></li>
-        <% end %>
-      </ul>
-
-        <%= form_tag students_tracks_path, method: :post do %>
-        <%= hidden_field_tag(:track_id, @track.id) %>
-          <%= submit_tag "Enroll" %>
-        <% end %>
-
-
-<% end %>
-
-<% if current_user.teacher %>
-  <% if @teacher.id == current_user.teacher.id%>
-    <p><%= link_to "Add a Lesson", new_track_lesson_path(@track) %></p>
-  <% end %>
+<% if @is_teacher %>
+  <%= render "teachershow" %>
 <% end %>
 
 <div class="create-new-track">

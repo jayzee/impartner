@@ -1,0 +1,15 @@
+<div class="alert alert-info alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Welcome!</strong> Enroll to see details and get started!
+</div>
+
+<ul>
+  <% @lessons.each do |lesson| %>
+    <li><%= lesson.title %> - <%= lesson.duration %></li>
+  <% end %>
+</ul>
+
+<%= form_tag students_tracks_path, method: :post do %>
+<%= hidden_field_tag(:track_id, @track.id) %>
+  <%= submit_tag "Enroll" %>
+<% end %>

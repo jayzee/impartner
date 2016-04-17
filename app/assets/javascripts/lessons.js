@@ -41,11 +41,6 @@ $(function(){
 
   });
 
-  $(document).ajaxSuccess(function(){
-    swal("Good job!", "You've earned 5 points.", "success");
-    card.remove();
-    $("#tab-3 #card-ul").append(card);
-  });
 
   $('form#new_lesson').on('submit', function(){
     event.preventDefault();
@@ -60,9 +55,10 @@ $(function(){
 
         $('form').hide();
 
-        $('#lesson_form').append("<p>You've created a new lesson called <strong>" + data["lesson"]["title"] + "</strong><br><br>");
         $('#lesson_form').append(data["return"]["partial"]);
-
+        $('#new_alert').append("You've created a new lesson called <strong>" + data["lesson"]["title"] + "</strong>");
+        $('form.edit_lesson #lesson_title').val('');
+        $('form.edit_lesson #lesson_duration').val('');
       }
     });
 

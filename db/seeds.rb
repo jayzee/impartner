@@ -66,12 +66,6 @@ pollock = art.tracks.create(name: "Jackson Pollock", description: "Art Visionary
 arr_track = [algebra, thai, ukulele, english, ruby, train, g_and_s, jazz, ancientEgypt, pollock]
 
 
-arr_track.each do |track|
-  track.teacher = teacher
-  track.save
-end
-
-
 var = algebra.lessons.create(title: "Variables", duration: "20 minutes", order_id: 1)
 exp = algebra.lessons.create(title: "Expressions", duration: "60 minutes", order_id: 2)
 slope = algebra.lessons.create(title: "Slope", duration: "10 minutes", order_id: 3)

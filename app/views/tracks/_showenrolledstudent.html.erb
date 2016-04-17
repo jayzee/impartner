@@ -1,0 +1,20 @@
+<h3>Progress Bar:</h3>
+<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="<%= @completion %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @completion %>%;">
+    <%=  @completion %>%
+  </div>
+</div>
+<p><%= @completion %>% completed</p>
+
+<% if @student.enrollment_date(@track) < current_user.current_sign_in_at + 60*60 %> 
+  <div class="alert alert-success alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>You are enrolled!</strong> Click on the lessons below and start learning!
+  </div>
+<% end %>
+
+<ul>
+  <% @lessons.each do |lesson| %>
+    <li><%= link_to lesson.title, lesson_path(lesson) %> - <%= lesson.duration %></li>
+  <% end %>
+</ul>
