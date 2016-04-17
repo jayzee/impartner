@@ -11,6 +11,8 @@ html {
 }
 body {
   margin: 0;
+  padding-top: 0;
+  background-image: url("http://timvandevall.com/wp-content/uploads/2013/05/Lined-Paper-Template-19.jpg") !important; 
 }
 article,
 aside,
@@ -1608,6 +1610,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  background-color: #fff;
 }
 .row {
   margin-right: -15px;
@@ -4170,7 +4173,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   position: relative;
   min-height: 50px;
   margin-bottom: 20px;
-  border: 1px solid transparent;
 }
 @media (min-width: 768px) {
   .navbar {
@@ -4496,8 +4498,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
+  background-image: url("http://timvandevall.com/wp-content/uploads/2013/05/Lined-Paper-Template-19.jpg") !important;  background-color: #fff !important;
+  border-color: #fff !important;
+  box-shadow: none !important;
 }
 .navbar-default .navbar-brand {
   color: #777;

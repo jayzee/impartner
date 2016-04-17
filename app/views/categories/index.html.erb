@@ -1,7 +1,7 @@
-<div class="row">
-<% @categories.each do |category| %>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
+<ul class="grid cs-style-3">
+  <% @categories.each do |category| %>
+  <li>
+    <figure>
       <% if category.title == "Art" %>
         <%= image_tag "art", width: "242", height: "200"%>
       <% elsif category.title == "STEM"%>
@@ -15,17 +15,20 @@
       <% elsif category.title == "History"%>
         <%= image_tag "history", width: "242", height: "200"%>
       <% end %>
-      <div class="caption">
-        <h3 align= "center"><%= link_to category.title, category_path(category)%></h3>
-      </div>
-    </div>
+      <figcaption>
+        <h3><%= category.title %></h3>
+        <span></span>
+        <%= link_to "Start Learning", category_path(category)%>
+      </figcaption>
+    </figure>
+  </li>
+  <% end %>
+</ul >
+
+<!-- <footer>
+  <div>
+  <h4>Random Fact</h4>
+  <p><%# <%= @fact["title"]% %>></p>
+  -As found <%# <%= link_to "here", @fact["url"] %> %>
   </div>
-
-<% end %>
-
-<h3>Random Fact</h3>
-<p><%= @fact["title"]%></p>
--As found <%= link_to "here", @fact["url"] %>
-
-</div>
-<br><br>
+</footer> -->

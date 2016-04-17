@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require sweetalert.min.js
+//= require strechy/main.js
+//= require hover/modernizr.custom.js
+//= require hover/toucheffects.js
 //= require magnific/jquery.magnific-popup.min.js
 //= require jquery-queryParser.min.js
 //= require tabslet/jquery.tabslet.min.js

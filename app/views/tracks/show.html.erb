@@ -1,29 +1,41 @@
-<h1> <%= @track.name %></h1>
-<p> <%= @track.description %></p>
+<div class="page-header">
+  <h1> 
+  <%= @track.name %>
+  <small> <%= @track.description %></small>
+  </h1>
+</div>
 
 
 <% if @is_enrolled %>
-<h3>Progress Bar:</h3>
-<div class="progress">
-  <div class="progress-bar" role="progressbar" aria-valuenow="<%= @completion %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @completion %>%;">
-    <%=  @completion %>%
+  <h3>Progress Bar:</h3>
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="<%= @completion %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @completion %>%;">
+      <%=  @completion %>%
+    </div>
   </div>
-</div>
-<p><%= @completion %>% completed</p>
+  <p><%= @completion %>% completed</p>
+  <br><br>
 <% end %>
-<br><br>
 
 <% if @is_enrolled == true %>
-<ul>
-  <% @lessons.each do |lesson| %>
-    <li><%= link_to lesson.title, lesson_path(lesson) %> - <%= lesson.duration %></li>
-  <% end %>
-</ul>
+  <div class="alert alert-success alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>You are enrolled!</strong> Click on the lessons below and start learning!
+  </div>
+  
+  <ul>
+    <% @lessons.each do |lesson| %>
+      <li><%= link_to lesson.title, lesson_path(lesson) %> - <%= lesson.duration %></li>
+    <% end %>
+  </ul>
 
-  <p>You Are ENROLLED!! Get ready to Learn!</p>
 <% else %>
 
-<p>Enroll to see details and get started!</p>
+  <div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Welcome!</strong> Enroll to see details and get started!
+  </div>
+
       <ul>
         <% @lessons.each do |lesson| %>
           <li><%= lesson.title %> - <%= lesson.duration %></li>

@@ -1,5 +1,6 @@
 
 <p><% if @teacher.id == current_user.teacher.id%>
-  <%= link_to 'Add more Lessons', new_track_lesson_path(@track) %>
+  <%= link_to 'Add More Lessons', new_track_lesson_path(@track) %><br>
+  <%= link_to 'Return To Track', track_path(@track) %>
   <% end %>
 </p>

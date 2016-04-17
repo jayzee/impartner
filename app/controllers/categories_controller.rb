@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-    @fact = Adapters::FactoidClient.grab_fact
+    # @fact = Adapters::FactoidClient.grab_fact
   end
 
   def show

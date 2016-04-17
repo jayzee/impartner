@@ -56,8 +56,10 @@ ukulele = music.tracks.create(name: "Ukulele", description: "Be that cool guy at
 english = language.tracks.create(name: "English 101", description: "Where art thou?")
 ruby = stem.tracks.create(name: "Intro to Ruby", description: "Get your programming on!")
 train = stem.tracks.create(name: "How Trains Work", description: "Because you always wondered..")
+g_and_s = music.tracks.create(name: "Appreciating Operrettas: Gilbert and Sullivan", description: "You'll soon be able to whistle all the airs from that infenral non-sense, Pinafore!")
 
-arr_track = [algebra, thai, ukulele, english, ruby, train]
+
+arr_track = [algebra, thai, ukulele, english, ruby, train, g_and_s]
 
 arr_track.each do |track|
   track.teacher = teacher
@@ -135,5 +137,69 @@ slope_arr.each do |resource|
   slope.save
 end
 
+#jeff's seed data -----------------------------------------------------#
+pad = thai.lessons.create(title: "Main Courses", duration: "20 minutes", order_id: 1)
+app = thai.lessons.create(title: "Appetizers", duration: "10 minutes", order_id: 2)
+dess = thai.lessons.create(title: "Desserts", duration: "20 minutes", order_id: 3)
+
+pad_arr = [ {title:"Shrimp Pad Thai",
+        description:"Shrimp Pad Thai – easiest and best Pad Thai recipe with shrimp. This homemade Thai fried noodle is better and healthier than takeout.",
+        content:"http://rasamalaysia.com/shrimp-pad-thai-recipe/",
+        type_of:"Reading"},
+
+        {title:"Thai Beef Salad",
+        description:"Tender greens with perfectly seared beef in a savory Thai dressing that is packed with lots of flavor.",
+        content:"http://rasamalaysia.com/thai-beef-salad-recipe/",
+        type_of:"Reading"},
+
+        {title:"Thai Food Cooking Tutorial: Pad Thai",
+        description:"The world's most famous and favorite Thai food is here, Pad Thai! I made this video easy to follow for everyone to learn.",
+        content:"https://www.youtube.com/watch?v=jwudCMCd9ek",
+        type_of:"Video"},
+
+        {title:"How To Make Thai Green Chicken Curry",
+        description:"These are the steps you should use to solve expressions",
+        content:"https://www.youtube.com/watch?v=FaBbrYq-jaw",
+        type_of:"Video"},
+]
+
+pad_arr.each do |resource|
+  pad.resources.create(resource)
+  pad.save
+end
+
+
+app_arr = [ {title:"Thai Appetizer - Curry Puff Binding",
+        description:"This menu is received influence from the foreigners. Because the dough is similar to pie dough. There are varieties kind of filling such as salty and sweet filling.",
+        content:"https://www.youtube.com/watch?v=icmRYXUQNeU",
+        type_of:"Video"},
+
+        {title:"Thai Appetizer",
+        description:"This dish is very delicious, simple to make ,Perfect snack while watching TV or for party.",
+        content:"https://www.youtube.com/watch?v=_MjMI4Sjm3Y",
+        type_of:"Video"},
+
+        {title:"How to Make Thai Appetizer Pizza",
+        description:"Deliciously bold Asian flavors star in a make-ahead appetizer pizza.",
+        content:"https://www.youtube.com/watch?v=rOjDMbmhy10",
+        type_of:"Video"},
+
+        {title:"Tapioca Balls with Pork Filling",
+        description:"Tapioca Balls with Pork Filling is a delicious Thai traditional appetizer menu, with chewy sago",
+        content:"https://www.youtube.com/watch?v=e8pVJqX4P3I",
+        type_of:"Video"},
+]
+
+app_arr.each do |resource|
+  app.resources.create(resource)
+  app.save
+end
+
+
+#------------------------------------------------------------------------#
+
 message_to_teacher= Message.create(sender_id: 1, recipient_id: 2, content: "HEYO IT BOBBO")
 response_to_student= Message.create(sender_id: 2, recipient_id: 1, content: "Never say that again.")
+
+
+
