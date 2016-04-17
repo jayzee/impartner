@@ -18,7 +18,7 @@ $(function(){
         answer.append(data.content);
         answer.append(edit);
         form.remove();
-        $("div.panel.panel-primary").toggleClass("panel panel-primary panel panel-default");
+        $('#tab-2 > div:nth-child('+ answer_id +')').toggleClass("panel panel-primary panel panel-default");
         $("li.list-group-item.active > span").text(badge - 1)
       }, 
       dataType: 'JSON'

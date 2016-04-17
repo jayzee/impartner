@@ -37,7 +37,7 @@ class ResourcesController < ApplicationController
   def complete
     @student = Student.find_by(user_id: current_user)
     @student.complete_resource(params[:id])
-    binding.pry
+    
     current_user.add_points(5)
     render nothing: true
   end
