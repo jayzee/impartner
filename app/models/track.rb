@@ -44,6 +44,10 @@ class Track < ActiveRecord::Base
 
   end
 
+  def is_user_a_teacher_of_track(user)
+    self.teacher.user_id == user.id
+  end
+
 
   #method to return an array of all the students in a track
   def students_in_the_track

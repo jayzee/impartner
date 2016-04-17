@@ -71,5 +71,9 @@ class Student < ActiveRecord::Base
     self.answers.select { |answer| answer.question == question}
   end
 
+  def enrollment_date(track)
+    self.students_tracks.where(track_id: track.id)[0].created_at
+  end
+
 
 end
