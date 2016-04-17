@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20160415142406) do
+ActiveRecord::Schema.define(version: 20160417003301) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "student_id"
@@ -122,6 +121,7 @@ ActiveRecord::Schema.define(version: 20160415142406) do
     t.integer  "category_id"
     t.string   "name"
     t.string   "description"
+    t.string   "image_url"
   end
 
   create_table "users", force: :cascade do |t|

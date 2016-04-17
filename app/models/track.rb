@@ -19,6 +19,9 @@ class Track < ActiveRecord::Base
   has_many :students_tracks
   has_many :students, through: :students_tracks
 
+  validates :image_url, allow_blank: true, format: { with: %r{.(gif|jpg|png)\Z}i, message: 'must be a URL for GIF, JPG or PNG image.' }
+
+
 
   def completion
     if self.lessons.all? {|lesson| lesson.completed}

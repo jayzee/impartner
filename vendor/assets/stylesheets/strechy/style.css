@@ -158,8 +158,8 @@ Stretchy Nav style - common to:
   height: 50px;
   line-height: 50px;
   padding: 0 calc(1em + 60px) 0 1em;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1.4rem;
+  color: rgba(3, 54, 99, 0.74);
+  font-size: 2em;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
   transition: color 0.2s;
@@ -178,7 +178,7 @@ Stretchy Nav style - common to:
   -o-transform: translateY(-50%) scale(0);
   transform: translateY(-50%) scale(0);
   opacity: .6;
-  background: url(../img/cd-sprite-1.svg) no-repeat 0 0;
+  background: url(../img/cd-sprite-3.svg) no-repeat 0 0;
 }
 .cd-stretchy-nav ul a::before {
   /* line visible next to the active navigation item */
