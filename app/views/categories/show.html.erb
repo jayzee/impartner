@@ -9,7 +9,7 @@
           <h3><%= track.name %></h3>
           <p><%= track.description %></p>
           <p>
-            <% if current_user.student.tracks.include?(track) || current_user.teacher == track.teacher %>
+            <% if !current_user.student.nil? && current_user.student.tracks.include?(track) || current_user.teacher == track.teacher %>
               <a href="<%= track_path(track) %>" class="btn btn-primary" role="button">Open Track</a> 
             <% else %>
               <a href="<%= track_path(track) %>" class="btn btn-primary" role="button">Preview Track</a> 

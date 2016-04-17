@@ -45,7 +45,7 @@
                   <%= link_to "Open", obj.content, class: "btn btn-success btn-sm"  %>
                 <% end %>
 
-                  <%= link_to "Mark as Complete", "#", class: "btn btn-info btn-sm" %>
+                  <%= link_to "Mark as Complete", complete_element_path(obj), method: :post, class: "btn btn-info btn-sm", remote: true %>
 
                 </li>
                 <!-- Single Resource Ends -->

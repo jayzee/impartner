@@ -25,10 +25,10 @@
 //= require typeahead.js/typeahead.bundle.min.js
 //= require typeahead.js/typeahead.jquery.min.js
 //= require js/modernizr.js
+//= require js/jquery.baraja.js
 //= require js/custom.js
 //= require js/color-switcher.js
 //= require js/jquery.ajaxchimp.min.js
-//= require js/jquery.baraja.js
 //= require js/jquery.appear.js
 //= require js/jquery.easing.1.3.js
 //= require js/jquery.fitvids.js

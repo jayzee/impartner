@@ -1,3 +1,4 @@
+<br>
 <h1><%= @lesson.title %> in the <%= link_to @lesson.track.name, track_path(@lesson.track) %> Track</h1>
 
 <h2>Lesson Content
@@ -20,17 +21,21 @@
         <li class="list-group-item"><span class="badge"><%= @assessments.last.questions.length - @student.answers.find_all{|a| a.assessment == @assessments.last}.length %></span><a href="#tab-2">Assessments</a></li>
       <% end %>
     </ul>
-    <% if @lesson.track.teacher.user_id == current_user.id %>
+<% if @lesson.track.teacher.user_id == current_user.id %>  
       <div id='tab-1'><%= render "resources/showteacher" %></div>
       <div id='tab-2'><%= render partial: "resources/assessments", locals: {assessments: @assessments, answer: @answer, student: @student} %></div>
-    <% else %>
+</div>
+<% else %>
       <div id='tab-1'><%= render "resources/showstudent" %></div>
       <div id='tab-2'><%= render partial: "resources/assessments", locals: {assessments: @assessments, answer: @answer, student: @student} %></div>
-    <% end %>
-</div>
+
+      </div>
 
 <hr>
 
 <div class="completed-resources">
-  <%= render "resources/show_completed" %>
 </div>
+
+<% end %>
+
+
