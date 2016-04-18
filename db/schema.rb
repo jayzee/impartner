@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418202516) do
+ActiveRecord::Schema.define(version: 20160418211057) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "student_id"
@@ -51,8 +51,9 @@ ActiveRecord::Schema.define(version: 20160418202516) do
     t.integer  "sender_id"
     t.integer  "recipient_id"
     t.string   "content"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "seen?",        default: false
   end
 
   create_table "questions", force: :cascade do |t|
