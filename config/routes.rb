@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
   resources :students_tracks
 
+  get '/factoids' => 'factoids#show', as: :random_fact
+
 
   post 'resources/:id/complete' => 'resources#complete', as: :complete_element
 
