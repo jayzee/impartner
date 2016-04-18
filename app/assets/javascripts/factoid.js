@@ -25,7 +25,7 @@ $(function(){
   })
 
   $(document).ajaxSuccess(function(event, request, options, data){
-    var url= "<p><a href=" + data.url +">Learn More Here!</a></p>"
+    var url= "<p><a href=" + data.url +">Learn More</a></p>"
     $('.random-fact button').text(data.title)
     $('.random-fact button').append(url)
   })
