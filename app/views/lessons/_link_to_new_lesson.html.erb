@@ -2,14 +2,14 @@
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 </div>
 
-<%= form_for @lesson, remote: true do |f| %>
+<!-- <%= form_for @lesson, remote: true do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :duration %>
   <%= f.text_field :duration %>
   <%= f.hidden_field :track_id %>
   <%= f.submit %>
-  <% end %>
+  <% end %> -->
 
 <div id="lesson_form"></div>
 <p><% if @teacher.id == current_user.teacher.id%>

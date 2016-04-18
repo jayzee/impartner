@@ -34,12 +34,12 @@ class ResourcesController < ApplicationController
     @student = Student.find_by(user_id: current_user)
     @resource = Resource.find(params[:id])
     @student.complete_resource(params[:id])
-
+    
     current_user.add_points(5)
 
-    respond_to do |format| 
-      format.js 
-    end 
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
