@@ -42,6 +42,10 @@ class ResourcesController < ApplicationController
     end
   end
 
+  def shuffle
+    @resources = Resource.all
+  end 
+
   private
 
   def find_lesson

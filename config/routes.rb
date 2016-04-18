@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
   resources :students_tracks
 
+  get '/shuffle' => 'resources#shuffle', as: :shuffle
+
   get '/factoids' => 'factoids#show', as: :random_fact
 
 

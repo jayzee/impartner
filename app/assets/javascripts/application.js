@@ -27,6 +27,7 @@
 //= require js/modernizr.js
 //= require js/jquery.baraja.js
 //= require js/custom.js
+//= require js/custom-shuffle.js
 //= require js/color-switcher.js
 //= require js/jquery.ajaxchimp.min.js
 //= require js/jquery.appear.js

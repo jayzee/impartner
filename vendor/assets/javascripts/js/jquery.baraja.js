@@ -13,7 +13,7 @@ jQuery.fn.reverse = [].reverse;
 
 ;( function( $, window, undefined ) {
 	
-	'use strict';
+
 
 	// global
 	var Modernizr = window.Modernizr;
