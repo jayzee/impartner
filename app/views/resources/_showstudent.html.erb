@@ -25,6 +25,20 @@
                   <%= image_tag "http://aldemedianoche.com.ar/wp-content/uploads/2015/01/audio.png", :class => "feature-image" %>
                 <% elsif obj.type_of == "Audio" %>
                   <%= image_tag "logo", :class => "feature-image" %>
+                <% elsif obj.type_of == "Other" %>
+                  <% if obj.lesson.track.category.title == "Health" %>
+                    <%= image_tag "Health", :class => "feature-image" %>
+                  <% elsif obj.lesson.track.category.title == "Art" %>
+                    <%= image_tag "Art", :class => "feature-image" %>
+                  <% elsif obj.lesson.track.category.title == "Music" %>
+                    <%= image_tag "Music", :class => "feature-image" %>
+                  <% elsif obj.lesson.track.category.title == "History" %>
+                    <%= image_tag "History", :class => "feature-image" %>
+                  <% elsif obj.lesson.track.category.title == "STEM" %>
+                    <%= image_tag "STEM", :class => "feature-image" %>
+                  <% elsif obj.lesson.track.category.title == "Language" %>
+                    <%= image_tag "Language", :class => "feature-image" %> 
+                  <% end %>
                 <% end %><!-- Resource Icon -->
 
                   <h4 class="feature-title color-scheme"><%= obj.title %></h4>
@@ -38,11 +52,11 @@
                 <% elsif obj.type_of == "Image" %>
                   <%= link_to "Open", obj.content, id: "image-popup-vertical-fit", class: "btn btn-success btn-sm" %>
                 <% elsif obj.type_of == "Reading" %>
-                  <%= link_to "Open", obj.content, class: "btn btn-success btn-sm"%>
+                  <%= link_to "Open", obj.content, class: "btn btn-success btn-sm", target: "_blank" %>
                 <% elsif obj.type_of == "Audio" %>
-                  <%= link_to "Open", obj.content, class: "btn btn-success btn-sm"  %>
+                  <%= link_to "Open", obj.content, target: "_blank", class: "btn btn-success btn-sm"  %>
                 <% elsif obj.type_of == "Other" %>
-                  <%= link_to "Open", obj.content, class: "btn btn-success btn-sm"  %>
+                  <%= link_to "Open", obj.content, target: "_blank", class: "btn btn-success btn-sm"  %>
                 <% end %>
 
                   <% if obj.students_resources.where(student_id: current_user.student.id)[0].completed == false %>

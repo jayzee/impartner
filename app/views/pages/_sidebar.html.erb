@@ -7,8 +7,12 @@
 <% if current_user.student == nil %>
   You are not enrolled in any courses.
 <% else %>
+
   <% current_user.student.students_tracks.each do |student_tracks| %>
-    <%= student_tracks.track.name %><br>
+
+    <%= link_to student_tracks.track.name, track_path(student_tracks.track) %><br>
+
+
   <% end %>
 
 <% end %>
@@ -20,7 +24,8 @@
     You are not teaching any courses.
   <% else %>
       <% current_user.teacher.tracks.each do |teacher_track| %>
-        <%= teacher_track.name %><br>
+
+        <%= link_to teacher_track.name, track_path(teacher_track) %><br>
       <% end %>
 
   <% end %>

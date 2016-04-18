@@ -16,11 +16,18 @@
   border: 1px;
 }
 
+
+
 #sidebar.affix {
-  position: fixed;
-  top:150px;
-  left: 0px;
-  width:200px;
-  padding-right: 0;
-  padding-left: 0;
-}
+        position: fixed;
+        top:150px;
+        left: 0px;
+        width:200px;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+
+@media screen and (max-width: 800px) {
+      #sidebar.affix { display: none; }   /* hide sidebar if screen < 400px */
+    }
