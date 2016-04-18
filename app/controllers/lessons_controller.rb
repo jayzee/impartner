@@ -19,6 +19,7 @@ class LessonsController < ApplicationController
     @all_resources = @lesson.resources
     @assessments = @lesson.assessments
     @student = Student.find_by(user_id: current_user.id)
+
     @answer = Answer.new
     @teacher = Teacher.find_by(user_id: current_user.id)
 
