@@ -19,6 +19,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @tracks = @category.tracks
+
   end
 
 end
