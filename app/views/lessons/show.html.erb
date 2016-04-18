@@ -1,26 +1,51 @@
-<h1><%= @lesson.title %></h1>
+<br>
+<h1><%= @lesson.title %> in the <%= link_to @lesson.track.name, track_path(@lesson.track) %> Track</h1>
 
 <h2>Lesson Content
   <% if current_user.teacher == @lesson.track.teacher %>
-    <%= link_to "Add Resource", new_lesson_resource_path(@lesson.id), class: "btn btn-default btn-lg" %>
-    <%= link_to "Create Assessment", new_lesson_assessment_path(@lesson.id), class: "btn btn-default btn-lg" %>
+
+    <%= link_to "Add Resource", new_lesson_resource_path(@lesson), class: "btn btn-default btn-lg" %>
+
+    <%= link_to "Create Assessment", new_lesson_assessment_path(@lesson), class: "btn btn-default btn-lg"%>
+
   <% end %>
 </h2>
 
  <div class='tabs tabs_active'>
-    <ul class='horizontal'>
-      <li><a href="#tab-1">Resources</a></li>
-      <li><a href="#tab-2">Assessments</a></li>
+    <ul class='horizontal list-group'>
+
+    <% if current_user.teacher == @lesson.track.teacher %>
+
+      <li class="list-group-item"><a href="#tab-1">Resources</a></li>
+      <li class="list-group-item"><a href="#tab-2">Assessments</a></li>
+
+    <% elsif !@assessments.nil? && !@assessments.last.nil? && !@incomplete_resources.nil? %>
+      <li class="list-group-item"><span class="badge"><%= @incomplete_resources.length %></span><a href="#tab-1">Resources</a></li>
+
+     <li class="list-group-item"><span class="badge"><%= @assessments.last.questions.length - @student.answers.find_all{|a| a.assessment == @assessments.last}.length %></span><a href="#tab-2">Assessments</a></li>
+
+    <% end %>
     </ul>
-    <div id='tab-1'><%= render "resources/show" %></div>
-    <div id='tab-2'><%= render "resources/assessments" %></div>
+
+
+<!-- Pages rendered by tab  -->
+<% if @lesson.track.teacher.user_id == current_user.id %>  
+
+  <div id='tab-1'><%= render "resources/showteacher" %></div>
+  <div id='tab-2'><%= render partial: "resources/assessmentteacher", locals: {assessments: @assessments, lesson: @lesson, answer: @answer, student: @student} %></div>
+</div>
+
+<% else %>  
+
+  <div id='tab-1'><%= render "resources/showstudent" %></div>
+  <div id='tab-2'><%= render partial: "resources/assessmentstudent", locals: {assessments: @assessments, answer: @answer, student: @student} %></div>
 </div>
 
 <hr>
 
 <div class="completed-resources">
-  <%= render "resources/show_completed" %>
 </div>
 
+<% end %>
 
 

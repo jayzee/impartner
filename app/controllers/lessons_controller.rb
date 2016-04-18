@@ -16,22 +16,27 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = Lesson.find(params[:id])
-    resources = @lesson.resources
+    @all_resources = @lesson.resources
     @assessments = @lesson.assessments
     @student = Student.find_by(user_id: current_user.id)
-    if @lesson.resources
-      joins = resources.map do |r|
+
+    @answer = Answer.new
+    @teacher = Teacher.find_by(user_id: current_user.id)
+
+    unless @student.nil?
+      joins = @all_resources.select do |r|
         StudentsResource.find_by(resource_id: r.id, student_id: @student.id)
       end
-    end
-    @completed_joins= joins.find_all{|r| r.completed}
-    @complete_resources= @completed_joins.map {|j| j.resource}
-    @incomplete_joins= joins.find_all{|r| r.completed == false}
-    @incomplete_resources= @incomplete_joins.map {|j| j.resource}
+
+      @completed_joins= joins.find_all{|r| r.students_resources[0].completed}
+      @complete_resources= @completed_joins.map {|j| j}
+      @incomplete_joins= joins.find_all{|r| r.students_resources[0].completed == false}
+      @incomplete_resources= @incomplete_joins.map {|j| j}
+      @all_student_resources = @complete_resources + @incomplete_resources
+    end 
   end
 
   def new
-
     @track= Track.find(params[:track_id])
     @lesson = @track.lessons.build()
   end

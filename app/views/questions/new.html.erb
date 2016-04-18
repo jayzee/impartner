@@ -1,0 +1,17 @@
+<br>
+<br>
+<div class="alert alert-success" role="alert" id="question-bank"><h4>Questions:</h4><br></div>
+<div class="form-style-6">
+
+
+<%= form_for @question, {url: assessment_questions_path(@assessment)} do |f|%>
+  <%= f.label :content, "Question" %>
+  <%= f.text_field :content %>
+  <%= f.submit "Add Question", class: "add-question" %>
+<% end %>
+</div>
+
+<%= link_to(lesson_path(@lesson)) do %>
+  <h4><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    Return to <%= @lesson.title %> Lesson</h4>
+<% end %>

@@ -22,10 +22,11 @@ class TracksController < ApplicationController
     @lessons = @track.lessons.sort_by {|lesson| lesson.order_id}
 
     @is_enrolled = @track.is_user_a_student_of_track(current_user)
-    student = Student.find_by(user_id: current_user.id)
+    @is_teacher = @track.is_user_a_teacher_of_track(current_user)
+    @student = Student.find_by(user_id: current_user.id)
 
-    if student != nil
-      @completion= student.percent_complete(@track)
+    if @student != nil
+      @completion= @student.percent_complete(@track)
     else
       @completion = 0
     end
@@ -39,18 +40,22 @@ class TracksController < ApplicationController
 
   def create
 
-
     if current_user.teacher == nil
         Teacher.create(user_id: current_user.id)
     end
-    @track = Track.create(name: params[:name], description: params[:description], teacher_id: current_user.teacher.id, category_id: params[:category_id])
-    @track.save
+    @track = Track.create(track_params)
+    @track.teacher_id = current_user.teacher.id
 
-    @lesson = @track.lessons.build()
-    @teacher = current_user.teacher
-    #redirect_to track_path(@track)
-@return = { :error => false, :response => "Added", :partial => render_to_string(:partial => "link_to_new_lesson", :object => @teacher) }
-render json: {track: @track, teacher: current_user.teacher, return: @return}
+    if @track.valid?
+      @track.save
+      @lesson = @track.lessons.build()
+      @teacher = current_user.teacher
+      redirect_to new_track_lesson_path(@track)
+      # @return = { :error => false, :response => "Added", :partial => render_to_string(:partial => "lessons/link_to_new_lesson", :locals => {:teacher => @teacher, :lesson => @lesson}) }
+      # render json: {track: @track, teacher: current_user.teacher, return: @return}
+    else
+      render 'new'
+    end
   end
 
   def enroll
@@ -60,7 +65,7 @@ render json: {track: @track, teacher: current_user.teacher, return: @return}
   private
 
   def track_params
-    params.require(:track).permit(:name, :description, :category_id)
+    params.require(:track).permit(:name, :description, :category_id, :image_url)
   end
 
   def authorized_to_edit

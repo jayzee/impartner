@@ -132,7 +132,6 @@ FOOTER {
 .tabs > DIV {
 	/*border-top: 1px solid #c7c7c7*/
 	margin-top: 10px;
-	background: white !important;
 	/*border-bottom: 4px solid #E95855 !important;*/
 }
 
@@ -166,7 +165,7 @@ FOOTER {
 	color: #ccc;
 	display: block;
 	font-size: 18px;
-	font-weight: 300;
+	font-weight: 800;
 	padding: 14px 24px;
 	text-decoration: none;
 }

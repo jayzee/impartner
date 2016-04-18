@@ -1,5 +1,7 @@
 $(function(){
-  $('.tabs').tabslet();
+  $('.tabs').tabslet({
+    animation: true
+  });
 
   $('#popup-youtube, #popup-vimeo, #popup-gmaps').magnificPopup({
     disableOn: 700,
@@ -18,32 +20,11 @@ $(function(){
     image: {
       verticalFit: true
     }
-    
-  });
 
-  var resource_id;
-  var card;
-
-  $('a.btn.btn-info.btn-sm').on('click', function(){
-      card = this.parentElement
-      resource_id= card.id;
-      $.ajax({
-        method: "POST",
-        url: "/resources/"+ resource_id + "/complete"
-      })
-  
-  });
-
-  $(document).ajaxSuccess(function(){
-    swal("Good job!", "", "success");
-    card.remove();
-    $("#tab-3 #card-ul").append(card);
   });
 
 
-});
-
-  $('form#new_lesson').on('submit', function(){
+  $('form#new_lesson').on('submit', function(event){
     event.preventDefault();
     event.stopPropagation();
 
@@ -53,12 +34,13 @@ $(function(){
       data: {'title' : $('#lesson_title').val(), 'duration' : $('#lesson_duration').val(), 'track_id' : $('#lesson_track_id').val(), 'ajax_stuff' : 'yes' },
       dataType: "json",
       success: function(data){
-        
+
         $('form').hide();
 
-        $('#lesson_form').append("<p>You've created a new lesson called <strong>" + data["lesson"]["title"] + "</strong><br><br>");
         $('#lesson_form').append(data["return"]["partial"]);
-
+        $('#new_alert').append("You've created a new lesson called <strong>" + data["lesson"]["title"] + "</strong>");
+        $('form.edit_lesson #lesson_title').val('');
+        $('form.edit_lesson #lesson_duration').val('');
       }
     });
 
@@ -67,4 +49,3 @@ $(function(){
 
 
 });
-

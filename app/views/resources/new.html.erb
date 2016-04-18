@@ -1,14 +1,20 @@
-<%= form_for @resource, url: lesson_resources_path(@lesson) do |f| %>
-<%= f.label :type_of %>
-<%= f.select :type_of, ["Reading", "Image", "Video","Audio", "Other"] %>
+<br>
+<h2>Add a new resource for <strong><%= @lesson.title %></strong> </h2>
+<br>
 
-<%= f.label :title %>
-<%= f.text_field :title %>
+<div class="form-style-6">
+  <%= form_for @resource, url: lesson_resources_path(@lesson) do |f| %>
+  <%= f.label :type_of, "Type" %>
+  <%= f.select :type_of, ["Reading", "Image", "Video","Audio", "Other"] %>
 
-<%= f.label :description %>
-<%= f.text_field :description %>
+  <%= f.label :title %>
+  <%= f.text_field :title%>
 
-<%= f.label :content, 'URL' %>
-<%= f.text_field :content %>
-<%= f.submit %>
-<% end %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :content, 'URL' %>
+  <%= f.text_field :content %>
+  <%= f.submit %>
+  <% end %>
+</div>

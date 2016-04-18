@@ -1,0 +1,9 @@
+<% if @answer.total_point_value.nil? %>
+  $("#edit_answer_<%= @answer.id %>").hide();
+  $(".answer-<%= @answer.id %>").append("<%= @answer.content %>");
+  $(".answer-<%= @answer.id %>").append("<a class='edit-answer <%= @answer.id %>' data-remote='true' href='/questions/<%= @question.id %>/answers/<%= @answer.id %>/edit'>Edit Answer</a>");
+  $(".answer-<%= @answer.id %>").parent().parent().toggleClass("panel panel-primary panel panel-default");
+<% else %>
+  $('#edit_answer_<%= @answer.id %> > input.btn').val('Saved!')
+<% end %>
+

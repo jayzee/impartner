@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:twitter, :google_oauth2]
   has_one :student
   has_one :teacher
+  has_many :messages
 
   def self.from_omniauth(auth)
     binding.pry
@@ -46,7 +47,8 @@ class User < ActiveRecord::Base
 
 #adds points to user
   def add_points(new_points)
-    this.points += new_points
+    self.points += new_points
+    self.save
   end
 
 #returns true if the current logged in user is a teacher of this track

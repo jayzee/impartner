@@ -1,37 +1,25 @@
-<h1> <%= @track.name %></h1>
-<p> <%= @track.description %></p>
+<div class="page-header">
+  <h1>
+  <%= @track.name %><br>
+  <small> <%= @track.description %></small>
+  </h1>
+</div>
 
 
 <% if @is_enrolled %>
-<h3>Progress Bar:</h3>
-<div class="progress">
-  <div class="progress-bar" role="progressbar" aria-valuenow="<%= @completion %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @completion %>%;">
-    <%=  @completion %>%
-  </div>
-</div>
-<p><%= @completion %>% completed</p>
+  <%= render "showenrolledstudent" %>
+<% elsif @is_enrolled == false && @is_teacher == false %>
+  <%= render "notenrolled" %>
 <% end %>
-<br><br>
 
-<ul>
-  <% @lessons.each do |lesson| %>
-    <li><%= link_to lesson.title, lesson_path(lesson) %> - <%= lesson.duration %></li>
-  <% end %>
-</ul>
+<% if @is_teacher %>
+  <%= render "teachershow" %>
+<% end %>
 
-<% if @is_enrolled == false %>
-
-    <%= form_tag students_tracks_path, method: :post do %>
-    <%= hidden_field_tag(:track_id, @track.id) %>
-      <%= submit_tag "Enroll" %>
+<div class="create-new-track">
+  <br>
+  <%= link_to(category_path(@track.category)) do %>
+  <p><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    Return to <%= @track.category.title %> Tracks</p>
     <% end %>
-<% else %>
-  <p>You Are ENROLLED!! Get ready to Learn!</p>
-
-<% end %>
-
-<% if current_user.teacher %>
-  <% if @teacher.id == current_user.teacher.id%> 
-    <p><%= link_to "Add a Lesson", new_track_lesson_path(@track) %></p>
-  <% end %>
-<% end %>
+</div>

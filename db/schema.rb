@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160411212238) do
+ActiveRecord::Schema.define(version: 20160417003301) do
+
+  create_table "answers", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "assessment_id"
+    t.integer  "total_point_value"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "question_id"
+    t.string   "content"
+  end
 
   create_table "assessments", force: :cascade do |t|
     t.integer  "lesson_id"
@@ -34,6 +44,14 @@ ActiveRecord::Schema.define(version: 20160411212238) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "order_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.string   "content"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "questions", force: :cascade do |t|
@@ -103,11 +121,12 @@ ActiveRecord::Schema.define(version: 20160411212238) do
     t.integer  "category_id"
     t.string   "name"
     t.string   "description"
+    t.string   "image_url"
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.integer  "points"
+    t.integer  "points",                 default: 0
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false

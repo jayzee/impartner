@@ -1,3 +1,5 @@
 ==IMPARTner
 == README
 Mentorship-focused, open source educational app.
+
+A Ruby on Rails backend framework with javascript, AJAX and HTML/CSS used on the frontend.

@@ -8,7 +8,11 @@ module Adapters
     end
 
     def get_fact
+      begin
       self.class.get("https://www.reddit.com/r/funfacts/random.json")
+      rescue  => e
+          alert('reddit fact not loading')
+      end
     end
   end
 end

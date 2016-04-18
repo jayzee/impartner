@@ -18,6 +18,7 @@ class Student < ActiveRecord::Base
   has_many :resources, through: :students_resources
   has_many :students_assessments
   has_many :assessments, through: :students_assessments
+  has_many :answers
 
   def check_resource_completion(item)
     item.completed ? true : false
@@ -47,17 +48,31 @@ class Student < ActiveRecord::Base
   def percent_complete(track)
 
     total_lessons_array = track.lessons
+    total_resources_array = total_lessons_array.map do |lesson|
+        lesson.resources
+    end.flatten
 
-    completed_array = self.students_lessons.find_all do |studentLes|
-        (studentLes.completed) == true && (track.id == studentLes.track_id)
+
+
+    completed_array = self.students_resources.select do |studentRes|
+        studentRes.completed == true && track.id == studentRes.resource.lesson.track.id
     end
+
     #completed_contents = total_lessons_array.find_by(completed: true)
 
-    if(completed_array.count != nil && total_lessons_array.count != nil && total_lessons_array.count != 0)
-        return (completed_array.count / total_lessons_array.count) * 100
+    if(completed_array.count != nil && total_resources_array.count != nil && total_resources_array.count != 0)
+        return ((completed_array.count.to_f / total_resources_array.count.to_f) * 100).round(0)
     else
         return 0
     end
+  end
+
+  def find_answer(question)
+    self.answers.select { |answer| answer.question == question}
+  end
+
+  def enrollment_date(track)
+    self.students_tracks.where(track_id: track.id)[0].created_at
   end
 
 

@@ -18,9 +18,18 @@ Rails.application.routes.draw do
     resources :questions
   end
 
-  resources :users
+  resources :users do 
+    resources :messages
+  end
+  resources :questions do 
+    resources :answers
+  end 
+
 
   resources :students_tracks
+
+  get '/factoids' => 'factoids#show', as: :random_fact
+
 
   post 'resources/:id/complete' => 'resources#complete', as: :complete_element
 

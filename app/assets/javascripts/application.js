@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require sweetalert.min.js
+//= require strechy/main.js
+//= require hover/modernizr.custom.js
+//= require hover/toucheffects.js
 //= require magnific/jquery.magnific-popup.min.js
 //= require jquery-queryParser.min.js
 //= require tabslet/jquery.tabslet.min.js
@@ -22,10 +25,10 @@
 //= require typeahead.js/typeahead.bundle.min.js
 //= require typeahead.js/typeahead.jquery.min.js
 //= require js/modernizr.js
+//= require js/jquery.baraja.js
 //= require js/custom.js
 //= require js/color-switcher.js
 //= require js/jquery.ajaxchimp.min.js
-//= require js/jquery.baraja.js
 //= require js/jquery.appear.js
 //= require js/jquery.easing.1.3.js
 //= require js/jquery.fitvids.js
@@ -33,5 +36,4 @@
 //= require js/jquery.nicescroll.min.js
 //= require js/jquery.vegas.min.js
 //= require bootstrap/bootstrap.min.js
-//= require bootstrap/npm.js
 //= require_tree .

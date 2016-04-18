@@ -1,0 +1,37 @@
+<% Assessment.all_questions(@lesson).flatten.each_with_index do |question, index| %>
+  <% if student.find_answer(question).empty? %>
+    <div class="panel panel-primary">
+  <% elsif student.find_answer(question)[0].total_point_value == 0  %>
+    <div class="panel panel-danger">
+  <% elsif student.find_answer(question)[0].total_point_value != nil && student.find_answer(question)[0].total_point_value > 0 %>
+    <div class="panel panel-success">
+  <% else  %>
+    <div class="panel panel-default">
+  <% end %>
+
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= index + 1 %>. <%= question.content %></h3>
+      </div>
+      <div class="panel-body">
+
+      <div class="answer-<%= question.id %>">
+      
+      <% if student.find_answer(question).empty? %> <!-- checks if student already answered question -->
+        <%= form_for question.answers.build(), {url: question_answers_path(question)} do |f| %>
+          <%= f.text_field  :content %>
+          <%= f.hidden_field :student_id, {:value => student.id } %>
+          <%= f.hidden_field :assessment_id, {:value => question.assessment.id} %>
+          <%= f.hidden_field :question_id, { :value => question.id} %>
+          <%= f.submit "Answer", id: "answer" %><br>
+        <% end %>
+
+      <% else %>
+          <%= student.find_answer(question)[0].content %><br>
+          <%= link_to "Edit Answer", edit_question_answer_path(question, student.find_answer(question)[0]), class: "edit-answer #{student.find_answer(question)[0].id}", remote: true %>
+      <% end %>
+
+      </div>
+      </div>
+    </div>
+
+<% end %>

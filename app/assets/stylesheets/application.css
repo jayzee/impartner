@@ -11,6 +11,10 @@
  * file per style scope.
  *
  *= require sweetalert.css
+ *= require hover/component.css
+ *= require hover/default.css
+ *= require strechy/reset.css
+ *= require strechy/style.css
  *= require magnific/magnific-popup.css
  *= require css/animate.css
  *= require css/baraja.css
