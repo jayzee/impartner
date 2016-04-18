@@ -1,1 +1,2 @@
-$(".completed-resources").append(<%= j render "show_completed" %>)
+$('a#<%= @resource.id %>.btn').text("Completed!");
+$('#feature-next').click();

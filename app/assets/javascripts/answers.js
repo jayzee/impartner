@@ -28,11 +28,12 @@ $(function(){
   });
 
 
-  $("#see_answers").click(function(e){
+  $('div.panel-body > p:nth-child(2) > button').click(function(e){
     e.preventDefault();
     e.stopPropagation();
     $("#answers").toggle();
   });
+
 
   $('.edit_answer > input[type="radio"]').on('click', function(e) {
     e.preventDefault;
