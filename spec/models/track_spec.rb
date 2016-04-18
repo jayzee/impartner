@@ -10,6 +10,7 @@
 #  category_id :integer
 #  name        :string
 #  description :string
+#  image_url   :string
 #
 
 require 'rails_helper'

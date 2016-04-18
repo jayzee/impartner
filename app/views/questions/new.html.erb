@@ -7,6 +7,12 @@
 <%= form_for @question, {url: assessment_questions_path(@assessment)} do |f|%>
   <%= f.label :content, "Question" %>
   <%= f.text_field :content %>
+  <input type="checkbox" name="answer" class="show-answer-field"> <strong>Add Answer</strong>
+  <div id="answer-field">
+    <%= f.text_field :correct_answer %>
+  </div>
+  <br>
+  <br>
   <%= f.submit "Add Question", class: "add-question" %>
 <% end %>
 </div>
@@ -15,3 +21,11 @@
   <h4><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
     Return to <%= @lesson.title %> Lesson</h4>
 <% end %>
+
+<script>
+  $('#answer-field').hide();
+  $('.show-answer-field').on('click', function(e){
+    e.preventDefault; 
+    $("#answer-field").toggle();
+  });
+</script>

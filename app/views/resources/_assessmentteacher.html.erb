@@ -6,13 +6,13 @@
     </div>
 
     <div class="panel-body">
-      <p><%= question.content %><p>
+      <p><%= question.content %> <strong><%= question.correct_answer %></strong><p>
         <button type="button" class="btn btn-primary btn-sml">
           See Student Answers
         </button>
     </div>
 
-    <table class="table" id="answers">
+    <table class="table" id="answers <%= question.id %>">
       <tr>
         <th><strong>User</strong></th>
         <th><strong>Answer</strong></th>
@@ -26,18 +26,26 @@
       <td><%= answer.student.user.email %></td>
       <td><%= answer.content %></td>
       <td>
-      <%= form_for answer, url: question_answer_path(question, answer), html: {method: "patch"}, remote: true do |f| %>
-        <%= f.label :total_point_value, '0', class: "radio-inline" %>
-        <%= f.radio_button :total_point_value, '0'%>
-        <%= f.label :total_point_value, '1', class: "radio-inline" %>
-        <%= f.radio_button :total_point_value, '1'%>
-        <%= f.label :total_point_value, '2', class: "radio-inline" %>
-        <%= f.radio_button :total_point_value, '2'%>
-        <% if answer.total_point_value.nil? %>
-          <%= f.submit "Save Grade", class: "btn btn-success btn-xs" %>
-        <% else %>
-           <%= f.submit "Saved!", class: "btn btn-success btn-xs" %>
-        <% end %>
+      <% if question.correct_answer.nil? %>
+        <%= form_for answer, url: question_answer_path(question, answer), html: {method: "patch"}, remote: true do |f| %>
+          <%= f.label :total_point_value, '0', class: "radio-inline" %>
+          <%= f.radio_button :total_point_value, '0'%>
+          <%= f.label :total_point_value, '1', class: "radio-inline" %>
+          <%= f.radio_button :total_point_value, '1'%>
+          <%= f.label :total_point_value, '2', class: "radio-inline" %>
+          <%= f.radio_button :total_point_value, '2'%>
+          <% if answer.total_point_value.nil? %>
+            <%= f.submit "Save Grade", class: "btn btn-success btn-xs" %>
+          <% else %>
+             <%= f.submit "Saved!", class: "btn btn-success btn-xs" %>
+          <% end %>
+          <% end %>
+       <% else %>
+          <% if answer.correct %>
+            <p>2 points</p>
+          <% else %>
+            <p>0 points</p>
+          <% end %>
       </td>
       <% end %>
 
