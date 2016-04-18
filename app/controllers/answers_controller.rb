@@ -29,8 +29,8 @@ class AnswersController < ApplicationController
         @answer.correct = false
         @answer.total_point_value == 0
       end
-      @answer.save 
     end
+    @answer.save 
 
     respond_to do |format| 
       format.json {render json: @answer}
@@ -52,6 +52,21 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
     @answer.update(answer_params)
+
+    unless @question.correct_answer.nil?
+      check_exact_match = @question.correct_answer.downcase == @answer.content.downcase
+      check_almost_match = @answer.content.include?(@question.correct_answer.downcase)
+
+      if check_exact_match || check_almost_match
+        @answer.correct = true
+        @answer.total_point_value == 2
+        current_user.add_points(2)
+      else
+        @answer.correct = false
+        @answer.total_point_value == 0
+      end
+    end
+    @answer.save 
     
     respond_to do |format| 
       format.js 
