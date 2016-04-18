@@ -1,5 +1,5 @@
 $(function(){
-  $("#answers").hide();
+  $("table").hide(); 
   $('.new_answer').on('submit', function(e){
     e.preventDefault();
     
@@ -16,11 +16,26 @@ $(function(){
       data: form.serialize(),
 
       success: function(data){
-        answer.append(data.content);
-        answer.append("<a class='edit-answer <%= @answer.id %>' data-remote='true' href='/questions/" + data.question_id + "/answers/" + answer_id + "/edit'>Edit Answer</a>");
-        form.remove();
-        $(answer).parent().parent().toggleClass("panel panel-primary panel panel-default");
-        $("li.list-group-item.active > span").text(badge - 1)
+        if (data.correct) {
+          form.remove();
+          answer.append(data.content);
+          $(answer).parent().parent().toggleClass("panel panel-primary panel panel-success");
+          swal("Good job!", "You got the question right!", "success");
+          $("li.list-group-item.active > span").text(badge - 1);
+        } else if (data.correct === false) {
+          form.remove();
+          answer.append(data.content);
+          answer.append("<a class='edit-answer <%= @answer.id %>' data-remote='true' href='/questions/" + data.question_id + "/answers/" + answer_id + "/edit'>Edit Answer</a>");
+          $(answer).parent().parent().toggleClass("panel panel-primary panel panel-danger");
+          swal("Oops...", "Try again?", "error");
+          $("li.list-group-item.active > span").text(badge - 1);
+        } else {
+          answer.append(data.content);
+          answer.append("<a class='edit-answer <%= @answer.id %>' data-remote='true' href='/questions/" + data.question_id + "/answers/" + answer_id + "/edit'>Edit Answer</a>");
+          form.remove();
+          $(answer).parent().parent().toggleClass("panel panel-primary panel panel-default");
+          $("li.list-group-item.active > span").text(badge - 1);
+        };
       }, 
       dataType: 'JSON'
     });
@@ -31,7 +46,7 @@ $(function(){
   $('div.panel-body > p:nth-child(2) > button').click(function(e){
     e.preventDefault();
     e.stopPropagation();
-    $("#answers").toggle();
+    $(this).parent().parent().next().toggle();
   });
 
 

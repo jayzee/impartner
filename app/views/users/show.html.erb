@@ -1,10 +1,12 @@
 <h2><%= @user.email %></h2>
+<% button_to%>
 <h3>Enrolled Tracks</h3>
 
 <% if @learning %>
     <ul>
     <% @learning.each do |track| %>
-    <li><%= link_to track.name, track_path(track) %></li>
+    <li><%= link_to track.name, track_path(track) %>, taught by <%= link_to track.teacher.user.email, user_path(track.teacher.user)  %></li>
+
   <% end %>
   </ul>
   <% else %>
@@ -14,12 +16,23 @@
 <% if @teaching %>
 <ul>
     <% @teaching.each do |track| %>
-    <li><%= link_to track.name, track_path(track) %></li>
+    <h4><li><%= link_to track.name, track_path(track) %></li></h4>
+    <h5>Enrolled in this course:</h5>
+    <% if track.students.any? %>
+      <ul>
+        <% track.students.each do |student| %>
+        <li><%= link_to student.user.email, user_path(student.user) %> </li>
+        <% end %>
+      </ul>
+    <% else %>
+      There are 0 students enrolled in this course!
+    <% end %>
+    <br>
   <% end %>
-  <ul>
+  </ul>
   <% else %>
     Teaching 0 Courses!
 <% end %>
 
 <h3>Points</h3>
-You have <%= @points %>
+You have <%= @points %> points.

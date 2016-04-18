@@ -1,9 +1,9 @@
 <% Assessment.all_questions(@lesson).flatten.each_with_index do |question, index| %>
   <% if student.find_answer(question).empty? %>
     <div class="panel panel-primary">
-  <% elsif student.find_answer(question)[0].total_point_value == 0  %>
+  <% elsif student.find_answer(question)[0].total_point_value == 0 || !student.find_answer(question)[0].correct %>
     <div class="panel panel-danger">
-  <% elsif student.find_answer(question)[0].total_point_value != nil && student.find_answer(question)[0].total_point_value > 0 %>
+  <% elsif student.find_answer(question)[0].total_point_value != nil && student.find_answer(question)[0].total_point_value > 0 || student.find_answer(question)[0].correct %>
     <div class="panel panel-success">
   <% else  %>
     <div class="panel panel-default">
