@@ -16,4 +16,11 @@ class Assessment < ActiveRecord::Base
   has_many :students, through: :students_assessments
   has_many :questions
   has_many :answers, through: :questions
+
+
+  def self.all_questions(lesson)
+    all = self.all.where(:lesson_id => lesson.id)
+    all_questions = all.map {|x| x.questions}
+    all_questions
+  end 
 end

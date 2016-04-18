@@ -23,26 +23,8 @@ $(function(){
 
   });
 
-  var resource_id;
-  var card;
 
-  $('a.btn.btn-info.btn-sm').on('click', function(){
-      card = this.parentElement
-      resource_id= card.id;
-      $.ajax({
-        method: "POST",
-        url: "/resources/"+ resource_id + "/complete",
-        success: function(){
-          swal("Good job!", "", "success");
-          card.remove();
-          $("#tab-3 #card-ul").append(card);
-        }
-      })
-
-  });
-
-
-  $('form#new_lesson').on('submit', function(){
+  $('form#new_lesson').on('submit', function(event){
     event.preventDefault();
     event.stopPropagation();
 

@@ -360,9 +360,9 @@ newkingdom_arr.each do |resource|
 end
 
 #Jackson Pollock
-influences = pollock.lessons.create(title: "Early History", duration: "40 minutes", order_id: 1)
-work = pollock.lessons.create(title: "The Hyksos", duration: "120 minutes", order_id: 2)
-abstractExpressionism = pollock.lessons.create(title: "The New Kingdom", duration: "100 minutes", order_id: 3)
+influences = pollock.lessons.create(title: "Influences", duration: "40 minutes", order_id: 1)
+work = pollock.lessons.create(title: "The Work", duration: "120 minutes", order_id: 2)
+abstractExpressionism = pollock.lessons.create(title: "Abstract Expressionism", duration: "100 minutes", order_id: 3)
 
 influences_arr = [ {title:"A brief biography",
         description:"Understanding an artist's background is critical to understanding an artist",

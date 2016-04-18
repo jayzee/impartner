@@ -30,16 +30,16 @@ class ResourcesController < ApplicationController
     redirect_to lesson_path(@lesson)
   end
 
-  def edit
-
-  end
-
   def complete
     @student = Student.find_by(user_id: current_user)
+    @resource = Resource.find(params[:id])
     @student.complete_resource(params[:id])
-
+    
     current_user.add_points(5)
-    render nothing: true
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
