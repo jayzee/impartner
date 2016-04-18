@@ -1,9 +1,10 @@
+<% if current_user %>
 <div id="sidebar" class="col-md-1 panel panel-default affix">
   <div class="panel-heading"><h3 class="panel-title">Current Status:</h3></div>
      <div class="panel-body">
 
   <strong>Classes Enrolled:</strong><br>
-<% if current_user %>
+
 <% if current_user.student == nil %>
   You are not enrolled in any courses.
 <% else %>
@@ -35,6 +36,8 @@
 <br>
   <strong>Points:</strong><br>
 <%= current_user.points %>
-<% end %>
+
   </div>
 </div>
+
+<% end %>
