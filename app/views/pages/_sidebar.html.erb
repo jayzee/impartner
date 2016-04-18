@@ -1,0 +1,35 @@
+<div id="sidebar" class="col-md-1 panel panel-default affix">
+  <div class="panel-heading"><h3 class="panel-title">Current Status:</h3></div>
+     <div class="panel-body">
+
+  <strong>Classes Enrolled:</strong><br>
+
+<% if current_user.student == nil %>
+  You are not enrolled in any courses.
+<% else %>
+  <% current_user.student.students_tracks.each do |student_tracks| %>
+    <%= student_tracks.track.name %><br>
+  <% end %>
+
+<% end %>
+
+<br>
+  <strong>Classes Teaching:</strong><br>
+
+  <% if current_user.teacher == nil %>
+    You are not teaching any courses.
+  <% else %>
+      <% current_user.teacher.tracks.each do |teacher_track| %>
+        <%= teacher_track.name %><br>
+      <% end %>
+
+  <% end %>
+
+
+
+<br>
+  <strong>Points:</strong><br>
+<%= current_user.points %>
+
+  </div>
+</div>
