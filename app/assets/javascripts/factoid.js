@@ -19,7 +19,7 @@ $(function(){
       url: "/factoids",
       method: "GET",
       success: (function(data, status, request){
-          var url= "<p><a href=" + data.url +">Learn More</a></p>"
+          var url= "<p><a href=" + data.url +" target='_blank'>Learn More</a></p>"
           $('.random-fact button').text(data.title)
           $('.random-fact button').append(url)
         })
