@@ -48,6 +48,7 @@ class User < ActiveRecord::Base
 #adds points to user
   def add_points(new_points)
     self.points += new_points
+    self.save
   end
 
 #returns true if the current logged in user is a teacher of this track
