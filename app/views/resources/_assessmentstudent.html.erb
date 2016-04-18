@@ -25,6 +25,12 @@
           <%= f.submit "Answer", id: "answer" %><br>
         <% end %>
 
+      <% elsif student.find_answer(question)[0].correct %>
+          <%= student.find_answer(question)[0].content %>
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      <% elsif !student.find_answer(question)[0].correct %>
+          <%= student.find_answer(question)[0].content %>
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
       <% else %>
           <%= student.find_answer(question)[0].content %><br>
           <%= link_to "Edit Answer", edit_question_answer_path(question, student.find_answer(question)[0]), class: "edit-answer #{student.find_answer(question)[0].id}", remote: true %>

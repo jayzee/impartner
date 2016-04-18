@@ -22,13 +22,11 @@ $(function(){
           $(answer).parent().parent().toggleClass("panel panel-primary panel panel-success");
           swal("Good job!", "You got the question right!", "success");
           $("li.list-group-item.active > span").text(badge - 1);
-        } else if (data.correct === false) {
+        } else if (data.correct == false) {
           form.remove();
           answer.append(data.content);
-          answer.append("<a class='edit-answer <%= @answer.id %>' data-remote='true' href='/questions/" + data.question_id + "/answers/" + answer_id + "/edit'>Edit Answer</a>");
           $(answer).parent().parent().toggleClass("panel panel-primary panel panel-danger");
-          swal("Oops...", "Try again?", "error");
-          $("li.list-group-item.active > span").text(badge - 1);
+          swal("Oops...", "That was incorrect.", "error");
         } else {
           answer.append(data.content);
           answer.append("<a class='edit-answer <%= @answer.id %>' data-remote='true' href='/questions/" + data.question_id + "/answers/" + answer_id + "/edit'>Edit Answer</a>");
@@ -43,10 +41,10 @@ $(function(){
   });
 
 
-  $('div.panel-body > p:nth-child(2) > button').click(function(e){
+  $('div.panel-body > button').click(function(e){
     e.preventDefault();
     e.stopPropagation();
-    $(this).parent().parent().next().toggle();
+    $(this).parent().next().toggle();
   });
 
 

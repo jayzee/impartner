@@ -13,9 +13,9 @@ $(function(){
 
       success: function(data){
         $('#question-bank').show();
-        $('#question-bank').append("<li>" + data.content + "<strong> " + data.correct_answer + "</strong>" + "</li>");
+        $('#question-bank').append("<li>" + data.content + " Answer: <strong> " + data.correct_answer + "</strong>" + "</li>");
         content_field.val('');
-        answer_field.val('');
+        $('#question_correct_answer').val('');
         $('.show-answer-field').prop( "checked", false );
         answer_field.hide();
       }, 

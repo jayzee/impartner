@@ -6,7 +6,11 @@
     </div>
 
     <div class="panel-body">
-      <p><%= question.content %> <strong><%= question.correct_answer %></strong><p>
+      <p><%= question.content %><br>
+        <% unless question.correct_answer === '' || nil %>
+          Answer: <strong><%= question.correct_answer %></strong>
+        <% end %>
+      </p>
         <button type="button" class="btn btn-primary btn-sml">
           See Student Answers
         </button>

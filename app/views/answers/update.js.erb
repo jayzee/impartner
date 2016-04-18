@@ -1,8 +1,13 @@
-<% if @answer.total_point_value.nil? %>
+<% if @answer.question.correct_answer == ""  %>
   $("#edit_answer_<%= @answer.id %>").hide();
   $(".answer-<%= @answer.id %>").append("<%= @answer.content %>");
   $(".answer-<%= @answer.id %>").append("<a class='edit-answer <%= @answer.id %>' data-remote='true' href='/questions/<%= @question.id %>/answers/<%= @answer.id %>/edit'>Edit Answer</a>");
   $(".answer-<%= @answer.id %>").parent().parent().toggleClass("panel panel-primary panel panel-default");
+<% elsif !@answer.correct %>
+    form.remove();
+    $(".answer-<%= @answer.id %>").append("<%= @answer.content %>");
+    $(".answer-<%= @answer.id %>").parent().parent().toggleClass("panel panel-primary panel panel-danger");
+    swal("Oops...", "That was incorrect.", "error");
 <% elsif @answer.correct %>
   form.remove();
   answer.append(data.content);

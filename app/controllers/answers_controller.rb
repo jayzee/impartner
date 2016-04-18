@@ -17,7 +17,7 @@ class AnswersController < ApplicationController
   def create
     @question = Question.find(params[:question_id])
     @answer = Answer.create(answer_params)
-    unless @question.correct_answer.nil?
+    unless @question.correct_answer.nil? || @question.correct_answer === ""
       check_exact_match = @question.correct_answer.downcase == @answer.content.downcase
       check_almost_match = @answer.content.include?(@question.correct_answer.downcase)
 
@@ -53,7 +53,7 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     @answer.update(answer_params)
 
-    unless @question.correct_answer.nil?
+    unless @question.correct_answer.nil? || @question.correct_answer === ""
       check_exact_match = @question.correct_answer.downcase == @answer.content.downcase
       check_almost_match = @answer.content.include?(@question.correct_answer.downcase)
 
@@ -65,6 +65,7 @@ class AnswersController < ApplicationController
         @answer.correct = false
         @answer.total_point_value == 0
       end
+      @answer.save
     end
     @answer.save 
     
