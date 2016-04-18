@@ -26,13 +26,13 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:twitter, :google_oauth2]
+         :omniauthable, :omniauth_providers => [:twitter]
   has_one :student
   has_one :teacher
   has_many :messages
 
   def self.from_omniauth(auth)
-    
+
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.provider = auth.provider
         user.uid = auth.uid
