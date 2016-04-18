@@ -1,5 +1,6 @@
 <h2><%= @user.email %></h2>
-<% button_to%>
+<a class="popup-with-form" href="#contact-form">Message This User</a>
+
 <h3>Enrolled Tracks</h3>
 
 <% if @learning %>
@@ -36,3 +37,22 @@
 
 <h3>Points</h3>
 You have <%= @points %> points.
+
+<form id="contact-form" class="white-popup-block mfp-hide">
+  <h4>Contact <%= @user.email %></h4>
+  <fieldset style="border:0;">
+    <input type="hidden" id="recipient_id" value=<%= params[:id] %> >
+    <input type="hidden" id="sender_id" value=<%= current_user.id %> >
+    <ol>
+      <li>
+        <label for="content">Message Content</label><br>
+        <textarea id="content" placeholder="Type your message here..."></textarea>
+      </li>
+      <li>
+      <input type="submit" value="send" id="send">
+      </li>
+    </ol>
+    <div id="status"></div>
+  </fieldset>
+</form>
+
