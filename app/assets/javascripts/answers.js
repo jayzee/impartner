@@ -1,4 +1,5 @@
 $(function(){
+  $("#answers").hide();
   $('.new_answer').on('submit', function(e){
     e.preventDefault();
     
@@ -24,6 +25,20 @@ $(function(){
       dataType: 'JSON'
     });
 
+  });
+
+
+  $("#see_answers").click(function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    $("#answers").toggle();
+  });
+
+  $('.edit_answer > input[type="radio"]').on('click', function(e) {
+    e.preventDefault;
+    var id = $(this).parent().attr('id');
+
+    $('#' + id + ' > input.btn').val('Update Grade');
   });
 
 });

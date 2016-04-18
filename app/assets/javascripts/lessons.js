@@ -24,7 +24,7 @@ $(function(){
   });
 
 
-  $('form#new_lesson').on('submit', function(){
+  $('form#new_lesson').on('submit', function(event){
     event.preventDefault();
     event.stopPropagation();
 

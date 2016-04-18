@@ -20,14 +20,18 @@ class LessonsController < ApplicationController
     @assessments = @lesson.assessments
     @student = Student.find_by(user_id: current_user.id)
     @answer = Answer.new
-    joins = @all_resources.select do |r|
-      StudentsResource.find_by(resource_id: r.id, student_id: @student.id)
-    end
+    @teacher = Teacher.find_by(user_id: current_user.id)
 
-    @completed_joins= joins.find_all{|r| r.students_resources[0].completed}
-    @complete_resources= @completed_joins.map {|j| j}
-    @incomplete_joins= joins.find_all{|r| r.students_resources[0].completed == false}
-    @incomplete_resources= @incomplete_joins.map {|j| j}
+    unless @student.nil?
+      joins = @all_resources.select do |r|
+        StudentsResource.find_by(resource_id: r.id, student_id: @student.id)
+      end
+
+      @completed_joins= joins.find_all{|r| r.students_resources[0].completed}
+      @complete_resources= @completed_joins.map {|j| j}
+      @incomplete_joins= joins.find_all{|r| r.students_resources[0].completed == false}
+      @incomplete_resources= @incomplete_joins.map {|j| j}
+    end 
   end
 
   def new

@@ -1,0 +1,48 @@
+<% Assessment.all_questions(lesson).flatten.each_with_index do |question, index| %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= index + 1 %>
+    </div>
+
+    <div class="panel-body">
+      <p><%= question.content %><p>
+        <button type="button" class="btn btn-primary btn-sml" id="see_answers">
+          See Student Answers
+        </button>
+    </div>
+
+    <table class="table" id="answers">
+      <tr>
+        <th><strong>User</strong></th>
+        <th><strong>Answer</strong></th>
+        <th><strong>Grade</strong></th>
+
+      </tr>
+
+    <% question.answers.each do |answer| %>
+      <tr>
+
+      <td><%= answer.student.user.email %></td>
+      <td><%= answer.content %></td>
+      <td>
+      <%= form_for answer, url: question_answer_path(question, answer), html: {method: "patch"}, remote: true do |f| %>
+        <%= f.label :total_point_value, '0', class: "radio-inline" %>
+        <%= f.radio_button :total_point_value, '0'%>
+        <%= f.label :total_point_value, '1', class: "radio-inline" %>
+        <%= f.radio_button :total_point_value, '1'%>
+        <%= f.label :total_point_value, '2', class: "radio-inline" %>
+        <%= f.radio_button :total_point_value, '2'%>
+        <% if answer.total_point_value.nil? %>
+          <%= f.submit "Save Grade", class: "btn btn-success btn-xs" %>
+        <% else %>
+           <%= f.submit "Saved!", class: "btn btn-success btn-xs" %>
+        <% end %>
+      </td>
+      <% end %>
+
+    <% end %>
+    </table>
+  </div>
+
+<% end %>

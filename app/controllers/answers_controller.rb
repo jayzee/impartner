@@ -37,7 +37,7 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
     @answer.update(answer_params)
-
+    
     respond_to do |format| 
       format.js 
     end 
@@ -46,6 +46,6 @@ class AnswersController < ApplicationController
   private 
 
   def answer_params
-    params.require(:answer).permit(:content, :student_id, :assessment_id, :question_id)
+    params.require(:answer).permit(:content, :student_id, :assessment_id, :question_id, :total_point_value)
   end 
 end 
