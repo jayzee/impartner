@@ -21,7 +21,7 @@ $(function(){
     })
     // $('.random-fact button').replaceWith("<h3>Loading Fact...</h3>")
     $('.random-fact button').prop( "disabled", true );
-    $('.random-fact button').html("<img width= '25' src='http://www.mytreedb.com/uploads/mytreedb/loader/ajax_loader_gray_350.gif'>")
+    $('.random-fact button').html("<img width= '50' src='http://sampson.washcoll.edu/~ksugalski2/final%20project/images/squid3.gif'>")
   })
 
   $(document).ajaxSuccess(function(event, request, options, data){
