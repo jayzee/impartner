@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418151152) do
+ActiveRecord::Schema.define(version: 20160418202516) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "student_id"
@@ -131,7 +131,7 @@ ActiveRecord::Schema.define(version: 20160418151152) do
     t.integer  "points",                 default: 0
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
+    t.string   "email",                  default: ""
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
