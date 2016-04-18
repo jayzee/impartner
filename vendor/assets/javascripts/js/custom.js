@@ -2,7 +2,7 @@
 Card Style Script
 ----------------------------- */					
 $(document).ready(function() {
-	'use strict';
+
 	var $el 			= $( '#card-ul' ),
 		sectionFeature  = $('#section-feature'),
 		baraja 			= $el.baraja();

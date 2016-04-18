@@ -274,6 +274,7 @@ th {
   display: inline-block;
   font-family: 'Glyphicons Halflings';
   font-style: normal;
+  color: black;
   font-weight: normal;
   line-height: 1;
 
@@ -3443,6 +3444,7 @@ fieldset[disabled] .btn-link:focus {
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px;
+  padding-top: 50px !important;
 }
 .btn-sm,
 .btn-group-sm > .btn {
@@ -3653,6 +3655,7 @@ tbody.collapse.in {
   position: relative;
   display: inline-block;
   vertical-align: middle;
+  padding-top: 50px !important;
 }
 .btn-group > .btn,
 .btn-group-vertical > .btn {

@@ -1,14 +1,15 @@
+<div>
  <!--=== Resources section Starts ===-->
-  <section id="section-feature" class="feature-wrap">
+  <section id="section-feature-shuffle" class="feature-wrap">
     <div class="container features center">
       <div class="row">
         <div class="col-lg-12">
             <!--Resource container Starts -->
-            <% if @all_student_resources != nil %>
-            <ul id="card-ul" class="features-hold baraja-container">
+            <% if @resources != nil %>
+            <ul id="card-ul-shuffle" class="features-hold baraja-container">
 
 
-            <% @all_student_resources.each do |obj| %>
+            <% @resources.shuffle.each do |obj| %>
 
               <% if obj.class == Resource %>
 
@@ -27,17 +28,17 @@
                   <%= image_tag "logo", :class => "feature-image" %>
                 <% elsif obj.type_of == "Other" %>
                   <% if obj.lesson.track.category.title == "Health" %>
-                    <%= image_tag "Health", :class => "feature-image" %>
+                    <%= image_tag "health", :class => "feature-image" %>
                   <% elsif obj.lesson.track.category.title == "Art" %>
-                    <%= image_tag "Art", :class => "feature-image" %>
+                    <%= image_tag "art", :class => "feature-image" %>
                   <% elsif obj.lesson.track.category.title == "Music" %>
-                    <%= image_tag "Music", :class => "feature-image" %>
+                    <%= image_tag "music", :class => "feature-image" %>
                   <% elsif obj.lesson.track.category.title == "History" %>
-                    <%= image_tag "History", :class => "feature-image" %>
+                    <%= image_tag "history", :class => "feature-image" %>
                   <% elsif obj.lesson.track.category.title == "STEM" %>
-                    <%= image_tag "STEM", :class => "feature-image" %>
+                    <%= image_tag "stem", :class => "feature-image" %>
                   <% elsif obj.lesson.track.category.title == "Language" %>
-                    <%= image_tag "Language", :class => "feature-image" %> 
+                    <%= image_tag "language", :class => "feature-image" %>
                   <% end %>
                 <% end %><!-- Resource Icon -->
 
@@ -59,12 +60,6 @@
                   <%= link_to "Open", obj.content, target: "_blank", class: "btn btn-success btn-sm"  %>
                 <% end %>
 
-                  <% if obj.students_resources.where(student_id: current_user.student.id)[0].completed == false %>
-                    <%= link_to "Mark as Complete", complete_element_path(obj), method: :post, class: "btn btn-info btn-sm", id: obj.id, remote: true %>
-                  <% else %>
-                    <%= link_to "Completed!", "#", class: "btn btn-default btn-sm"%>
-                  <% end %>
-
                 </li>
                 <!-- Single Resource Ends -->
                 <% end %>
@@ -76,22 +71,22 @@
             <!-- Resources Controls Starts -->
             <div class="btn-group btn-group-lg" role="group">
               <div class="btn-group" role="group">
-              <button class="control-icon fancy-button button-line no-text btn-col bell" id="feature-prev" title="Previous" >
+              <button class="control-icon fancy-button button-line no-text btn-col bell" id="feature-prev-shuffle" title="Previous" >
                 <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
               </button>
               </div>
               <div class="btn-group" role="group">
-              <button class="control-icon fancy-button button-line no-text btn-col zoom" id="feature-expand" title="Expand" >
+              <button class="control-icon fancy-button button-line no-text btn-col zoom" id="feature-expand-shuffle" title="Expand" >
                 <span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
               </button>
               </div>
               <div class="btn-group" role="group">
-              <button class="control-icon fancy-button button-line no-text btn-col zoom" id="feature-close" title="Collapse" >
+              <button class="control-icon fancy-button button-line no-text btn-col zoom" id="feature-close-shuffle" title="Collapse" >
                 <span class="glyphicon glyphicon-resize-small" aria-hidden="true"></span>
               </button>
               </div>
               <div class="btn-group" role="group">
-              <button class="control-icon fancy-button button-line no-text btn-col bell" id="feature-next" title="Next" >
+              <button class="control-icon fancy-button button-line no-text btn-col bell" id="feature-next-shuffle" title="Next" >
                 <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
               </button>
               </div>
@@ -101,3 +96,4 @@
       </div>
     </div>
   </section>
+</div>
