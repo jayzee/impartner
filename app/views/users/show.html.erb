@@ -38,6 +38,17 @@
 <h3>Points</h3>
 You have <%= @points %> points.
 
+<!-- 
+<h3>Messages</h3>
+<div class="messages">
+<ul>
+  <% @messages.each do |msg| %>
+  <li> From: <%= User.find(msg.sender_id).email %> <%= msg.content %>
+  <% end %>
+  </ul>
+</div>
+ -->
+
 <form id="contact-form" class="white-popup-block mfp-hide">
   <h4>Contact <%= @user.email %></h4>
   <fieldset style="border:0;">
