@@ -412,7 +412,7 @@ abstractExpressionism_arr = [ {title:"Abstract Expressionism",
         type_of:"Reading"},
 
         {title:"Khan Academy: Abstract Expressionism",
-        description:"The group of artists known as Abstract Expressionists emerged in the US following World War II. As the term suggests, their work was characterized by non-objective imagery that appeared emotionally charged with personal meaning. ",
+        description:"The group of artists known as Abstract Expressionists emerged in the US following World War II.",
         content:"https://www.khanacademy.org/humanities/art-1010/abstract-exp-nyschool/abstract-expressionism/a/abstract-expressionism-an-introduction",
         type_of:"Reading"},
 

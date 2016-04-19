@@ -1,21 +1,30 @@
 <br>
-<h2>Build a new track in <%= Category.find(params[:category_id]).title %></h2>
-
-<% if @track.errors.any? %>
-  <ul>
-    <% @track.errors.full_messages.each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
+<% if params[:category_id] %>
+  <h2>Build a new track in <%= Category.find(params[:category_id]).title %></h2>
+<% else %>
+  <h2>Build a new track</h2>
 <% end %>
 
-<div class="form-style-6" id="new_lesson_form"><%= form_for @track, :html => {:class => "form-creation"} do |f|%>
+<% if @track.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <ul>
+      <% @track.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="form-style-6" id="new_lesson_form">
+
+  <%= form_for @track, :html => {:class => "form-creation"} do |f|%>
   <%= f.text_field :name, placeholder: "Name" %>
   <%= f.text_field :description, placeholder: "Description", style: "height: 125px;"%>
   <%= f.text_field :image_url, placeholder: "Image URL" %>
   <%= f.hidden_field :category_id %>
 
   <%= f.submit  %>
-<% end %>
+  <% end %>
+
 </div>
 

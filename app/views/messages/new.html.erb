@@ -1,8 +1,9 @@
+<div class="form-style-6">
 <%= form_for @message, method: "POST", url: "/users/#{params[:user_id]}/messages" do |f| %>
-
   <%= f.hidden_field(:sender_id) %>
   <p>Recipient:</p> 
   <p><%= f.text_field  :recipient_id %></p>
   <p>Content:</p> <p><%= f.text_area :content %></p>
   <%= f.submit "create_message"%>
 <% end %>
+</div>
