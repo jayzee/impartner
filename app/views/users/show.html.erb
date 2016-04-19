@@ -1,5 +1,7 @@
 <h2><%= @user.email %></h2>
+<% if current_user.id != @user.id %>
 <a class="popup-with-form" href="#contact-form">Message This User</a>
+<% end %>
 
 <h3>Enrolled Tracks</h3>
 
