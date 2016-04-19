@@ -27,6 +27,7 @@ gem 'rspec-rails'
 
 gem 'therubyracer'
 gem 'devise'
+gem 'omniauth', '~> 1.3', '>= 1.3.1'
 gem 'httparty'
 
 gem 'simple_form'
