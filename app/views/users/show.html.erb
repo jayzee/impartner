@@ -45,15 +45,20 @@ You have <%= @points %> points.
 <div class="messages">
 <ul>
   <% @messages.each do |msg| %>
-  <li> From: <%= User.find(msg.sender_id).email %>
-    <br>To: <%= User.find(msg.recipient_id).email %>
-
-   <br>Content: <%= msg.content %>
-   </li>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        From: <%= User.find(msg.sender_id).email %> 
+        <br>To: <%= User.find(msg.recipient_id).email %>
+      </div>
+      <div class="panel-body">
+        Content: <%= msg.content %>
+      </div>
+    </div>
   <% end %>
   </ul>
 </div>
 <% end %>
+
 
 <form id="contact-form" class="white-popup-block mfp-hide">
   <h4>Contact <%= @user.email %></h4>

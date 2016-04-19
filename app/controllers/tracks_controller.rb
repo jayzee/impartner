@@ -52,8 +52,6 @@ class TracksController < ApplicationController
       @lesson = @track.lessons.build()
       @teacher = current_user.teacher
       redirect_to new_track_lesson_path(@track)
-      # @return = { :error => false, :response => "Added", :partial => render_to_string(:partial => "lessons/link_to_new_lesson", :locals => {:teacher => @teacher, :lesson => @lesson}) }
-      # render json: {track: @track, teacher: current_user.teacher, return: @return}
     else
       render 'new'
     end

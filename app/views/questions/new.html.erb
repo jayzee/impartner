@@ -1,20 +1,21 @@
 <br>
 <br>
 <div class="alert alert-success" role="alert" id="question-bank"><h4>Questions:</h4><br></div>
+
 <div class="form-style-6">
 
+  <%= form_for @question, {url: assessment_questions_path(@assessment)} do |f|%>
+    <%= f.label :content, "Question" %>
+    <%= f.text_field :content %>
+    <input type="checkbox" name="answer" class="show-answer-field"> <strong>Add Answer</strong>
+    <div id="answer-field">
+      <%= f.text_field :correct_answer %>
+    </div>
+    <br>
+    <br>
+    <%= f.submit "Add Question", class: "add-question" %>
+  <% end %>
 
-<%= form_for @question, {url: assessment_questions_path(@assessment)} do |f|%>
-  <%= f.label :content, "Question" %>
-  <%= f.text_field :content %>
-  <input type="checkbox" name="answer" class="show-answer-field"> <strong>Add Answer</strong>
-  <div id="answer-field">
-    <%= f.text_field :correct_answer %>
-  </div>
-  <br>
-  <br>
-  <%= f.submit "Add Question", class: "add-question" %>
-<% end %>
 </div>
 
 <%= link_to(lesson_path(@lesson)) do %>

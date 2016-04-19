@@ -3444,7 +3444,7 @@ fieldset[disabled] .btn-link:focus {
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px;
-  padding-top: 50px !important;
+  padding-top: 10px !important;
 }
 .btn-sm,
 .btn-group-sm > .btn {
