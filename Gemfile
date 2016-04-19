@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
+ruby '2.2.3'
 
-
+gem 'puma'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.2'
 # Use sqlite3 as the database for Active Record
@@ -27,10 +28,6 @@ gem 'rspec-rails'
 
 gem 'therubyracer'
 gem 'devise'
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-gem 'omniauth-google-oauth2'
 gem 'httparty'
 
 gem 'simple_form'
@@ -48,6 +45,12 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-byebug'
   gem 'rspec'
+end
+
+group :production do
+  gem 'pg'
+  gem 'google-analytics-rails'
+  gem 'rails_12factor'
 end
 
 group :development do
