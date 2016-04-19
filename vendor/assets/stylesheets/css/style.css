@@ -359,7 +359,9 @@ left: calc(50% - 110px);
 
 /* ================ Features Section ================ */
 #section-feature {
-	background-image: url("http://pre01.deviantart.net/7074/th/pre/i/2006/242/a/b/bulletin_board__by_subspaceninja.jpg")
+	background-image: url("http://pre01.deviantart.net/7074/th/pre/i/2006/242/a/b/bulletin_board__by_subspaceninja.jpg");
+  outline: solid 2px #795948;
+  border-image: url(http://www.designbolts.com/wp-content/uploads/2013/02/Free-Seamless-Wood-Textures-Patterns-For-3D-Mapping-2.jpg) 27 repeat;
 }
 
 .container.features {

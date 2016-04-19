@@ -26,7 +26,7 @@
                   <%= image_tag "http://aldemedianoche.com.ar/wp-content/uploads/2015/01/audio.png", :class => "feature-image" %>
                 <% elsif obj.type_of == "Audio" %>
                   <%= image_tag "logo", :class => "feature-image" %>
-                <% elsif obj.type_of == "Other" %>
+                <% elsif obj.type_of == "Other" && !obj.lesson.track.nil? %>
                   <% if obj.lesson.track.category.title == "Health" %>
                     <%= image_tag "health", :class => "feature-image" %>
                   <% elsif obj.lesson.track.category.title == "Art" %>
