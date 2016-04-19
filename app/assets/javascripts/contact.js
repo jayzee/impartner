@@ -27,12 +27,20 @@ $(document).ready(function() {
     event.preventDefault();
     var r_id= $('#recipient_id').val();
     var s_id= $('#sender_id').val();
+    var content= $('#content').val();
     $('#contact-form').prop( "disabled", true );
     $('input#send').hide();
     $('#status').append("Message Sent!")
-  })
+    $.ajax({
+      method: "POST",
+      url: "/users/"+s_id+"/messages",
+      data: {recipient_id: r_id, sender_id: s_id, content: content}
+    });
+
+  });
 
   $(document).ajaxSuccess(function(event, request, options, data){
     $('#contact-form').prop("disabled", false);
+    $('.messages').append("From: "+ data[0].email +"<br>To: "+ data[1].email+"<br>Content: "+ data[2].content)
   })
 });

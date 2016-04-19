@@ -34,6 +34,7 @@ class UsersController < ApplicationController
     end
 
     @points = @user.points
+    @messages= Message.messages_of(@user.id)
   end
 
 end
