@@ -30,7 +30,7 @@
       <td><%= answer.student.user.email %></td>
       <td><%= answer.content %></td>
       <td>
-      <% if question.correct_answer.nil? %>
+      <% if question.correct_answer == "" || nil %>
         <%= form_for answer, url: question_answer_path(question, answer), html: {method: "patch"}, remote: true do |f| %>
           <%= f.label :total_point_value, '0', class: "radio-inline" %>
           <%= f.radio_button :total_point_value, '0'%>
