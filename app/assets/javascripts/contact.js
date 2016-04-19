@@ -36,10 +36,11 @@ $(document).ready(function() {
       url: "/users/"+s_id+"/messages",
       data: {recipient_id: r_id, sender_id: s_id, content: content}
     });
-    alert('sent!')
+
   });
 
   $(document).ajaxSuccess(function(event, request, options, data){
     $('#contact-form').prop("disabled", false);
+    $('.messages').append("From: "+ data[0].email +"<br>To: "+ data[1].email+"<br>Content: "+ data[2].content)
   })
 });

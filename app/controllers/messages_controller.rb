@@ -18,7 +18,9 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.create(sender_id: params[:sender_id], recipient_id: params[:recipient_id], content: params[:content])
-    render nothing: true
+    @recipient= User.find(params[:recipient_id])
+    @sender = User.find(params[:sender_id])
+    render json: [@sender,@recipient, @message]
   end
 
   def show
